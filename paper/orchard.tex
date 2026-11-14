@@ -27,11 +27,6 @@
 
 \author{Dmitry Kamenetsky}
 
-\date{\today}
-
-\subjclass[2020]{Primary 52C10; Secondary 52C30, 05B30, 51A20}
-\keywords{orchard problem, ordinary lines, Melchior's inequality, line arrangements,
-celestial configurations, point--line configurations, cross-ratio}
 
 \begin{document}
 
@@ -46,7 +41,7 @@ strictly stronger than the classical bound for small $n$ and every $k\ge4$.
 
 For $k=4$ the test gives $t_4(n)$ at $n=8,9,10,11,13$ and $t_4(12)\le8$ by a few lines
 of arithmetic, replacing exhaustive search and a pseudoline classification; it is sharp
-at $n=13$. We also obtain four new lower bounds $t_4^{(5)}(n)$ at $n=28,36,40,48$
+at $n=13$. We also obtain four new lower bounds $s_4(n)$ at $n=28,36,40,48$
 from four-ring celestial configurations over fields of degree $6$ and $8$, prove they are
 optimal in their cosine-ratio family, and show no even-modulus celestial set can have
 more than four rings. For the ``at least four'' variant we prove
@@ -74,29 +69,28 @@ Let $n\ge k\ge4$. For a finite $S\subset\R^2$ with $|S|=n$, let $t_j(S)$ be the 
 of lines containing exactly $j$ points of $S$. Define
 \begin{align*}
 t_k(n) &= \max_{|S|=n} t_k(S), \\
-t_k^{(k+1)}(n) &= \max\{\, t_k(S) : |S|=n,\ t_j(S)=0 \text{ for all } j\ge k+1 \,\}, \\
+s_k(n) &= \max\{\, t_k(S) : |S|=n,\ t_j(S)=0 \text{ for all } j\ge k+1 \,\}, \\
 T_k(n) &= \max_{|S|=n} \#\{\text{lines } \ell : |\ell\cap S|\ge k\}
        = \max_{|S|=n} \sum_{j\ge k} t_j(S).
 \end{align*}
+We call $s_k(n)$ the \emph{strict} variant; $T_k(n)$ is the ``at least $k$'' variant.
 \end{definition}
 
-Thus $t_k^{(k+1)}(n)\le t_k(n)\le T_k(n)$. The quantity $t_4^{(5)}$ is the one used by
-the \emph{Infinite Search Space} competition \cite{Contest} (live tables at
-\url{https://infinitesearchspace.com/contests/orchard}; By-Satellite/By-Lantern
-boards, Johan Roos leading By-Satellite with 131 at $n=60$ as of Nov.~2026) and by
+Thus $s_k(n)\le t_k(n)\le T_k(n)$. The quantity $s_4$ is the one used by
+the \emph{Infinite Search Space} competition \cite{Contest} and by
 the integer records OEIS~A172992, where a row of five or more trees invalidates an
 entry; $T_4$ is the
 natural ``at least four'' variant. The distinction matters: constructions with long
-rows are excellent for $T_4$ but inadmissible for $t_4^{(5)}$ (Figure~\ref{fig:variants}).
+rows are excellent for $T_4$ but inadmissible for $s_4$ (Figure~\ref{fig:variants}).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.92\textwidth]{figures/fig_variants.pdf}
 \caption{The three counting functions of Definition~\ref{def:variants} agree when no
 five points are collinear (left) and diverge otherwise. A $5$-point line is forbidden
-for $t_4^{(5)}$, ignored by $t_4$, and counted by $T_4$; a $4$-point line is counted by
+for $s_4$, ignored by $t_4$, and counted by $T_4$; a $4$-point line is counted by
 all three. All three coincide on the configurations of \S\ref{sec:constructions}, while
-the construction of \S\ref{sec:atleast4} exploits the gap between $t_4^{(5)}$ and $T_4$.}
+the construction of \S\ref{sec:atleast4} exploits the gap between $s_4$ and $T_4$.}
 \label{fig:variants}
 \end{figure}
 
@@ -113,7 +107,7 @@ indicate where each is proved.
 Melchior's inequality is classically applied to the dual of the point set. We apply it
 a second time, to the arrangement formed by the rich lines themselves, obtaining
 $\sum_p w(r_p)\le\binom{L}{2}-3$. The statement holds for every $k\ge4$ and requires
-no hypothesis forbidding long lines, so it bounds $T_k$ as well as $t_k^{(k+1)}$.
+no hypothesis forbidding long lines, so it bounds $T_k$ as well as $s_k$.
 \item \textbf{A closed-form test} (Corollary~\ref{cor:test}). A majorisation
 argument (Lemma~\ref{lem:balanced}) reduces the inequality, the degree cap and the
 pair count to three explicit inequalities in $n,k,L$.
@@ -130,7 +124,7 @@ classical bound up to $n=25,37,51,67$ for $k=5,6,7,8$ respectively.
 
 \subsection{Constructions}
 \begin{itemize}
-\item \textbf{Four new lower bounds for $t_4^{(5)}$} at $n=28,36,40,48$
+\item \textbf{Four new lower bounds for $s_4$} at $n=28,36,40,48$
 (Section~\ref{sec:constructions}, Table~\ref{tab:records}), from four-ring celestial
 sets over real fields of degree $6$ and $8$, with exact coordinates, defining
 polynomials, diagrams and honesty certificates. These beat the whole-number records
@@ -218,8 +212,8 @@ MathWorld \cite{MathWorld} records five $19$-point patterns with cross-ratio fie
 $\Q(\sqrt5)$ and $\Q(\rho)$, $\rho$ the plastic number, and the deletion bound
 $t_4(21)\le28$. Elkies \cite{Elkies} constructed sets with many $k$-rich lines in the
 regime where the number of points is quadratic in the multiplicity, and formulated the
-conjecture $t_k^{(k+1)}(n)=o(n^2)$, open for every $k\ge4$. Solymosi and Stojakovi\'c
-\cite{SolymosiStojakovic} proved $t_k^{(k+1)}(n)>n^{2-c/\sqrt{\log n}}$, so no polynomial
+conjecture $s_k(n)=o(n^2)$, open for every $k\ge4$. Solymosi and Stojakovi\'c
+\cite{SolymosiStojakovic} proved $s_k(n)>n^{2-c/\sqrt{\log n}}$, so no polynomial
 saving is possible and the gap between $n^2/28$ and $n^2/14$ is a question about
 constants.
 
@@ -252,7 +246,7 @@ single weight function will serve all $k$.
 \begin{proposition}[\cite{Melchior1941,MathWorld}]\label{prop:classical}
 For $n\ge k+1$,
 \[
-t_k^{(k+1)}(n)\ \le\ t_k(n)\ \le\ T_k(n)\ \le\
+s_k(n)\ \le\ t_k(n)\ \le\ T_k(n)\ \le\
 \left\lfloor\frac{\binom{n}{2}-3}{\binom{k}{2}+k-3}\right\rfloor .
 \]
 For $k=4$ the denominator is $7$, giving $\lfloor(n(n-1)-6)/14\rfloor$.
@@ -349,7 +343,7 @@ and those with $r_p\ge4$ contribute $\binom{r_p}{2}+r_p-3$.
 
 \begin{remark}
 Theorem~\ref{thm:secondorder} requires no hypothesis forbidding long lines, so it
-bounds $T_k$ and not merely $t_k^{(k+1)}$. It was checked against $100$ four-point
+bounds $T_k$ and not merely $s_k$. It was checked against $100$ four-point
 configurations (the $50$ integer records and our $50$ algebraic entries) and against
 $158$ further tests on grids, pencils and random sets for $k=4,\dots,8$; none violates
 it, and the optimal $13$-point configuration attains equality.
@@ -418,7 +412,7 @@ and
 \[
 t_4(12)\le8,\qquad t_4(14)\le11,\qquad t_4(15)\le13 .
 \]
-The same five equalities hold for $T_4$ and for $t_4^{(5)}$. Previously these values
+The same five equalities hold for $T_4$ and for $s_4$. Previously these values
 were available only from exhaustive computer search \cite{BGS1974,OEISA006065}.
 \end{corollary}
 
@@ -447,7 +441,7 @@ $8$; a hill-climbing search over integer coordinates found nothing beyond $7$.
 \centering
 \begin{tabular}{rrrrr}
 \toprule
-$n$ & \parbox{2.0cm}{\centering classical\\upper bound\\$T_4(n)$} & \parbox{2.0cm}{\centering new\\upper bound\\$T_4(n)$} & \parbox{1.5cm}{\centering exact\\$T_4(n)$} & \parbox{1.8cm}{\centering best lower\\bound $t_4^{(5)}(n)$} \\
+$n$ & \parbox{2.0cm}{\centering classical\\upper bound\\$T_4(n)$} & \parbox{2.0cm}{\centering new\\upper bound\\$T_4(n)$} & \parbox{1.5cm}{\centering exact\\$T_4(n)$} & \parbox{1.8cm}{\centering best lower\\bound $s_4(n)$} \\
 \midrule
 8 & 3 & \textbf{2} & 2 & 2 \\
 9 & 4 & \textbf{3} & 3 & 3 \\
@@ -469,13 +463,13 @@ $n$ & \parbox{2.0cm}{\centering classical\\upper bound\\$T_4(n)$} & \parbox{2.0c
 25 & 42 & 42 & -- & 32 \\
 \bottomrule
 \end{tabular}
-\caption{Upper bounds on $T_4(n)$ (hence on $t_4(n)$ and $t_4^{(5)}(n)$) and
-matching lower bounds on $t_4^{(5)}(n)$. Columns~2--3 are upper bounds on $T_4(n)$:
+\caption{Upper bounds on $T_4(n)$ (hence on $t_4(n)$ and $s_4(n)$) and
+matching lower bounds on $s_4(n)$. Columns~2--3 are upper bounds on $T_4(n)$:
 classical (Proposition~\ref{prop:classical}) and new (Corollary~\ref{cor:test}).
-Column~4 is the exact $T_4(n)=t_4(n)=t_4^{(5)}(n)$ for $n\le20$; bold entries in
+Column~4 is the exact $T_4(n)=t_4(n)=s_4(n)$ for $n\le20$; bold entries in
 column~3 are new exact values where the new upper bound meets the construction.
 $^*$ marks a new upper bound not yet matched. Column~5 is the best lower bound on
-$t_4^{(5)}(n)$ we know: integer records \cite{OEISA172992} (now mirrored live at
+$s_4(n)$ we know: integer records \cite{OEISA172992} (now mirrored live at
 \cite{Contest}, Johan Roos 131 at $n=60$), our algebraic entries, and
 Friedman's table \cite{Friedman}.}
 \label{tab:bounds}
@@ -699,7 +693,7 @@ $m$ & $n=4m$ & $|\mathcal R_m|$ & configurations & $\max t_4$ & record \\
 \end{tabular}
 \caption{Complete enumeration of $\mathcal F(m,4)$. Bold entries are attained by our
 constructions and are therefore optimal in the family. The last column is the best
-lower bound known to us for $t_4^{(5)}(n)$, from \cite{OEISA172992} and, for
+lower bound known to us for $s_4(n)$, from \cite{OEISA172992} and, for
 $n=28,36,40,48$, from Table~\ref{tab:records}. Note $|\mathcal R_m|$ counts distinct ratios, including $1$.}
 \label{tab:family}
 \end{table}
@@ -763,7 +757,7 @@ $n$ & $[K:\Q]$ & previous & new & gain & family & $m$ & irr.\ cr. \\
 48 & 8 & 93 & \textbf{96} & $+3$ & celestial & 12 & 72 \\
 \bottomrule
 \end{tabular}
-\caption{The four new lower bounds for $t_4^{(5)}(n)$. ``Previous'' is the
+\caption{The four new lower bounds for $s_4(n)$. ``Previous'' is the
 integer-coordinate record of \cite{OEISA172992}, now live at \cite{Contest}
 (Johan Roos where beaten since 2011), also the best value we found in the
 literature. The defining polynomials are $a^6-7a^4+14a^2-7$ ($n=28$),
@@ -823,7 +817,7 @@ searches from every ISS integer record ($24\le n\le60$); no move beating the ISS
 score was found, indicating local optimality of that table as well. Where the ISS
 integer score exceeds the algebraic one we adopt it as the entry ($a=0$, degree~$1$),
 so the repository now matches the best known lower bound for every $n$; see
-\texttt{docs/integer\_seeded\_search.md}. For $t_4^{(5)}$ the four celestial values
+\texttt{docs/integer\_seeded\_search.md}. For $s_4$ the four celestial values
 remain the strongest honest lower bounds.
 
 \subsection{New approaches tried, and what they gave}\label{sec:negative}
@@ -923,16 +917,10 @@ so $T_4=129+4=133$.
 \end{proof}
 
 This exceeds the best no-five value at $n=60$ (the integer record $131$). It is
-\emph{not} admissible for $t_4^{(5)}$, since two axes carry $17$ points.
-Figure~\ref{fig:t4} shows the construction. For $n=59$ the family
+\emph{not} admissible for $s_4$, since two axes carry $17$ points.
+For $n=59$ the family
 gives $124+4=128$, tying the integer record; for $n<59$ the no-five records are better.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.78\textwidth]{figures/fig_T4_60.pdf}
-\caption{The geometric $T_4(60)\ge133$ construction of Proposition~\ref{prop:T460}. Sixty points lie on four concurrent axes ($13+13+17+17$); each pale line is a transversal meeting all four axes, $129$ in total. Three transversals are highlighted. The four axes themselves (grey) count toward $T_4$, giving $129+4=133$ lines with at least four points. This configuration is not admissible for $t_4^{(5)}$ because two axes carry $17$ points.}
-\label{fig:t4}
-\end{figure}
 
 \subsection{Optimality within the family}
 
@@ -981,7 +969,7 @@ Determine $T_4(12)\in\{7,8\}$, and close the remaining unit gaps at $n=14,15$.
 \begin{problem}
 Improve the constant $1/14$ in Proposition~\ref{prop:classical} for $k=4$, or show it is
 attained. By \cite{SolymosiStojakovic} no polynomial improvement is possible for
-$t_4^{(5)}$, but the constant is wide open.
+$s_4$, but the constant is wide open.
 \end{problem}
 
 \begin{problem}
