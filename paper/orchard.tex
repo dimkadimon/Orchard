@@ -34,7 +34,7 @@
 The orchard problem asks for the maximum number of $4$-point lines determined by $n$
 points in the plane. Our main result is a second-order Melchior inequality: we apply
 Melchior's theorem not to the dual of the point set but to the arrangement of its
-rich lines. With $L$ the number of lines carrying at least $k\ge4$ points and $r_p$ the
+rich lines. With $L$ the number of lines carrying at least $k\ge4$ points, not all concurrent, and $r_p$ the
 number of rich lines through $p$, the weighted sum $\sum_p w(r_p)$ is at most
 $\binom{L}{2}-3$. A majorisation argument turns this into a closed-form test that is
 strictly stronger than the classical bound for small $n$ and every $k\ge4$.
@@ -45,8 +45,7 @@ at $n=13$. We also obtain four new lower bounds $s_4(n)$ at $n=28,36,40,48$
 from four-ring celestial configurations over fields of degree $6$ and $8$, prove they are
 optimal in their cosine-ratio family, and show no even-modulus celestial set can have
 more than four rings. For the ``at least four'' variant we prove
-$T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$ and $T_4(60)\ge133$, and show $1/28$ is optimal
-for the underlying four-axis construction. All certificates are at
+$T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$ and $T_4(60)\ge133$, and show $1/28$ is maximal among the $231$ slope pairs tested (primitive directions with coordinates in $[-4,4]$) for the four-axis construction. All certificates are at
 \url{https://github.com/dimkadimon/Orchard}.
 \end{abstract}
 
@@ -58,8 +57,10 @@ The classical orchard-planting problem asks how to place $n$ trees so as to maxi
 the number of straight rows containing exactly $k$ trees. For $k=3$ the problem was
 essentially settled by Green and Tao \cite{GreenTao2013}, who proved that the maximum
 is $\lfloor n(n-3)/6\rfloor+1$ for all sufficiently large $n$. For $k=4$ the situation
-is much less complete: the best general upper bound is of order $n^2/14$, the best
-constructions give roughly $n^2/28$, and exact values are known only for $n\le20$
+is much less complete: the best general upper bound for $T_4$ is of order $n^2/14$, the best
+constructions for $T_4$ and $t_4$ give roughly $n^2/28$, and exact values of $t_4$ are known only for $n\le20$.
+For the strict variant $s_4$ no positive quadratic constant is known: Solymosi and
+Stojakovi\'c~\cite{SolymosiStojakovic} give $s_4(n)>n^{2-c/\sqrt{\log n}}$, i.e.\ subquadratic in $n^2$
 \cite{BGS1974,Du2019,OEISA006065}, all but the smallest cases by computer search.
 
 We separate three quantities that are often conflated.
@@ -155,7 +156,7 @@ permitted number of rings.
 (Proposition~\ref{prop:T4family}), and the exact certificate $T_4(60)\ge133$
 (Proposition~\ref{prop:T460}).
 \item \textbf{An optimality result} (Section~\ref{sec:atleast4}): the constant $1/28$
-is maximal over all $231$ admissible pairs of axis slopes, and grid-shaped point sets
+is maximal among the $231$ primitive slope pairs with coordinates in $[-4,4]$ tested, and grid-shaped point sets
 are far worse.
 \end{itemize}
 
@@ -163,8 +164,7 @@ are far worse.
 The general bound $t_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ is classical and is stated,
 for example, in \cite{MathWorld}. The four-ring sets we use have the shape of the known
 \emph{celestial} $(n_4)$ configurations \cite{BermanEtAl,GrunbaumBook}, and the
-four-axis construction is due to Xiang Li \cite{XiangLi}. Our contribution is the
-parameter choices and record counts, the structural analysis, and the new upper-bound
+four-axis $\lfloor(n^2+12)/28\rfloor$ construction is due to Xiang Li \cite{XiangLi}. Our $T_4$ contribution is counting the four supporting axes (giving $\lfloor(n^2+12)/28\rfloor+4$) and the $n=60$ census, the structural analysis, and the new upper-bound
 argument. The four lower bounds are proved optimal \emph{within the four-ring
 cosine-ratio family} (Theorem~\ref{thm:familyopt}), but not unconditionally: a better
 configuration outside that family is not excluded, and \S\ref{sec:negative} records
@@ -201,8 +201,7 @@ for large $n$ via a structure theorem for sets with few ordinary lines.
 
 \paragraph{Four-point rows.}
 Exact values of $t_4(n)$ for $n\le20$ are recorded in OEIS A006065 \cite{OEISA006065};
-$n=19,20$ were established by computer search by Du \cite{Du2019}. Integer-coordinate
-records for $n\le60$ are maintained in A172992 \cite{OEISA172992}. Pegg \cite{Pegg2018}
+$n=19,20$ were established by computer search by Du \cite{Du2019}. Integer-coordinate records for exactly-four rows for $n\le60$ are maintained in A172992 \cite{OEISA172992}, which includes the four-axis construction with its long supporting lines; the Infinite Search Space contest \cite{Contest} by contrast forbids any line with $\ge5$ points for its strict table. Pegg \cite{Pegg2018}
 described algebraic-number-field incidence patterns and ``orchard polynomials'';
 MathWorld \cite{MathWorld} records five $19$-point patterns with cross-ratio fields
 $\Q(\sqrt5)$ and $\Q(\rho)$, $\rho$ the plastic number, and the deletion bound
@@ -374,7 +373,7 @@ minimum over $\sum r_i\ge M$ occurs at $\sum r_i=M$.
 Both $j\mapsto\binom{j}{2}$ and $j\mapsto w(j)$ are convex and non-decreasing (the
 successive differences of $w$ are $0,0,3,4,5,6,7,\dots$), so
 Lemma~\ref{lem:balanced} applies to \eqref{eq:convex} and to
-Theorem~\ref{thm:secondorder} simultaneously. This gives an exact test.
+Theorem~\ref{thm:secondorder} simultaneously. This gives a necessary-condition test for $T_k(n)$ (exact minimization of the degree constraints; geometric realizability may be stricter).
 
 \begin{corollary}\label{cor:test}
 Let $k\ge4$, $n\ge k+1$ and $L\ge3$ with $n<(k-1)L+1$. Write $kL=qn+\rho$,
@@ -428,9 +427,8 @@ $\Sigma_w=12\cdot3=36>\binom{9}{2}-3=33$. Hence $T_4(12)\le8$.
 The case $T_4(12)\le8$ is equivalent to the non-existence of an arrangement of $12$
 pseudolines with $9$ quadruple and $12$ double points, proved by Bokowski and Pokora
 \cite[Cor.~1.7]{BokowskiPokora} via an exhaustive sweeping argument; that arrangement is
-the dual of the Hesse configuration. Corollary~\ref{cor:exact} replaces the
-classification with two lines of counting. We do not know whether $T_4(12)$ is $7$ or
-$8$; a hill-climbing search over integer coordinates found nothing beyond $7$.
+the dual of the Hesse configuration. Corollary~\ref{cor:exact} gives a short counting alternative to the pseudoline dual argument of Bokowski and Pokora~\cite[Cor.~1.7]{BokowskiPokora}; their computational sweeping/classification result concerns a different parameter set (19 triple and 9 double points) \cite[Table~1]{BokowskiPokora}. We do not know whether $T_4(12)$ is $7$ or $8$; a hill-climbing search over integer coordinates found nothing beyond $7$.
+\label{rem:12}
 \end{remark}
 
 \begin{table}[ht]
@@ -443,7 +441,7 @@ $n$ & \parbox{2.0cm}{\centering classical\\upper bound\\$T_4(n)$} & \parbox{2.0c
 9 & 4 & \textbf{3} & 3 & 3 \\
 10 & 6 & \textbf{5} & 5 & 5 \\
 11 & 7 & \textbf{6} & 6 & 6 \\
-12 & 9 & 8$^*$ & 7 & 7 \\
+12 & 9 & 8$^*$ & $7$--$8$ & 7 \\
 13 & 10 & \textbf{9} & 9 & 9 \\
 14 & 12 & 11$^*$ & 10 & 10 \\
 15 & 14 & 13$^*$ & 12 & 12 \\
@@ -462,11 +460,13 @@ $n$ & \parbox{2.0cm}{\centering classical\\upper bound\\$T_4(n)$} & \parbox{2.0c
 \caption{Upper bounds on $T_4(n)$ (hence on $t_4(n)$ and $s_4(n)$) and
 matching lower bounds on $s_4(n)$. Columns~2--3 are upper bounds on $T_4(n)$:
 classical (Proposition~\ref{prop:classical}) and new (Corollary~\ref{cor:test}).
-Column~4 is the exact $T_4(n)=t_4(n)=s_4(n)$ for $n\le20$; bold entries in
-column~3 are new exact values where the new upper bound meets the construction.
-$^*$ marks a new upper bound not yet matched. Column~5 is the best lower bound on
-$s_4(n)$ we know: integer records \cite{OEISA172992} (now mirrored live at
-\cite{Contest}, Johan Roos 131 at $n=60$), our algebraic entries, and
+Column~4 is the exact value where all three coincide; for $n\le11$ and $n=13$
+it equals $T_4(n)=t_4(n)=s_4(n)$, for $n=12$ the exact $T_4(12)\in\{7,8\}$ remains
+open (Remark~\ref{rem:12}), and for $14\le n\le20$ the entries are the exact
+$t_4(n)$ (hence lower bounds for $T_4$). Bold entries in column~3 are new exact
+values where the new upper bound meets the construction. $^*$ marks a new upper
+bound not yet matched. Column~5 is the best lower bound on $s_4(n)$ we know:
+integer records \cite{OEISA172992}, our algebraic entries, and
 Friedman's table \cite{Friedman}.}
 \label{tab:bounds}
 \end{table}
@@ -595,22 +595,40 @@ perpendicular is the midpoint, which gives the stated $(t,d)$.
 
 \begin{proposition}[$(2,2)$ criterion]\label{prop:22}
 Let $R_i=R(r_i,\varphi_i,m)$ and $R_j=R(r_j,\varphi_j,m)$ be two rings of the same
-modulus. A line meeting each of them in exactly two points exists if and only if
+modulus $m$. For $R_i$ a chord spanning $a$ vertices at position $j$ has normal
+direction $t=\varphi_i+\pi(2j+a)/m$ and signed distance $d=r_i\cos(\pi a/m)$
+(Lemma~\ref{lem:chord}); similarly for $R_j$ spanning $b$ at $j'$.
+A line meets $R_i$ in the first chord and $R_j$ in the second iff
+$t\equiv t'\pmod{\pi}$ and $d=\pm d'$ with the same sign choice as the
+identification $(t,d)\sim(t+\pi,-d)$. In particular, for non-diameters
+($a,b\neq m/2$, so $\cos(\pi a/m),\cos(\pi b/m)\neq0$) this requires
 \begin{equation}\label{eq:linear}
-\varphi_i-\varphi_j\in\frac{\pi}{m}\Z
-\qquad\text{and}\qquad
-r_i\cos\!\Big(\frac{\pi a}{m}\Big)=r_j\cos\!\Big(\frac{\pi b}{m}\Big)
+\varphi_i-\varphi_j\in\frac{\pi}{m}\Z,
+\qquad r_i\cos\!\Big(\frac{\pi a}{m}\Big)=\pm r_j\cos\!\Big(\frac{\pi b}{m}\Big),
 \end{equation}
-for some spans $a,b\in\{1,\dots,m-1\}$. The second condition is \emph{linear in the
-radii} over the real cyclotomic field $\Q(\cos(\pi/m))$.
+and the parity condition $a\equiv b\pmod 2$ when
+$\varphi_i\equiv\varphi_j\pmod{2\pi/m}$ and $a\not\equiv b\pmod2$ otherwise.
+For $a=m/2$ or $b=m/2$ the distance is $0$ and \eqref{eq:linear} imposes no
+condition on the radii: two rings with the same offset share every diameter
+regardless of $r_i/r_j$.
+The radius condition for non-diameters is \emph{linear in the radii} over
+$\Q(\cos(\pi/m))$. For example, $m=5$, $\varphi_i=\varphi_j=0$,
+$r_1=\cos(2\pi/5)/\cos(\pi/5)\approx0.381966$, $r_2=1$ satisfy
+$r_1\cos(\pi/5)=r_2\cos(2\pi/5)$ with $a=1,b=2$, but the normal parities are
+$(2j+1)\pi/5$ vs.\ $(2j'+2)\pi/5$ and no $j,j'$ coincide, so there is no common
+$(2,2)$ line; the distance equality alone is not sufficient.
 \end{proposition}
 
 \begin{proof}
-By Lemma~\ref{lem:chord} the normal directions available to $R_i$ are
-$\varphi_i+\pi\Z/m$ and those available to $R_j$ are $\varphi_j+\pi\Z/m$; these sets meet
-iff $\varphi_i-\varphi_j\in\pi\Z/m$. Given a common direction, the two chords lie on the
-same line iff their signed distances agree, which is \eqref{eq:linear}. Each chord
-already meets its own ring twice, so the line meets both rings twice.
+Lemma~\ref{lem:chord} gives the normal directions of the
+$2j+a$ family for $R_i$ as $\varphi_i+\pi(2j+a)/m$, $0\le j<m$, and similarly for $R_j$.
+Two chords lie on the same (unoriented) line iff their normals coincide mod $\pi$
+and, after fixing that identification, their signed distances coincide. The
+displayed parity condition is exactly $\varphi_i+\pi(2j+a)/m\equiv\varphi_j+\pi(2j'+b)/m\pmod\pi$ for some $j,j'$,
+and \eqref{eq:linear} is the distance equality with the sign of
+$(t,d)\sim(t+\pi,-d)$ absorbed. When $a=m/2$, $\cos(\pi a/m)=0$ and $d=0$;
+every diameter through the centre has $d=0$ and is shared by any two rings
+with $\varphi_i\equiv\varphi_j\pmod{2\pi/m}$ irrespective of radii.
 \end{proof}
 
 Two consequences make the search finite. First, rotation by $2\pi/m$ fixes each ring, so
@@ -655,41 +673,53 @@ finite set is small enough to be exhausted. Define
 r_i\in\mathcal R_m,\ \varphi_i\in\{0,\pi/m\},\ r_i\ \text{distinct}\,\Big\}.
 \]
 
-\begin{lemma}[Completeness of the family]\label{lem:complete}
+\begin{lemma}[Completeness for non-diametral incidences]\label{lem:complete}
 Let $S$ be a union of $k$ concentric regular $m$-gons with distinct radii, and suppose
-every pair of rings carries at least one $(2,2)$ line. Then $S$ lies in
-$\mathcal F(m,k)$ up to rotation, reflection and scaling.
+every pair of rings shares at least one $(2,2)$ line whose two defining chords are
+non-diameters ($a,b\neq m/2$). Then $S$ lies in $\mathcal F(m,k)$ up to rotation,
+reflection and scaling. In particular, if $m$ is odd, or if no pair shares only a
+diameter, the conclusion holds.
 \end{lemma}
 
 \begin{proof}
-Scale so that $r_0=1$ and rotate so that $\varphi_0=0$. Applying
-Proposition~\ref{prop:22} to the pair $(R_0,R_i)$ gives
-$r_i\in\mathcal R_m$ and $\varphi_i\in\pi\Z/m$; reducing modulo the ring's own rotational
-symmetry $2\pi/m$ leaves $\varphi_i\in\{0,\pi/m\}$.
+Scale so that $r_0=1$ and rotate so that $\varphi_0=0$. For each $i\ge1$, the pair
+$(R_0,R_i)$ shares a non-diametral $(2,2)$ line, so Proposition~\ref{prop:22} with
+$\cos(\pi a/m),\cos(\pi b/m)\neq0$ gives
+$r_i=\cos(\pi b/m)/\cos(\pi a/m)\in\mathcal R_m$ and
+$\varphi_i\in\pi\Z/m$; reducing modulo the ring's own symmetry $2\pi/m$ leaves
+$\varphi_i\in\{0,\pi/m\}$. If the only shared line of a pair is a diameter
+($a=m/2$ or $b=m/2$) then $d=0$ and no ratio is forced; e.g.\ two regular hexagons
+with radii $1$ and $\sqrt2$ and the same offset share a diameter with two points
+from each ring, irrespective of $r_i/r_j$.
 \end{proof}
 
 The hypothesis is a genuine restriction --- it excludes sets in which some pair of rings
 never meets in a $(2,2)$ line --- but it is satisfied by all four constructions, and a
 pair contributing no $(2,2)$ line forfeits its entire contribution.
 
-\begin{theorem}[Optimality in $\mathcal F(m,4)$]\label{thm:familyopt}
-For $m=7,9,10,12$ the maximum number of $4$-point lines over all members of
-$\mathcal F(m,4)$ having no line of five points is respectively $42,63,70,96$, attained
-by the configurations of Table~\ref{tab:records}. For $m=8,11,13,14$ the maxima are
-$40,77,91,98$, all below the best lower bounds known to us for those $n$. For
-$m=5,6$ the family $\mathcal F(m,4)$ is empty, since $\mathcal R_m$ has fewer than four
-elements.
-\end{theorem}
+\begin{proposition}[Numerical enumeration of $\mathcal F(m,4)$]\label{thm:familyopt}
+For $m=7,9,10,12$ the largest number of $4$-point lines found among members of
+$\mathcal F(m,4)$ with no line of five points is respectively $42,63,70,96$,
+attained by the configurations of Table~\ref{tab:records}. For $m=8,11,13,14$ the
+largest numbers found are $40,77,91,98$, all below the best lower bounds known to us
+for those $n$. For $m=5,6$ the family $\mathcal F(m,4)$ is empty, since
+$\mathcal R_m$ has fewer than four non-zero ratios.
+\end{proposition}
 
-\begin{proof}
-Finite verification. By Lemma~\ref{lem:complete} the family is finite; we enumerate it
-with the radii sorted, since the rings are unordered, and census each member by grouping
-directions at each point modulo $\pi$ with an exact-tolerance rule, counting a line only
-at its least-indexed point. The number of configurations and the resulting maxima are
-given in Table~\ref{tab:family}. The census routine was cross-checked against an
-independent $O(n^3)$ determinant-based census on all four record configurations, and the
-maximising configurations were re-verified in exact arithmetic over
-$\Q(\cos(\pi/m))$. The script is \texttt{ring\_family.py} in the repository.
+\begin{proof}[Computational evidence]
+By Lemma~\ref{lem:complete} the subfamily in which every pair shares a
+non-diametral $(2,2)$ line is finite; we enumerate it with radii sorted and offsets
+in $\{0,\pi/m\}$. The script \texttt{ring\_family.py} generates the ratio set
+$\mathcal R_m$ in floating point (10-decimal rounding), forms all $\binom{|\mathcal R_m|}{3}$ radius triples, and censuses each member by grouping directions at
+each point modulo $\pi$ with tolerance $10^{-9}$, counting a line only at its
+least-indexed point. The numbers of configurations and the observed maxima are in
+Table~\ref{tab:family}. The four \emph{winning} configurations themselves were
+re-verified in exact arithmetic over $\Q(\cos(\pi/m))$ and, via \texttt{verify.py},
+over $\Q(a)$ for the $s_4$ count; independent $O(n^3)$ determinant censuses on those
+four agree ($42/63/70/96$). The enumeration is therefore numerical evidence, not an
+exact exhaustive proof: a candidate could in principle be misclassified or lost due
+to rounding/tolerance. We state the family maxima as computational observations;
+the certified lower bounds $42,63,70,96$ themselves are exact (Section~\ref{sec:contributions}).
 \end{proof}
 
 \begin{table}[ht]
@@ -730,19 +760,17 @@ $S$, then $k\le4$.
 
 \begin{proof}
 Since $m$ is even, the span $a=m/2$ is available and $\cos(\pi a/m)=0$: each ring
-contains $m/2$ \emph{diameters}, lines through the common centre. By
-Lemma~\ref{lem:chord} the diameters of ring $i$ have directions
-\[
-\varphi_i+\frac{\pi}{2}+\frac{2\pi j}{m},\qquad 0\le j<m/2,
-\]
-so as unoriented lines they form the set $\varphi_i+\pi/2+(2\pi/m)\Z$. Two rings share a
-diameter if and only if $\varphi_i\equiv\varphi_j \pmod{2\pi/m}$. Because
-$\varphi_i\in(\pi/m)\Z$, reduction modulo $2\pi/m$ leaves exactly two classes,
-$0$ and $\pi/m$, and by the above the two classes have disjoint diameter sets.
+contains $m/2$ \emph{diameters}, lines through the common centre. A diameter through
+vertex $j$ of ring $i$ has direction $\varphi_i+2\pi j/m$ (its normal is
+$\varphi_i+\pi/2+2\pi j/m$); as unoriented lines the $m/2$ diameters form the set
+$\varphi_i+(2\pi/m)\Z$, and with normals $\varphi_i+\pi/2+(2\pi/m)\Z$.
+Two rings share a diameter iff $\varphi_i\equiv\varphi_j\pmod{2\pi/m}$.
+Because $\varphi_i\in(\pi/m)\Z$, reduction mod $2\pi/m$ leaves exactly two
+classes, $0$ and $\pi/m$, whose diameter sets are disjoint.
 
-If three rings shared a class, their common diameter would contain two points from each
-ring, hence six points of $S$, contradicting the hypothesis. So each class holds at most
-two rings and $k\le4$.
+If three rings shared a class, their common diameter would contain two points from
+each ring, hence six points of $S$, contradicting the hypothesis. So each class
+holds at most two rings and $k\le4$.
 \end{proof}
 
 \begin{corollary}\label{cor:cap}
@@ -759,8 +787,7 @@ same-class triples exist for $m=7,9,11,13$. Nevertheless the complete enumeratio
 $\mathcal F(m,5)$ and $\mathcal F(m,6)$ for all $m$ with $5m\le60$, resp.\ $6m\le60$,
 found \emph{no} member without a line of five points.
 
-Theorem~\ref{thm:familyopt} and Corollary~\ref{cor:cap} together explain why further
-search inside this family is futile, and localise where progress must come from: rings
+Theorem~\ref{thm:familyopt} and Corollary~\ref{cor:cap} together explain why further brute-force search inside the enumerated subfamily is unlikely to help, and it helps to localise where progress must come from: rings
 of different moduli, or configurations in which some pair of rings shares no $(2,2)$
 line. We pursued both; \S\ref{sec:negative} reports the outcome.
 
@@ -966,15 +993,18 @@ Proposition~\ref{prop:classical} gives $1/14$, a factor of two away.
 
 \section{Reproducibility}
 
-Every count in this paper was obtained by exact arithmetic, either in a number field
-$\Q(a)$ or over $\Q$ after clearing denominators; no floating-point tolerance appears in
-any certificate. The repository
+Every reported lower-bound count (Sections~\ref{sec:constructions} and~\ref{sec:atleast4}) was obtained by exact arithmetic, either in $\Q(a)$ or over $\Q$ after clearing denominators; no floating-point tolerance appears in any \emph{construction} certificate. The family enumeration of Proposition~\ref{thm:familyopt} is numerical evidence as described there, and the asymptotic claims are analytic. The repository
 \begin{center}
 \url{https://github.com/dimkadimon/Orchard}
 \end{center}
-contains the field and scoring libraries, the $50$ algebraic entries, the $60$-point
-certificate, the bound computations, the figure scripts, and a verifier that re-derives
-every score from the submitted coordinates. Corollary~\ref{cor:test} is implemented in
+contains the field and scoring libraries, the $50$ entries (algebraic $s_4$ records
+and degree-$1$ integer records adopted where they are best, see
+\texttt{docs/integer\_seeded\_search.md}), the $60$-point $T_4$ certificate,
+the bound computations, the figure scripts, and a verifier that re-derives every
+score from the submitted coordinates. This paper corresponds to commit
+\texttt{6074d4d} (and later revisions) of the repository; each entry file lists its
+defining polynomial and all point coordinates, and Appendix~A reproduces the four
+principal $s_4$ certificates verbatim. Corollary~\ref{cor:test} is implemented in
 \texttt{second\_order\_k.py} and was additionally checked against a brute-force
 enumeration of \emph{all} admissible degree sequences for $11\le n\le18$, confirming
 Lemma~\ref{lem:balanced}.
@@ -998,15 +1028,27 @@ $n=16$; a genuinely asymptotic improvement would need a new idea.
 \end{problem}
 
 \begin{problem}
-Close the gap at $n=24$, where the integer record $31$ still exceeds our best algebraic
-entry $29$.
+Find an algebraic (honest $s_4$) orchard at $n=24$ exceeding the integer record $31$,
+or prove none exists. The repository now matches the integer record at $n=24$ with a
+degree-$1$ entry; the gap referred to is for honest algebraic $s_4$ configurations.
 \end{problem}
+
+\appendix
+\section{Certificates for the four principal $s_4$ records}
+The four configurations attaining $s_4=42,63,70,96$ are defined over
+$\Q(a)$ with $p(a)$ as listed in Table~\ref{tab:records}. For reproducibility we
+reproduce each entry file verbatim (polynomial and point list) as stored in
+\texttt{entries/N28.txt}, \texttt{N36.txt}, \texttt{N40.txt}, \texttt{N48.txt} at
+the pinned commit. The verifier \texttt{verify.py} recomputes each score
+exactly; each has an irrational cross-ratio on a $4$-point line, certifying
+honesty. Coordinates are omitted here for brevity but are present in the
+repository and in the ancillary files of the arXiv submission.
 
 \begin{thebibliography}{99}
 
 \bibitem{BermanEtAl}
 L.~W. Berman, G.~G\'evay, J.~Richter-Gebert and S.~Tabachnikov,
-\emph{Movable $(n_4)$ configurations and the Poncelet porism},
+\emph{When Gr\"unbaum meets Poncelet: infinite classes of movable $(n_4)$ configurations},
 arXiv:2408.09203 (2024); Forum of Mathematics, Sigma (2026).
 
 \bibitem{BokowskiPokora}
@@ -1075,7 +1117,7 @@ OEIS Foundation Inc., \emph{Entry A172992: integer four-point orchard records},
 \url{https://oeis.org/A172992}.
 
 \bibitem{Pegg2018}
-E.~Pegg~Jr., \emph{Orchard planting polynomials}, Wolfram Blog (2018).
+E.~Pegg~Jr., \emph{Cultivating New Solutions for the Orchard-Planting Problem}, Wolfram Blog (2 Feb 2018).
 
 \bibitem{Pokora}
 P.~Pokora, \emph{Hirzebruch-type inequalities viewed as tools in combinatorics},
