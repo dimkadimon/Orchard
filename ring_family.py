@@ -1,16 +1,10 @@
-"""COMPLETE enumeration of the four-ring cosine-ratio family.
+"""Numerical exploration of a four-ring cosine-ratio candidate family.
 
-Family F(m,k): k concentric regular m-gons, radii r_0=1 and r_i in
-R_m = {cos(pi a/m)/cos(pi b/m)}, offsets in {0, pi/m}.
-
-Completeness argument. A chord of a modulus-m ring with offset phi has outward normal
-angle phi + pi*(2j+a)/m. Two such rings share a normal direction only if their offsets
-differ by a multiple of pi/m; a shift by 2pi/m is the identity on the ring, so the
-relative offset is 0 or pi/m -- exactly the two classes. Given a shared direction, the
-chords coincide iff r_i cos(pi a/m) = r_j cos(pi b/m), i.e. r_j/r_i in R_m. Hence EVERY
-k-ring configuration in which each pair of rings shares a (2,2) line lies in F(m,k),
-up to rotation, reflection and scaling. We enumerate F(m,k) exhaustively (radii sorted,
-since rings are unordered) and census each member exactly.
+Radii are rounded and restricted to a finite numerical range; collinearities are
+counted using floating-point tolerance. Neither enumeration completeness nor
+family optimality is proved by this script. In particular, the old parity-only
+chord criterion and the assertion that every pair shares a nondiametral chord
+are false in general. See paper/orchard.tex and docs/ring_structure.md.
 """
 import numpy as np, json, math, itertools, sys, time
 
@@ -104,7 +98,7 @@ if __name__ == '__main__':
         t = time.time()
         r = enumerate_family(m, k, target)
         res.append(r)
-        flag = "OPTIMAL" if r['max_n4'] == target else ("BEATS" if r['max_n4'] > target else "below")
+        flag = "MATCHES TARGET (NUMERICAL)" if r['max_n4'] == target else ("BEATS" if r['max_n4'] > target else "below")
         print(f"m={m:2d} k={k} n={n:2d}: tested {r['tested']:6d}  max n4={r['max_n4']:3d}  target={target:3d}  {flag}  ({time.time()-t:.1f}s)", flush=True)
     json.dump(res, open('ring_family_complete.json','w'), indent=1)
     print("\nTOTAL IMPROVEMENTS:", sum(len(r['hits']) for r in res), flush=True)

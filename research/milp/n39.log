@@ -1,0 +1,2 @@
+{"n": 39, "candidate_pool": 67, "new_points": 28, "possible": 5731, "rich_pool_lines": 86, "variables": 153, "time_limit_s": 60, "seed": 91039}
+RESULT {"n": 39, "source": 67, "pool": 67, "pool_lines": 86, "seed": 91039, "extra": 28, "deletions": 4, "trials": 5, "time_limit": 60, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "solver_fun": -67.0, "mip_dual_bound": -67.0, "seconds": 6.07, "selected_score": 67, "candidate": null, "baseline": 67}

@@ -1,0 +1,19 @@
+{
+  "n": 30,
+  "source": 44,
+  "pool": 58,
+  "pool_lines": 63,
+  "seed": 91030,
+  "extra": 28,
+  "deletions": 4,
+  "trials": 5,
+  "time_limit": 60,
+  "status": 0,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "solver_fun": -44.0,
+  "mip_dual_bound": -44.0,
+  "seconds": 1.88,
+  "selected_score": 44,
+  "candidate": null,
+  "baseline": 44
+}

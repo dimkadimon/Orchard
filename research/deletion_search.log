@@ -1,0 +1,24 @@
+{'source': 28, 'removed': 1, 'size': 27, 'score': 37, 'prior': 37, 'improved': False, 'sets': 28, 'indices': (7,)} seconds 0.1
+{'source': 28, 'removed': 2, 'size': 26, 'score': 33, 'prior': 34, 'improved': False, 'sets': 378, 'indices': (7, 10)} seconds 0.1
+{'source': 28, 'removed': 3, 'size': 25, 'score': 30, 'prior': 32, 'improved': False, 'sets': 3276, 'indices': (7, 10, 15)} seconds 0.1
+{'source': 28, 'removed': 4, 'size': 24, 'score': 27, 'prior': 31, 'improved': False, 'sets': 20475, 'indices': (7, 8, 11, 21)} seconds 0.2
+{'source': 28, 'removed': 5, 'size': 23, 'score': 24, 'prior': 28, 'improved': False, 'sets': 98280, 'indices': (7, 8, 11, 16, 21)} seconds 0.2
+{'source': 28, 'removed': 6, 'size': 22, 'score': 22, 'prior': 28, 'improved': False, 'sets': 376740, 'indices': (7, 8, 11, 21, 24, 25)} seconds 0.5
+{'source': 36, 'removed': 1, 'size': 35, 'score': 56, 'prior': 56, 'improved': False, 'sets': 36, 'indices': (0,)} seconds 0.7
+{'source': 36, 'removed': 2, 'size': 34, 'score': 50, 'prior': 53, 'improved': False, 'sets': 630, 'indices': (0, 2)} seconds 0.7
+{'source': 36, 'removed': 3, 'size': 33, 'score': 45, 'prior': 51, 'improved': False, 'sets': 7140, 'indices': (0, 2, 4)} seconds 0.7
+{'source': 36, 'removed': 4, 'size': 32, 'score': 41, 'prior': 48, 'improved': False, 'sets': 58905, 'indices': (0, 2, 4, 6)} seconds 0.7
+{'source': 36, 'removed': 5, 'size': 31, 'score': 38, 'prior': 46, 'improved': False, 'sets': 376992, 'indices': (0, 2, 19, 31, 33)} seconds 0.9
+{'source': 36, 'removed': 6, 'size': 30, 'score': 36, 'prior': 44, 'improved': False, 'sets': 1947792, 'indices': (0, 3, 6, 10, 13, 16)} seconds 2.2
+{'source': 40, 'removed': 1, 'size': 39, 'score': 63, 'prior': 67, 'improved': False, 'sets': 40, 'indices': (0,)} seconds 2.6
+{'source': 40, 'removed': 2, 'size': 38, 'score': 57, 'prior': 64, 'improved': False, 'sets': 780, 'indices': (0, 2)} seconds 2.6
+{'source': 40, 'removed': 3, 'size': 37, 'score': 52, 'prior': 63, 'improved': False, 'sets': 9880, 'indices': (0, 2, 4)} seconds 2.6
+{'source': 40, 'removed': 4, 'size': 36, 'score': 48, 'prior': 63, 'improved': False, 'sets': 91390, 'indices': (0, 2, 4, 6)} seconds 2.7
+{'source': 40, 'removed': 5, 'size': 35, 'score': 45, 'prior': 56, 'improved': False, 'sets': 658008, 'indices': (0, 2, 4, 6, 8)} seconds 3.0
+{'source': 40, 'removed': 6, 'size': 34, 'score': 41, 'prior': 53, 'improved': False, 'sets': 3838380, 'indices': (0, 1, 2, 4, 6, 8)} seconds 5.6
+{'source': 48, 'removed': 1, 'size': 47, 'score': 89, 'prior': 89, 'improved': False, 'sets': 48, 'indices': (12,)} seconds 6.0
+{'source': 48, 'removed': 2, 'size': 46, 'score': 83, 'prior': 86, 'improved': False, 'sets': 1128, 'indices': (12, 13)} seconds 6.0
+{'source': 48, 'removed': 3, 'size': 45, 'score': 78, 'prior': 83, 'improved': False, 'sets': 17296, 'indices': (12, 13, 16)} seconds 6.0
+{'source': 48, 'removed': 4, 'size': 44, 'score': 74, 'prior': 80, 'improved': False, 'sets': 194580, 'indices': (12, 15, 18, 21)} seconds 6.1
+{'source': 48, 'removed': 5, 'size': 43, 'score': 71, 'prior': 77, 'improved': False, 'sets': 1712304, 'indices': (24, 26, 28, 30, 32)} seconds 7.2
+{'source': 48, 'removed': 6, 'size': 42, 'score': 69, 'prior': 74, 'improved': False, 'sets': 12271512, 'indices': (24, 26, 28, 30, 32, 34)} seconds 15.2

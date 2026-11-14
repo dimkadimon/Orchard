@@ -1,0 +1,4 @@
+{"n": 48, "round": 1, "depth": 2, "source": 96, "baseline": 96, "best_exact": 96, "generated": 623, "exact_final_checks": 15, "beam": [[8, 2], [15, 2]], "seconds": 25.65}
+{"n": 48, "round": 2, "depth": 2, "source": 96, "baseline": 96, "best_exact": 96, "generated": 1298, "exact_final_checks": 30, "beam": [[8, 2], [15, 2]], "seconds": 52.21}
+{"n": 48, "round": 3, "depth": 2, "source": 96, "baseline": 96, "best_exact": 96, "generated": 1933, "exact_final_checks": 45, "beam": [[8, 2], [15, 2]], "seconds": 78.58}
+RESULT {"n": 48, "depth": 2, "width": 2, "rounds": 3, "source": 96, "baseline_at_end": 96, "best_exact": 96, "generated": 1933, "exact_final_checks": 45, "saved": [], "seed": 94048, "pairs32": 120, "pairs22": 100, "tol": 1e-08, "seconds": 78.58}

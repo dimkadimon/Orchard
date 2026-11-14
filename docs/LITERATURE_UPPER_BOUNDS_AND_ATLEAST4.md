@@ -1,3 +1,5 @@
+> **Historical research note, not the current manuscript.** Some claims and record comparisons below are unverified or superseded, including statements of family optimality, completeness, novelty, and exhaustive global or local search. See [the revised paper](../paper/orchard.pdf) and [research notes](../research/README.md) for the corrected status.
+
 # Literature audit, upper bounds, and the “at least four” variant
 
 **Date:** 2026-11-14  

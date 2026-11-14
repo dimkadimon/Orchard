@@ -1,3 +1,5 @@
+> **Historical research note, not the current manuscript.** Some claims and record comparisons below are unverified or superseded, including statements of family optimality, completeness, novelty, and exhaustive global or local search. See [the revised paper](../paper/orchard.pdf) and [research notes](../research/README.md) for the corrected status.
+
 | N | algebraic (ours) | integer record | A172992 (OEIS int) | A006065 (OEIS real) | Friedman | best published | status |
 |---|---|---|---|---|---|---|---|
 | 11 | 6 | 6 | 6 | 6 | 6 | 6 | matches best known |

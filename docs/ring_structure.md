@@ -1,3 +1,5 @@
+> **Historical research note, not the current manuscript.** Some claims and record comparisons below are unverified or superseded, including statements of family optimality, completeness, novelty, and exhaustive global or local search. See [the revised paper](../paper/orchard.pdf) and [research notes](../research/README.md) for the corrected status.
+
 # The (2,2) mechanism, family optimality, and the ring cap
 
 This note records the structural results added after the initial record search, and the

@@ -1,0 +1,13 @@
+{"n": 47, "round": 1, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 25164, "states_evaluated": 680, "beam": [[40, 8], [299, 8], [302, 8]], "seconds": 18.27}
+{"n": 47, "round": 2, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 50808, "states_evaluated": 1360, "beam": [[40, 8], [299, 8], [307, 8]], "seconds": 42.39}
+{"n": 47, "round": 3, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 72526, "states_evaluated": 2040, "beam": [[40, 8], [298, 8], [308, 8]], "seconds": 65.78}
+{"n": 47, "round": 4, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 97522, "states_evaluated": 2720, "beam": [[40, 8], [297, 8], [307, 8]], "seconds": 94.48}
+{"n": 47, "round": 5, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 122499, "states_evaluated": 3400, "beam": [[40, 8], [299, 8], [302, 8]], "seconds": 119.25}
+{"n": 47, "round": 6, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 148746, "states_evaluated": 4080, "beam": [[40, 8], [300, 8], [296, 8]], "seconds": 149.43}
+{"n": 47, "round": 7, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 173411, "states_evaluated": 4760, "beam": [[40, 8], [300, 8], [306, 8]], "seconds": 185.76}
+{"n": 47, "round": 8, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 197490, "states_evaluated": 5440, "beam": [[40, 8], [300, 8], [300, 8]], "seconds": 222.91}
+{"n": 47, "round": 9, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 220603, "states_evaluated": 6120, "beam": [[40, 8], [296, 8], [303, 8]], "seconds": 261.26}
+{"n": 47, "round": 10, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 248020, "states_evaluated": 6800, "beam": [[40, 8], [300, 8], [299, 8]], "seconds": 305.68}
+{"n": 47, "round": 11, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 274278, "states_evaluated": 7480, "beam": [[40, 8], [300, 8], [303, 8]], "seconds": 344.16}
+{"n": 47, "round": 12, "depth": 3, "source": 89, "baseline": 89, "best_completed": 89, "generated": 299550, "states_evaluated": 8160, "beam": [[40, 8], [298, 8], [298, 8]], "seconds": 380.73}
+RESULT {"n": 47, "depth": 3, "width": 8, "rounds": 12, "source": 89, "baseline_at_end": 89, "best_completed": 89, "generated": 299550, "states_evaluated": 8160, "saved": [], "seconds": 380.73, "seed": 83047, "source_kind": "integer", "pairs32": 500, "pairs22": 400, "maxbits": 96}

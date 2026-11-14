@@ -7,7 +7,13 @@ from math import gcd
 from slope_opt import region_area
 
 def optimise(p3,q3,p4,q4,tries=6000,seed=7):
-    rng=random.Random(seed); best=0.0; bestp=None
+    rng=random.Random(seed)
+    # Start with a feasible centered polygon, even if random restarts miss it.
+    a=b=c=d=0.25
+    o3=(p3+q3)*0.125-c/2
+    o4=(p4+q4)*0.125-d/2
+    best=region_area(a,b,c,d,o3,o4,p3,q3,p4,q4)
+    bestp=(a,b,c,d,o3,o4)
     D=abs(p3*q4-p4*q3)
     for it in range(tries):
         if bestp is None or it%400==0 or rng.random()<0.15:
@@ -32,11 +38,13 @@ def optimise(p3,q3,p4,q4,tries=6000,seed=7):
             aa=max(1e-6,a+rng.gauss(0,sc));bb=max(1e-6,b+rng.gauss(0,sc))
             cc=max(1e-6,c+rng.gauss(0,sc));dd=max(1e-6,d+rng.gauss(0,sc))
             f=1.0/(aa+bb+cc+dd);aa*=f;bb*=f;cc*=f;dd*=f
-            A=region_area(aa,bb,cc,dd,o3+rng.gauss(0,sc),o4+rng.gauss(0,sc),p3,q3,p4,q4)
-            if A>best: best=A;bestp=(aa,bb,cc,dd,o3,o4)
-            # also try shifting offsets only
-            A2=region_area(a,b,c,d,o3+rng.gauss(0,sc),o4+rng.gauss(0,sc),p3,q3,p4,q4)
-            if A2>best: best=A2;bestp=(a,b,c,d,o3,o4)
+            oo3,oo4=o3+rng.gauss(0,sc),o4+rng.gauss(0,sc)
+            A=region_area(aa,bb,cc,dd,oo3,oo4,p3,q3,p4,q4)
+            if A>best: best=A;bestp=(aa,bb,cc,dd,oo3,oo4)
+            # also try shifting offsets only; save the evaluated offsets
+            oo3,oo4=o3+rng.gauss(0,sc),o4+rng.gauss(0,sc)
+            A2=region_area(a,b,c,d,oo3,oo4,p3,q3,p4,q4)
+            if A2>best: best=A2;bestp=(a,b,c,d,oo3,oo4)
     return best,bestp
 
 if __name__=='__main__':

@@ -1,3 +1,5 @@
+> **Historical research note, not the current manuscript.** Some claims and record comparisons below are unverified or superseded, including statements of family optimality, completeness, novelty, and exhaustive global or local search. See [the revised paper](../paper/orchard.pdf) and [research notes](../research/README.md) for the corrected status.
+
 | n | no-5 lower (best board) | no-5 upper | at-least-4 lower | at-least-4 upper |
 |---|---|---|---|---|
 | 11 | 6 | 6 | 6 | 7 |

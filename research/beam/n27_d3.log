@@ -1,0 +1,21 @@
+{"n": 27, "round": 1, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 9450, "states_evaluated": 680, "beam": [[40, 8], [306, 8], [310, 8]], "seconds": 5.86}
+{"n": 27, "round": 2, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 18813, "states_evaluated": 1360, "beam": [[40, 8], [305, 8], [310, 8]], "seconds": 11.03}
+{"n": 27, "round": 3, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 28248, "states_evaluated": 2040, "beam": [[40, 8], [306, 8], [306, 8]], "seconds": 16.71}
+{"n": 27, "round": 4, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 37819, "states_evaluated": 2720, "beam": [[40, 8], [305, 8], [307, 8]], "seconds": 23.05}
+{"n": 27, "round": 5, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 47081, "states_evaluated": 3400, "beam": [[40, 8], [306, 8], [308, 8]], "seconds": 28.6}
+{"n": 27, "round": 6, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 56968, "states_evaluated": 4080, "beam": [[40, 8], [306, 8], [308, 8]], "seconds": 33.95}
+{"n": 27, "round": 7, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 66399, "states_evaluated": 4760, "beam": [[40, 8], [307, 8], [305, 8]], "seconds": 38.52}
+{"n": 27, "round": 8, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 76494, "states_evaluated": 5440, "beam": [[40, 8], [304, 8], [307, 8]], "seconds": 44.18}
+{"n": 27, "round": 9, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 85652, "states_evaluated": 6120, "beam": [[40, 8], [302, 8], [308, 8]], "seconds": 49.92}
+{"n": 27, "round": 10, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 95371, "states_evaluated": 6800, "beam": [[40, 8], [304, 8], [308, 8]], "seconds": 55.78}
+{"n": 27, "round": 11, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 105056, "states_evaluated": 7480, "beam": [[40, 8], [303, 8], [305, 8]], "seconds": 61.79}
+{"n": 27, "round": 12, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 114606, "states_evaluated": 8160, "beam": [[40, 8], [302, 8], [310, 8]], "seconds": 67.55}
+{"n": 27, "round": 13, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 123730, "states_evaluated": 8840, "beam": [[40, 8], [302, 8], [309, 8]], "seconds": 72.86}
+{"n": 27, "round": 14, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 133289, "states_evaluated": 9520, "beam": [[40, 8], [307, 8], [315, 8]], "seconds": 78.78}
+{"n": 27, "round": 15, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 142483, "states_evaluated": 10200, "beam": [[40, 8], [300, 8], [308, 8]], "seconds": 84.43}
+{"n": 27, "round": 16, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 152318, "states_evaluated": 10880, "beam": [[40, 8], [306, 8], [306, 8]], "seconds": 90.54}
+{"n": 27, "round": 17, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 161552, "states_evaluated": 11560, "beam": [[40, 8], [305, 8], [312, 8]], "seconds": 96.27}
+{"n": 27, "round": 18, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 171082, "states_evaluated": 12240, "beam": [[40, 8], [303, 8], [308, 8]], "seconds": 102.51}
+{"n": 27, "round": 19, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 180051, "states_evaluated": 12920, "beam": [[40, 8], [310, 8], [306, 8]], "seconds": 107.81}
+{"n": 27, "round": 20, "depth": 3, "source": 37, "baseline": 37, "best_completed": 37, "generated": 189874, "states_evaluated": 13600, "beam": [[40, 8], [304, 8], [305, 8]], "seconds": 113.6}
+RESULT {"n": 27, "depth": 3, "width": 8, "rounds": 20, "source": 37, "baseline_at_end": 37, "best_completed": 37, "generated": 189874, "states_evaluated": 13600, "saved": [], "seconds": 113.6, "seed": 81027, "source_kind": "integer", "pairs32": 500, "pairs22": 400, "maxbits": 96}

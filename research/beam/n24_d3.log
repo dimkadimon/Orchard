@@ -1,0 +1,21 @@
+{"n": 24, "round": 1, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 8094, "states_evaluated": 680, "beam": [[40, 8], [303, 8], [312, 8]], "seconds": 1.24}
+{"n": 24, "round": 2, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 15879, "states_evaluated": 1360, "beam": [[40, 8], [302, 8], [307, 8]], "seconds": 2.45}
+{"n": 24, "round": 3, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 23878, "states_evaluated": 2040, "beam": [[40, 8], [304, 8], [310, 8]], "seconds": 3.73}
+{"n": 24, "round": 4, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 31903, "states_evaluated": 2720, "beam": [[40, 8], [304, 8], [307, 8]], "seconds": 5.06}
+{"n": 24, "round": 5, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 40023, "states_evaluated": 3400, "beam": [[40, 8], [303, 8], [312, 8]], "seconds": 6.35}
+{"n": 24, "round": 6, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 48115, "states_evaluated": 4080, "beam": [[40, 8], [302, 8], [312, 8]], "seconds": 7.61}
+{"n": 24, "round": 7, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 55810, "states_evaluated": 4760, "beam": [[40, 8], [306, 8], [312, 8]], "seconds": 8.91}
+{"n": 24, "round": 8, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 63627, "states_evaluated": 5440, "beam": [[40, 8], [305, 8], [309, 8]], "seconds": 10.49}
+{"n": 24, "round": 9, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 70964, "states_evaluated": 6120, "beam": [[40, 8], [305, 8], [313, 8]], "seconds": 12.25}
+{"n": 24, "round": 10, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 79085, "states_evaluated": 6800, "beam": [[40, 8], [302, 8], [313, 8]], "seconds": 14.39}
+{"n": 24, "round": 11, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 86240, "states_evaluated": 7480, "beam": [[40, 8], [307, 8], [312, 8]], "seconds": 16.54}
+{"n": 24, "round": 12, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 94060, "states_evaluated": 8160, "beam": [[40, 8], [305, 8], [313, 8]], "seconds": 18.76}
+{"n": 24, "round": 13, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 102535, "states_evaluated": 8840, "beam": [[40, 8], [304, 8], [312, 8]], "seconds": 20.9}
+{"n": 24, "round": 14, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 110701, "states_evaluated": 9520, "beam": [[40, 8], [306, 8], [312, 8]], "seconds": 22.9}
+{"n": 24, "round": 15, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 118722, "states_evaluated": 10200, "beam": [[40, 8], [304, 8], [315, 8]], "seconds": 24.86}
+{"n": 24, "round": 16, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 126588, "states_evaluated": 10880, "beam": [[40, 8], [305, 8], [313, 8]], "seconds": 26.89}
+{"n": 24, "round": 17, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 134036, "states_evaluated": 11560, "beam": [[40, 8], [305, 8], [312, 8]], "seconds": 28.72}
+{"n": 24, "round": 18, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 142047, "states_evaluated": 12240, "beam": [[40, 8], [305, 8], [308, 8]], "seconds": 30.62}
+{"n": 24, "round": 19, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 149753, "states_evaluated": 12920, "beam": [[40, 8], [304, 8], [313, 8]], "seconds": 32.48}
+{"n": 24, "round": 20, "depth": 3, "source": 31, "baseline": 31, "best_completed": 31, "generated": 157229, "states_evaluated": 13600, "beam": [[40, 8], [306, 8], [315, 8]], "seconds": 34.22}
+RESULT {"n": 24, "depth": 3, "width": 8, "rounds": 20, "source": 31, "baseline_at_end": 31, "best_completed": 31, "generated": 157229, "states_evaluated": 13600, "saved": [], "seconds": 34.22, "seed": 81024, "source_kind": "integer", "pairs32": 500, "pairs22": 400, "maxbits": 96}

@@ -1,3 +1,5 @@
+> **Historical research note, not the current manuscript.** Some claims and record comparisons below are unverified or superseded, including statements of family optimality, completeness, novelty, and exhaustive global or local search. See [the revised paper](../paper/orchard.pdf) and [research notes](../research/README.md) for the corrected status.
+
 # Integer records adopted from ISS
 
 As of 2026-11-14, Johan Roos holds the ISS integer records from n=24 to 60 (up to 131 at n=60), which exceed the previous algebraic lower bounds at 23 values.

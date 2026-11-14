@@ -1,0 +1,18 @@
+{
+  "n": 25,
+  "depth": 3,
+  "width": 8,
+  "rounds": 20,
+  "source": 32,
+  "baseline_at_end": 32,
+  "best_completed": 32,
+  "generated": 177099,
+  "states_evaluated": 13600,
+  "saved": [],
+  "seconds": 63.3,
+  "seed": 81025,
+  "source_kind": "integer",
+  "pairs32": 500,
+  "pairs22": 400,
+  "maxbits": 96
+}

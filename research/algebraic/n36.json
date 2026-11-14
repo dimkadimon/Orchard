@@ -1,0 +1,17 @@
+{
+  "n": 36,
+  "depth": 2,
+  "width": 2,
+  "rounds": 3,
+  "source": 63,
+  "baseline_at_end": 63,
+  "best_exact": 63,
+  "generated": 1367,
+  "exact_final_checks": 45,
+  "saved": [],
+  "seed": 94036,
+  "pairs32": 120,
+  "pairs22": 100,
+  "tol": 1e-08,
+  "seconds": 38.66
+}

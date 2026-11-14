@@ -1,0 +1,1 @@
+{"n": 38, "round": 1, "depth": 3, "source": 64, "baseline": 64, "best_completed": 64, "generated": 14292, "states_evaluated": 680, "beam": [[40, 8], [301, 8], [311, 8]], "seconds": 5.24}

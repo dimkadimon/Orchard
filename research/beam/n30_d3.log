@@ -1,0 +1,3 @@
+{"n": 30, "round": 1, "depth": 3, "source": 44, "baseline": 44, "best_completed": 44, "generated": 10464, "states_evaluated": 680, "beam": [[40, 8], [303, 8], [306, 8]], "seconds": 2.39}
+{"n": 30, "round": 2, "depth": 3, "source": 44, "baseline": 44, "best_completed": 44, "generated": 20280, "states_evaluated": 1360, "beam": [[40, 8], [304, 8], [313, 8]], "seconds": 4.65}
+{"n": 30, "round": 3, "depth": 3, "source": 44, "baseline": 44, "best_completed": 44, "generated": 30666, "states_evaluated": 2040, "beam": [[40, 8], [302, 8], [305, 8]], "seconds": 6.96}

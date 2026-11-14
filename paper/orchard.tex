@@ -1,1140 +1,231 @@
 \documentclass[11pt,a4paper]{amsart}
-
 \usepackage[margin=1.05in]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{array}
+\usepackage{amsmath,amssymb,amsthm,booktabs,graphicx}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage{microtype}
-
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{problem}[theorem]{Open Problem}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-
-\newcommand{\RP}{\mathbb{RP}^2}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Z}{\mathbb{Z}}
-
-\title[New constructions of four-point orchards]{New constructions of four-point orchards}
-
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\title[Four-point orchards]{Four-point orchards: a second-order Melchior bound and exact constructions}
 \author{Dmitry Kamenetsky}
-
-
+\thanks{Revision draft prepared with AI assistance; author review and approval are required before submission. This draft removes unsupported optimality claims from the earlier manuscript.}
 \begin{document}
-
 \begin{abstract}
-The orchard problem asks for the maximum number of $4$-point lines determined by $n$
-points in the plane. Our main result is a second-order Melchior inequality: we apply
-Melchior's theorem not to the dual of the point set but to the arrangement of its
-rich lines. With $L$ the number of lines carrying at least $k\ge4$ points, not all concurrent, and $r_p$ the
-number of rich lines through $p$, the weighted sum $\sum_p w(r_p)$ is at most
-$\binom{L}{2}-3$. A majorisation argument turns this into a closed-form test that is
-strictly stronger than the classical bound for small $n$ and every $k\ge4$.
-
-For $k=4$ the test gives $t_4(n)$ at $n=8,9,10,11,13$ and $t_4(12)\le8$ by a few lines
-of arithmetic, replacing exhaustive search and a pseudoline classification; it is sharp
-at $n=13$. We also obtain four new lower bounds $s_4(n)$ at $n=28,36,40,48$
-from four-ring celestial configurations over fields of degree $6$ and $8$, prove they are
-optimal in their cosine-ratio family, and show no even-modulus celestial set can have
-more than four rings. For the ``at least four'' variant we prove
-$T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$ and $T_4(60)\ge133$, and show $1/28$ is maximal among the $231$ slope pairs tested (primitive directions with coordinates in $[-4,4]$) for the four-axis construction. All certificates are at
-\url{https://github.com/dimkadimon/Orchard}.
+For $k\ge4$ we apply Melchior's inequality to the nonconcurrent arrangement of lines containing at least $k$ points of a finite real point set. A convexity argument yields a necessary condition on the number of such lines and strengthens the usual pair-count bound in small cases. Combining this idea with the classical eight-point three-line orchard bound gives $T_4(12)=7$, where $T_4$ counts lines with at least four points. We give exactly verified point sets with no five collinear and respectively $42,63,70,96$ four-point lines on $28,36,40,48$ points. These exceed the cited integer-coordinate contest scores, but their optimality among real configurations is not asserted. We also count the four supporting axes in Xiang Li's construction, giving $T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$ for $n\ge28$, and verify $T_4(60)\ge133$.
 \end{abstract}
-
 \maketitle
-
-\section{Introduction}
-
-The classical orchard-planting problem asks how to place $n$ trees so as to maximise
-the number of straight rows containing exactly $k$ trees. For $k=3$ the problem was
-essentially settled by Green and Tao \cite{GreenTao2013}, who proved that the maximum
-is $\lfloor n(n-3)/6\rfloor+1$ for all sufficiently large $n$. For $k=4$ the situation
-is much less complete: the best general upper bound for $T_4$ is of order $n^2/14$, the best
-constructions for $T_4$ and $t_4$ give roughly $n^2/28$, and exact values of $t_4$ are known only for $n\le20$.
-For the strict variant $s_4$ no positive quadratic constant is known: Solymosi and
-Stojakovi\'c~\cite{SolymosiStojakovic} give $s_4(n)>n^{2-c/\sqrt{\log n}}$, i.e.\ subquadratic in $n^2$
-\cite{BGS1974,Du2019,OEISA006065}, all but the smallest cases by computer search.
-
-We separate three quantities that are often conflated.
-
-\begin{definition}\label{def:variants}
-Let $n\ge k\ge4$. For a finite $S\subset\R^2$ with $|S|=n$, let $t_j(S)$ be the number
-of lines containing exactly $j$ points of $S$. Define
+\section{Introduction and notation}
+For a finite set $S\subset\R^2$, let $t_j(S)$ be the number of lines containing exactly $j$ points of $S$. For $n\ge k\ge4$ put
 \begin{align*}
-t_k(n) &= \max_{|S|=n} t_k(S), \\
-s_k(n) &= \max\{\, t_k(S) : |S|=n,\ t_j(S)=0 \text{ for all } j\ge k+1 \,\}, \\
-T_k(n) &= \max_{|S|=n} \#\{\text{lines } \ell : |\ell\cap S|\ge k\}
-       = \max_{|S|=n} \sum_{j\ge k} t_j(S).
+ t_k(n)&=\max_{|S|=n}t_k(S),\\
+ s_k(n)&=\max\{t_k(S): |S|=n,\ t_j(S)=0\text{ for }j\ge k+1\},\\
+ T_k(n)&=\max_{|S|=n}\sum_{j\ge k}t_j(S).
 \end{align*}
-We call $s_k(n)$ the \emph{strict} variant; $T_k(n)$ is the ``at least $k$'' variant.
-\end{definition}
+Thus $s_k(n)\le t_k(n)\le T_k(n)$. The Infinite Search Space integer-coordinate contest forbids any line with five or more points \cite{Contest}, whereas OEIS A172992 concerns exactly-four lines with integer coordinates and includes constructions with longer lines \cite{OEISint}; neither an integer contest record nor a score with long lines is a strict real extremum.
 
-Thus $s_k(n)\le t_k(n)\le T_k(n)$. The quantity $s_4$ is the one used by
-the \emph{Infinite Search Space} competition \cite{Contest} and by
-the integer records OEIS~A172992, where a row of five or more trees invalidates an
-entry; $T_4$ is the
-natural ``at least four'' variant. The distinction matters: constructions with long
-rows are excellent for $T_4$ but inadmissible for $s_4$ (Figure~\ref{fig:variants}).
+For $k=3$, Green and Tao established the sufficiently large-$n$ orchard bound \cite{GreenTao}. For $k=4$, the classical Melchior pair-count bound is $T_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ for $n\ge5$. Li's construction gives order $n^2/28$ for $t_4$ and $T_4$ \cite{Li}; it does not give a strict $s_4$ lower bound because its supporting lines are long. For strict $s_k$, Solymosi and Stojakovi\'c \cite{Solymosi} established the lower bound $n^{2-c/\sqrt{\log n}}$ for sufficiently large $n$, with $c$ depending on $k$.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.92\textwidth]{figures/fig_variants.pdf}
-\caption{The three counting functions of Definition~\ref{def:variants} agree when no
-five points are collinear (left) and diverge otherwise. A $5$-point line is forbidden
-for $s_4$, ignored by $t_4$, and counted by $T_4$; a $4$-point line is counted by
-all three. All three coincide on the configurations of \S\ref{sec:constructions}, while
-the construction of \S\ref{sec:atleast4} exploits the gap between $s_4$ and $T_4$.}
-\label{fig:variants}
-\end{figure}
+Our contributions are an application of Melchior to rich lines themselves; the small-case consequences including $T_4(12)=7$; four exact algebraic lower-bound certificates; and the observation that Li's supporting axes add four lines to the at-least-four count. The exact values in small cases were previously reported for the exactly-four variant \cite{OEISreal,Du}; our proofs give upper bounds for the at-least-four variant. The exact $n=12$ argument below uses the previously established three-point orchard bound for eight points \cite[Table~1]{BGS}; we do not claim that the numerical value itself is new to the literature.
 
-\section{Contributions}\label{sec:contributions}
-
-The paper has three strands: a new upper-bound argument, new constructions for the
-no-five problem together with a proof that they are optimal within their family, and
-results for the at-least-four variant. We summarise them here and
-indicate where each is proved.
-
-\subsection{Upper bounds}
-\begin{itemize}
-\item \textbf{A second-order Melchior inequality} (Theorem~\ref{thm:secondorder}).
-Melchior's inequality is classically applied to the dual of the point set. We apply it
-a second time, to the arrangement formed by the rich lines themselves, obtaining
-$\sum_p w(r_p)\le\binom{L}{2}-3$. The statement holds for every $k\ge4$ and requires
-no hypothesis forbidding long lines, so it bounds $T_k$ as well as $s_k$.
-\item \textbf{A closed-form test} (Corollary~\ref{cor:test}). A majorisation
-argument (Lemma~\ref{lem:balanced}) reduces the inequality, the degree cap and the
-pair count to three explicit inequalities in $n,k,L$.
-\item \textbf{Exact values proved by hand} (Corollary~\ref{cor:exact}):
-$t_4(8)=2$, $t_4(9)=3$, $t_4(10)=5$, $t_4(11)=6$, $t_4(13)=9$. These were previously
-known only from exhaustive computer search. The inequality is sharp, the optimal
-$13$-point configuration attaining equality.
-\item \textbf{An elementary replacement for a classification}
-(Corollary~\ref{cor:exact}): $t_4(12)\le8$ follows in two lines, where the published
-proof required enumerating pseudoline arrangements \cite{BokowskiPokora}.
-\item \textbf{Improvements for larger $k$} (Table~\ref{tab:k}): the test beats the
-classical bound up to $n=25,37,51,67$ for $k=5,6,7,8$ respectively.
-\end{itemize}
-
-\subsection{Constructions}
-\begin{itemize}
-\item \textbf{Four new lower bounds for $s_4$} at $n=28,36,40,48$
-(Section~\ref{sec:constructions}, Table~\ref{tab:records}), from four-ring celestial
-sets over real fields of degree $6$ and $8$, with exact coordinates, defining
-polynomials, diagrams and honesty certificates. These beat the whole-number records
-live at \cite{Contest} (Johan Roos, Nov.~2026) at those $n$, and together with the
-degree-$4$/$6$ entries at $n=16,17,18,22,37,49$ they beat the live By-Satellite
- integer table at ten sizes; elsewhere we match it, so the repository attains the
-best known lower bound for every $11\le n\le60$.
-\item \textbf{A structural explanation} of why these sets work
-(Section~\ref{sec:mechanism}): almost all their $4$-point lines meet two rings twice
-each, which turns the incidence conditions into \emph{linear} equations in the radii
-over a real cyclotomic field. This reduces the search to a finite, tractable problem.
-\item \textbf{An optimality theorem for the construction}
-(Theorem~\ref{thm:familyopt}). The linear condition confines the useful radii to an
-explicit finite set of cosine ratios, and we enumerate the resulting family
-\emph{completely}. The four values $42,63,70,96$ are exactly the maxima of that family
-at $m=7,9,10,12$. So these are not merely records found by search: they are the best
-possible within the paradigm, and no amount of further searching inside it can help.
-\item \textbf{A ring cap} (Theorem~\ref{thm:cap}). For even $m$, a union of concentric
-regular $m$-gons with half-step offsets and no five collinear points has at most
-\emph{four} rings, because three rings in the same offset class share a diameter
-carrying six points. Our $m=10$ and $m=12$ constructions therefore use the maximum
-permitted number of rings.
-\end{itemize}
-
-\subsection{The at-least-four variant}
-\begin{itemize}
-\item \textbf{$T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$} for $n\ge28$
-(Proposition~\ref{prop:T4family}), and the exact certificate $T_4(60)\ge133$
-(Proposition~\ref{prop:T460}).
-\item \textbf{An optimality result} (Section~\ref{sec:atleast4}): the constant $1/28$
-is maximal among the $231$ primitive slope pairs with coordinates in $[-4,4]$ tested, and grid-shaped point sets
-are far worse.
-\end{itemize}
-
-\subsection{What is not claimed}
-The general bound $t_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ is classical and is stated,
-for example, in \cite{MathWorld}. The four-ring sets we use have the shape of the known
-\emph{celestial} $(n_4)$ configurations \cite{BermanEtAl,GrunbaumBook}, and the
-four-axis $\lfloor(n^2+12)/28\rfloor$ construction is due to Xiang Li \cite{XiangLi}. Our $T_4$ contribution is counting the four supporting axes (giving $\lfloor(n^2+12)/28\rfloor+4$) and the $n=60$ census, the structural analysis, and the new upper-bound
-argument. The four lower bounds are proved optimal \emph{within the four-ring
-cosine-ratio family} (Theorem~\ref{thm:familyopt}), but not unconditionally: a better
-configuration outside that family is not excluded, and \S\ref{sec:negative} records
-the searches we ran against the remaining openings.
-
-\subsection{Contribution of AI assistance}\label{sec:ai}
-
-The author posed the problem, directed the research, selected the results reported here,
-and checked the statements and proofs. The AI assistant surveyed the literature, wrote
-and ran the search programs, and drafted the manuscript. The author takes full
-responsibility for the content of the paper.
-
-\section{Prior work}\label{sec:prior}
-
-\paragraph{Sylvester--Gallai and Melchior.}
-Sylvester's question about ordinary lines was resolved by Gallai \cite{Gallai1944}.
-Melchior \cite{Melchior1941} proved the stronger inequality
-$t_2\ge3+\sum_{j\ge4}(j-3)t_j$ for the dual arrangement, the engine behind essentially
-all upper bounds in this area. Kelly and Rottenberg \cite{KellyRottenberg} extended
-$t_2\ge1$ to pseudolines; Bokowski and Pokora \cite{BokowskiPokora} extended the full
-Melchior inequality to pseudoline arrangements and derived non-realizability results
-that we recover elementarily below. Pokora \cite{Pokora} surveys Hirzebruch-type
-inequalities, which give stronger bounds for some $k\ge5$ but, as we check, not for
-$k=4$.
-
-\paragraph{The orchard problem.}
-Burr, Gr\"unbaum and Sloane \cite{BGS1974} gave the systematic treatment with
-constructions and bounds for small $n$; their tables remain the basis of the $n\le25$
-data reproduced by Friedman \cite{Friedman} and MathWorld \cite{MathWorld}. Goodman
-\cite{Goodman1980} proved a conjecture of \cite{BGS1974}, and F\"uredi and Pal\'asti
-\cite{FurediPalasti} gave arrangements with many triple points. Green and Tao
-\cite{GreenTao2013} settled the Dirac--Motzkin conjecture and the $k=3$ orchard problem
-for large $n$ via a structure theorem for sets with few ordinary lines.
-
-\paragraph{Four-point rows.}
-Exact values of $t_4(n)$ for $n\le20$ are recorded in OEIS A006065 \cite{OEISA006065};
-$n=19,20$ were established by computer search by Du \cite{Du2019}. Integer-coordinate records for exactly-four rows for $n\le60$ are maintained in A172992 \cite{OEISA172992}, which includes the four-axis construction with its long supporting lines; the Infinite Search Space contest \cite{Contest} by contrast forbids any line with $\ge5$ points for its strict table. Pegg \cite{Pegg2018}
-described algebraic-number-field incidence patterns and ``orchard polynomials'';
-MathWorld \cite{MathWorld} records five $19$-point patterns with cross-ratio fields
-$\Q(\sqrt5)$ and $\Q(\rho)$, $\rho$ the plastic number, and the deletion bound
-$t_4(21)\le28$. Elkies \cite{Elkies} constructed sets with many $k$-rich lines in the
-regime where the number of points is quadratic in the multiplicity, and formulated the
-conjecture $s_k(n)=o(n^2)$, open for every $k\ge4$. Solymosi and Stojakovi\'c
-\cite{SolymosiStojakovic} proved $s_k(n)>n^{2-c/\sqrt{\log n}}$, so no polynomial
-saving is possible and the gap between $n^2/28$ and $n^2/14$ is a question about
-constants.
-
-\paragraph{Configurations.}
-A \emph{celestial} $(n_4)$ configuration is a balanced point--line configuration built
-from concentric regular polygons. Berman, G\'evay, Richter-Gebert and Tabachnikov
-\cite{BermanEtAl} showed that all \emph{trivial} celestial $(n_4)$ configurations move
-in a one-parameter family via the Poncelet porism. These are configurations in the
-strict sense (every line has four points \emph{and} every point lies on four lines);
-the orchard problem is different, since we count all $4$-point lines and require no
-balance. Our four-ring sets are celestial in shape but used as orchards.
-
-\section{Upper bounds}\label{sec:upper}
-
-Throughout, $S\subset\RP$ is a set of $n$ points, $t_j=t_j(S)$, and for a fixed $k\ge4$
-we call a line \emph{rich} if it carries at least $k$ points of $S$; $L=\sum_{j\ge k}t_j$
-is the number of rich lines. We use
-\begin{equation}\label{eq:pairs}
-\sum_{j\ge2}\binom{j}{2}t_j=\binom{n}{2},
-\end{equation}
-and, when the points are not all collinear, Melchior's inequality
+\section{A second-order Melchior inequality}\label{sec:bound}
+We work in the real projective plane: any finite affine point set embeds there, and any finite projective set can be moved into an affine chart. For a noncollinear finite set, the pair count and Melchior inequality are
 \begin{equation}\label{eq:melchior}
-t_2\ \ge\ 3+\sum_{j\ge4}(j-3)\,t_j .
+ \sum_{j\ge2}\binom j2 t_j=\binom n2,\qquad
+ t_2\ge3+\sum_{j\ge4}(j-3)t_j.
 \end{equation}
-Note that the threshold in \eqref{eq:melchior} is $4$ regardless of $k$; this is why a
-single weight function will serve all $k$.
+These imply, for $n\ge k+1$,
+\begin{equation}\label{eq:classical}
+ T_k(n)\le\left\lfloor\frac{\binom n2-3}{\binom k2+k-3}\right\rfloor.
+\end{equation}
+Indeed, apply the second inequality to $t_2$ in the first and retain only the terms for $j\ge k$; if all points are collinear, the bound is also immediate.
 
-\subsection{The classical bound and its exact slack}
-
-\begin{proposition}[\cite{Melchior1941,MathWorld}]\label{prop:classical}
-For $n\ge k+1$,
+Let $\ell_1,\ldots,\ell_L$ be distinct lines, each containing at least $k$ points of $S$, and set $r_p=\#\{i:p\in\ell_i\}$. Define
 \[
-s_k(n)\ \le\ t_k(n)\ \le\ T_k(n)\ \le\
-\left\lfloor\frac{\binom{n}{2}-3}{\binom{k}{2}+k-3}\right\rfloor .
+w(0)=w(1)=w(2)=0,\quad w(3)=3,\quad w(j)=\binom j2+j-3\quad(j\ge4).
 \]
-For $k=4$ the denominator is $7$, giving $\lfloor(n(n-1)-6)/14\rfloor$.
-\end{proposition}
-
-\begin{proof}
-If all points are collinear then $T_k=1$ and the bound is trivial. Otherwise
-\eqref{eq:pairs} and \eqref{eq:melchior} give
+\begin{theorem}[Second-order Melchior bound]\label{thm:second}
+If $L\ge3$ and the $L$ selected lines are not all concurrent, then
 \[
-\binom{n}{2}\ \ge\ t_2+\sum_{j\ge k}\binom{j}{2}t_j
-\ \ge\ 3+\sum_{j\ge k}\left[\binom{j}{2}+j-3\right]t_j ,
-\]
-and the bracket is increasing in $j$, so it is at least $\binom{k}{2}+k-3$.
-\end{proof}
-
-The proof is an identity, and recording the slack is useful. Let
-$F=\sum_{i\ge3}(i-3)f_i\ge0$ be the Melchior face term, where $f_i$ counts the regions
-of the dual arrangement with $i$ sides.
-
-\begin{proposition}[slack identity]\label{prop:slack}
-If $S$ is not collinear then, for $k=4$,
-\[
-\binom{n}{2}-3 \;=\; 7L+3t_3+F+\sum_{j\ge5}\left[\binom{j}{2}+j-10\right]t_j ,
-\]
-where the bracket takes the values $5,11,18,\dots$ at $j=5,6,7,\dots$
-\end{proposition}
-
-\begin{proof}
-Melchior's proof gives $t_2=3+\sum_{j\ge4}(j-3)t_j+F$. Substituting into
-\eqref{eq:pairs} and using $L=t_4+\sum_{j\ge5}t_j$, the coefficient of $t_j$ for
-$j\ge5$ is $\binom{j}{2}+(j-3)-7=\binom{j}{2}+j-10$.
-\end{proof}
-
-Thus every triple line, every non-triangular region, and every line of five or more
-points strictly reduces $L$ below the ceiling of Proposition~\ref{prop:classical}.
-
-\subsection{A second-order Melchior inequality}
-
-The key observation is that Melchior's inequality can be applied a second time, to the
-arrangement consisting of the rich lines only. This is a different arrangement from the
-dual of $S$, and it sees information that \eqref{eq:melchior} does not.
-
-\begin{definition}
-For $p\in S$ let $r_p$ be the number of rich lines through $p$. Define
-\[
-w(j)=
-\begin{cases}
-0, & j\le 2,\\
-3, & j=3,\\
-\dbinom{j}{2}+j-3, & j\ge4 ,
-\end{cases}
-\]
-so that $w(0),w(1),w(2),\dots=0,0,0,3,7,12,18,25,\dots$
-\end{definition}
-
-\begin{theorem}[second-order Melchior bound]\label{thm:secondorder}
-Let $k\ge4$, let $S\subset\RP$ be finite, and let $\ell_1,\dots,\ell_L$ be $L\ge3$
-distinct rich lines of $S$ that are \emph{not} all concurrent. Then
-\[
-\sum_{p\in S} w(r_p)\ \le\ \binom{L}{2}-3 .
+ \sum_{p\in S}w(r_p)\le\binom L2-3.
 \]
 \end{theorem}
-
 \begin{proof}
-Let $\mathcal{A}=\{\ell_1,\dots,\ell_L\}$, an essential arrangement of $L\ge3$ lines,
-and let $V$ be its vertex set. Split $V=V_S\sqcup V_0$ with $V_S=V\cap S$. A point
-$p\in S$ lies in $V_S$ exactly when $r_p\ge2$, and its multiplicity in $\mathcal{A}$ is
-then $r_p$. Put
+Let $s_j$ be the number of points of $S$ incident with exactly $j$ of the selected lines, and $e_j$ the number of their other intersection points of multiplicity $j$. The pair count for the arrangement gives
 \[
-s_j=\#\{p\in S: r_p=j\},\qquad
-e_j=\#\{v\in V_0:\ \text{exactly $j$ lines of $\mathcal{A}$ pass through } v\}.
+ \sum_{j\ge2}\binom j2(s_j+e_j)=\binom L2.
 \]
-Counting pairs of lines of $\mathcal{A}$ by their intersection point,
-\begin{equation}\label{eq:Apairs}
-\sum_{j\ge2}\binom{j}{2}(s_j+e_j)=\binom{L}{2}.
-\end{equation}
-Let $D=\sum_{j\ge2}\binom{j}{2}e_j=\binom{L}{2}-\sum_{p\in S}\binom{r_p}{2}$, so $D\ge e_2$.
-Melchior's inequality \eqref{eq:melchior} applied to $\mathcal{A}$ gives
+Since $e_2\le\sum_{j\ge2}\binom j2 e_j$, Melchior's inequality for the selected line arrangement yields
 \[
-s_2+e_2\ \ge\ 3+\sum_{j\ge4}(j-3)(s_j+e_j)\ \ge\ 3+\sum_{j\ge4}(j-3)s_j .
+ s_2+\binom L2-\sum_{p\in S}\binom{r_p}2
+ \ge3+\sum_{j\ge4}(j-3)s_j.
 \]
-Since $e_2\le D$,
-\[
-s_2+\binom{L}{2}-\sum_{p\in S}\binom{r_p}{2}\ \ge\ 3+\sum_{j\ge4}(j-3)s_j ,
-\]
-and rearranging,
-\[
-\sum_{p\in S}\binom{r_p}{2}-s_2+\sum_{j\ge4}(j-3)s_j\ \le\ \binom{L}{2}-3 .
-\]
-The left-hand side is exactly $\sum_p w(r_p)$: terms with $r_p\le1$ vanish, the
-$\binom{2}{2}=1$ terms cancel against $-s_2$, terms with $r_p=3$ contribute $3$ each,
-and those with $r_p\ge4$ contribute $\binom{r_p}{2}+r_p-3$.
+Rearranging gives the result: subtracting $s_2$ removes the contribution at $r=2$, and the remaining terms are exactly $w(r)$.
 \end{proof}
 
-\begin{remark}
-Theorem~\ref{thm:secondorder} requires no hypothesis forbidding long lines, so it
-bounds $T_k$ and not merely $s_k$. It was checked against $100$ four-point
-configurations (the $50$ integer records and our $50$ algebraic entries) and against
-$158$ further tests on grids, pencils and random sets for $k=4,\dots,8$; none violates
-it, and the optimal $13$-point configuration attains equality.
-\end{remark}
-
-\subsection{A closed-form test and new exact values}
-
-Two elementary constraints make Theorem~\ref{thm:secondorder} effective. The rich lines
-through $p$ meet only at $p$ and each carries at least $k-1$ further points of $S$, so
-\begin{equation}\label{eq:cap}
-r_p\le R:=\left\lfloor\frac{n-1}{k-1}\right\rfloor,
-\qquad \sum_{p\in S} r_p=\sum_{j\ge k} j\,t_j\ \ge\ kL .
-\end{equation}
-Also two rich lines meet at most once, so
-\begin{equation}\label{eq:convex}
-\sum_{p\in S}\binom{r_p}{2}\ \le\ \binom{L}{2}.
-\end{equation}
-
-\begin{lemma}[balanced sequences]\label{lem:balanced}
-Let $f:\Z_{\ge0}\to\R$ be convex and non-decreasing and fix $n$ and $M\le nR$. Among all
-$(r_1,\dots,r_n)\in\{0,\dots,R\}^n$ with $\sum r_i\ge M$, the sum $\sum_i f(r_i)$ is
-minimised by the balanced sequence with $\sum r_i=M$: writing $M=qn+\rho$ with
-$0\le\rho<n$, it has $n-\rho$ entries $q$ and $\rho$ entries $q+1$.
+\begin{lemma}[Balanced degree sequence]\label{lem:balance}
+Let $f$ be a nondecreasing discretely convex function on the nonnegative integers. Among $n$ nonnegative integers with sum at least $M$, the minimum of $\sum f(r_i)$ is achieved with sum $M$ and entries $q$ or $q+1$, where $M=qn+\rho$ and $0\le\rho<n$.
 \end{lemma}
-
 \begin{proof}
-For a fixed sum, the balanced vector is majorised by every other vector with that sum,
-hence minimises the Schur-convex function $\sum f(r_i)$. As $f$ is non-decreasing, the
-minimum over $\sum r_i\ge M$ occurs at $\sum r_i=M$.
+Reduce entries until their sum is $M$; this cannot increase the objective. If two entries differ by at least two, transferring one unit from the larger to the smaller cannot increase the objective. Repeat until they differ by at most one.
 \end{proof}
-
-Both $j\mapsto\binom{j}{2}$ and $j\mapsto w(j)$ are convex and non-decreasing (the
-successive differences of $w$ are $0,0,3,4,5,6,7,\dots$), so
-Lemma~\ref{lem:balanced} applies to \eqref{eq:convex} and to
-Theorem~\ref{thm:secondorder} simultaneously. This gives a necessary-condition test for $T_k(n)$ (exact minimization of the degree constraints; geometric realizability may be stricter).
-
-\begin{corollary}\label{cor:test}
-Let $k\ge4$, $n\ge k+1$ and $L\ge3$ with $n<(k-1)L+1$. Write $kL=qn+\rho$,
-$0\le\rho<n$, and set
+\begin{corollary}[Necessary condition]\label{cor:test}
+Suppose $L\ge3$ rich lines are chosen from an $n$-point set, and $n<1+(k-1)L$. Let $R=\lfloor(n-1)/(k-1)\rfloor$, write $kL=qn+\rho$, $0\le\rho<n$, and define
 \[
-\Sigma_2=(n-\rho)\binom{q}{2}+\rho\binom{q+1}{2},\qquad
-\Sigma_w=(n-\rho)w(q)+\rho\,w(q+1).
+ B_2=(n-\rho)\binom q2+\rho\binom{q+1}2,\quad
+ B_w=(n-\rho)w(q)+\rho w(q+1).
 \]
-If any of
+Then
 \[
-q+[\rho>0]>R,\qquad \Sigma_2>\binom{L}{2},\qquad \Sigma_w>\binom{L}{2}-3
+ q+\mathbf 1_{\rho>0}\le R,\qquad B_2\le\binom L2,\qquad B_w\le\binom L2-3.
 \]
-holds, then no set of $n$ real points has $L$ rich lines. Hence $T_k(n)$ is at most the
-largest $L$ passing all three tests.
 \end{corollary}
-
 \begin{proof}
-If all $L$ rich lines were concurrent at $p$ then $n\ge1+(k-1)L$, excluded by
-hypothesis, so Theorem~\ref{thm:secondorder} applies. By \eqref{eq:cap} and
-Lemma~\ref{lem:balanced}, $\sum_p\binom{r_p}{2}\ge\Sigma_2$ and
-$\sum_p w(r_p)\ge\Sigma_w$, so the three listed inequalities contradict
-\eqref{eq:cap}, \eqref{eq:convex} and Theorem~\ref{thm:secondorder} respectively.
+The selected lines cannot be concurrent: in a pencil they require at least $1+(k-1)L$ distinct points. For every $p$, $r_p\le R$, and $\sum r_p\ge kL$. Also $\sum_p\binom{r_p}2\le\binom L2$. Apply Lemma~\ref{lem:balance} to $\binom r2$ and $w(r)$, and use Theorem~\ref{thm:second}. These are necessary conditions, not sufficient conditions for a geometric realization.
 \end{proof}
 
-\begin{corollary}[new exact values and improvements]\label{cor:exact}
-For $k=4$,
-\[
-t_4(8)=2,\quad t_4(9)=3,\quad t_4(10)=5,\quad t_4(11)=6,\quad t_4(13)=9,
-\]
-and
-\[
-t_4(12)\le8,\qquad t_4(14)\le11,\qquad t_4(15)\le13 .
-\]
-The same five equalities hold for $T_4$ and for $s_4$. Previously these values
-were available only from exhaustive computer search \cite{BGS1974,OEISA006065}.
+\begin{corollary}\label{cor:small}
+For $n=8,9,10,11,13$, respectively, $s_4(n)=t_4(n)=T_4(n)=2,3,5,6,9$. In addition $T_4(12)\le8$, $T_4(14)\le11$, and $T_4(15)\le13$.
 \end{corollary}
-
 \begin{proof}
-We give the two decisive cases; the others are identical arithmetic, and
-Table~\ref{tab:bounds} lists them all.
-
-\emph{$n=13$, $L=10$.} Here $4L=40=3\cdot13+1$, so $q=3,\rho=1$ and $R=4$. Then
-$\Sigma_w=12\,w(3)+w(4)=36+7=43$, while $\binom{10}{2}-3=42$. As $43>42$, $L=10$ is
-impossible. Since $L=9$ is realised with no five collinear, $t_4(13)=T_4(13)=9$.
-
-\emph{$n=12$, $L=9$.} Here $4L=36=3\cdot12$, so $q=3,\rho=0$ and
-$\Sigma_w=12\cdot3=36>\binom{9}{2}-3=33$. Hence $T_4(12)\le8$.
+Combine \eqref{eq:classical} with Corollary~\ref{cor:test}, checking the finitely many $L$ above the displayed bounds. For illustration, at $(n,L)=(13,10)$ the balanced weight is $12w(3)+w(4)=43>42=\binom{10}2-3$; at $(12,9)$ it is $12w(3)=36>33$. For $n=8$ use two four-point lines meeting in one point and one generic extra point; for $n=9$ use the three sides of a triangle with two generic additional points per side. For $n=10$, the five vertices of a regular pentagram and its five interior crossings lie on two concentric circles, so no line contains five points, while each of the five pentagram edges contains four. The accompanying $n=11,13$ entries supply exact strict lower certificates. The results are alternative upper-bound proofs, not claims that these previously reported values are new.
 \end{proof}
 
-\begin{remark}
-The case $T_4(12)\le8$ is equivalent to the non-existence of an arrangement of $12$
-pseudolines with $9$ quadruple and $12$ double points, proved by Bokowski and Pokora
-\cite[Cor.~1.7]{BokowskiPokora} via pseudoline duality. Their computational
-sweeping/classification result concerns a different parameter set (19 triple and 9
-double points) \cite[Table~1]{BokowskiPokora}; Corollary~\ref{cor:exact} gives a short
-counting proof of the former. We do not know whether $T_4(12)$ is $7$ or $8$; a
-hill-climbing search over integer coordinates found nothing beyond $7$.
-\label{rem:12}
-\end{remark}
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrr}
-\toprule
-$n$ & \parbox{2.0cm}{\centering classical\\upper bound\\$T_4(n)$} & \parbox{2.0cm}{\centering new\\upper bound\\$T_4(n)$} & \parbox{1.5cm}{\centering exact\\$T_4(n)$} & \parbox{1.8cm}{\centering best lower\\bound $s_4(n)$} \\
-\midrule
-8 & 3 & \textbf{2} & 2 & 2 \\
-9 & 4 & \textbf{3} & 3 & 3 \\
-10 & 6 & \textbf{5} & 5 & 5 \\
-11 & 7 & \textbf{6} & 6 & 6 \\
-12 & 9 & 8$^*$ & $7$--$8$ & 7 \\
-13 & 10 & \textbf{9} & 9 & 9 \\
-14 & 12 & 11$^*$ & 10 & 10 \\
-15 & 14 & 13$^*$ & 12 & 12 \\
-16 & 16 & 16 & 15 & 15 \\
-17 & 19 & 19 & 16 & 16 \\
-18 & 21 & 21 & 18 & 18 \\
-19 & 24 & 24 & 20 & 20 \\
-20 & 26 & 26 & 23 & 23 \\
-21 & 29 & 29 & -- & 24 \\
-22 & 32 & 32 & -- & 28 \\
-23 & 35 & 35 & -- & 28 \\
-24 & 39 & 39 & -- & 31 \\
-25 & 42 & 42 & -- & 32 \\
-\bottomrule
-\end{tabular}
-\caption{Upper bounds on $T_4(n)$ (hence on $t_4(n)$ and $s_4(n)$) and
-matching lower bounds on $s_4(n)$. Columns~2--3 are upper bounds on $T_4(n)$:
-classical (Proposition~\ref{prop:classical}) and new (Corollary~\ref{cor:test}).
-Column~4 is the exact value where all three coincide; for $n\le11$ and $n=13$
-it equals $T_4(n)=t_4(n)=s_4(n)$, for $n=12$ the exact $T_4(12)\in\{7,8\}$ remains
-open (Remark~\ref{rem:12}), and for $14\le n\le20$ the entries are the exact
-$t_4(n)$ (hence lower bounds for $T_4$). Bold entries in column~3 are new exact
-values where the new upper bound meets the construction. $^*$ marks a new upper
-bound not yet matched. Column~5 is the best lower bound on $s_4(n)$ we know:
-integer records \cite{OEISA172992}, our algebraic entries, and
-Friedman's table \cite{Friedman}.}
-\label{tab:bounds}
-\end{table}
-
-The method is not special to $k=4$. Table~\ref{tab:k} records the range over which
-Corollary~\ref{cor:test} improves Proposition~\ref{prop:classical} for $k=4,\dots,8$;
-the improvements become more substantial as $k$ grows, because the classical bound
-weakens faster than the second-order one.
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrr}
-\toprule
-& largest $n$ & \multicolumn{3}{c}{upper bound on $T_k(n)$: classical $\to$ second-order} \\
-\cmidrule(l){3-5}
-$k$ & improved & at $n_1$ & at $n_2$ & at $n_3$ \\
-\midrule
-4 & 15 & 9$\to$8 & 14$\to$13 & 26$\to$26 \\
-5 & 25 & 8$\to$6 & 15$\to$12 & 24$\to$23 \\
-6 & 37 & 10$\to$5 & 16$\to$10 & 24$\to$16 \\
-7 & 51 & 11$\to$5 & 23$\to$14 & 39$\to$25 \\
-8 & 67 & 13$\to$5 & 23$\to$10 & 37$\to$19 \\
-\bottomrule
-\end{tabular}
-\caption{Range $n\le200$ for which Corollary~\ref{cor:test} improves
-Proposition~\ref{prop:classical}, with three sample values per row.
-The three sample columns are at $n_1,n_2,n_3$, where $(n_1,n_2,n_3)=(12,15,20)$ for
-$k=4$, $(15,20,25)$ for $k=5$, $(20,25,30)$ for $k=6$, $(25,35,45)$ for $k=7$, and
-$(30,40,50)$ for $k=8$. Each entry `a$\to$b' means the classical upper bound $a$ is
-improved to the second-order upper bound $b$ (both on $T_k(n)$).}
-\label{tab:k}
-\end{table}
-
-For $k=4$ and $n\ge16$ the three tests never bind, and Proposition~\ref{prop:classical}
-remains the best available. Improving the constant $1/14$ asymptotically is open.
-Figure~\ref{fig:kbounds} shows the effect for $k=5,6,7,8$: the shaded gap is the
-strict improvement of Corollary~\ref{cor:test} over the classical bound.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/fig_k_bounds.pdf}
-\caption{Upper bounds on $T_k(n)$ for $k=5,6,7,8$. Dashed grey: classical
-Proposition~\ref{prop:classical}; solid colour: second-order
-Corollary~\ref{cor:test}. Shading marks the strict improvement; the largest
-percentage gain grows with $k$ (e.g. $k=8$, $n=50$: $37\to19$, $49\%$).
-The range where the new bound binds is $n\le25,37,51,67$ respectively
-(Table~\ref{tab:k}).}
-\label{fig:kbounds}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.78\textwidth]{figures/fig_k_gain.pdf}
-\caption{Gain $\Delta(n)=$ classical $-$ new for $k=5,6,7,8$ as a function of $n$.
-The peak $\Delta$ moves to larger $n$ and grows roughly like $n^2/(4k^2)$,
-illustrating why the classical bound weakens faster than the second-order one.}
-\label{fig:kgain}
-\end{figure}
-
-\section{Four new algebraic constructions}\label{sec:constructions}
-
-\subsection{Exact arithmetic and the honesty condition}
-
-All constructions are given in a real number field $K=\Q(a)$, where $a$ is a root of a
-monic irreducible $p\in\Z[x]$. Each point has coordinates in $K$, written as polynomials
-in $a$ of degree $<\deg p$. Collinearity is then decided \emph{exactly} by a determinant
-in $K$, never by a floating-point tolerance. A submission consists of $p$ together with
-the $n$ coordinate pairs; the count must agree for every real root of $p$, which we
-verify.
-
-The competition \cite{Contest} imposes an additional \emph{honesty} condition: the
-configuration must not be a projective image of a rational one. Projective maps preserve
-cross-ratios, so it suffices to exhibit a $4$-point line with irrational cross-ratio.
-For each entry we compute cross-ratios exactly in $K$; the last column of
-Table~\ref{tab:records} records how many are irrational.
-
-\subsection{Four-ring celestial sets}
-
-Fix $m\ge5$, radii $r_0=1,r_1,r_2,r_3>0$ and offsets $\varphi_i\in\{0,\pi/m\}$, and put
-\begin{equation}\label{eq:celestial}
-S(m;\mathbf r,\boldsymbol\varphi)=
-\Big\{\, r_i\big(\cos(\tfrac{2\pi j}{m}+\varphi_i),\ \sin(\tfrac{2\pi j}{m}+\varphi_i)\big)
-\ :\ 0\le i\le3,\ 0\le j<m \,\Big\},
-\end{equation}
-a set of $4m$ points on four concentric regular $m$-gons, consecutive rings offset by
-half a step. Choosing the $r_i$ so that many transversals meet all four rings produces
-$4$-point lines; the required radii are algebraic, and the sets have the celestial shape
-familiar from \cite{BermanEtAl,GrunbaumBook}. A \emph{$k4$-ratio} variant allows one
-radius to exceed $1$, so the rings need not be nested.
-
-Searching over $(m,\boldsymbol\varphi)$ and solving the collinearity conditions exactly
-in the resulting field gave four improvements over the whole-number integer
-records live at \cite{Contest} (hence over \cite{OEISA172992}); see
-Table~\ref{tab:records} and Figures~\ref{fig:28}--\ref{fig:48}.
-
-\subsection{The $(2,2)$ mechanism}\label{sec:mechanism}
-
-The constructions above were found by search, but they are not accidents: they are
-governed by a linear condition that can be written down and then solved. We record it
-here, both because it explains the shape of Table~\ref{tab:records} and because it makes
-the family amenable to a \emph{complete} enumeration (Theorem~\ref{thm:familyopt}).
-
-Write a line in normal form
-$\ell(t,d)=\{x\in\R^2:\ x\cdot(\cos t,\sin t)=d\}$ with $d\ge0$, the pair $(t,d)$ being
-unique after the identification $(t,d)\sim(t+\pi,-d)$. For a ring
-$R(r,\varphi,m)=\{r(\cos(\tfrac{2\pi j}{m}+\varphi),\sin(\tfrac{2\pi j}{m}+\varphi)):0\le j<m\}$
-call the chord joining vertices $j$ and $j+a$ a chord of \emph{span} $a$.
-
-\begin{lemma}[Chord normal form]\label{lem:chord}
-The chord of span $a$ at vertex $j$ of $R(r,\varphi,m)$ lies on $\ell(t,d)$ with
-\[
-d=r\cos\!\Big(\frac{\pi a}{m}\Big),\qquad
-t=\varphi+\frac{\pi(2j+a)}{m},
-\]
-where $d<0$ is normalised by $(t,d)\mapsto(t+\pi,-d)$. In particular $d$ depends only on
-the span, and $t$ only on $j+a/2$.
-\end{lemma}
-
-\begin{proof}
-The two endpoints subtend a central angle $2\pi a/m$. Their midpoint is at distance
-$r\cos(\pi a/m)$ from the centre, and the perpendicular from the centre to the chord
-points along the bisector of the two vertex angles, whose argument is
-$\varphi+\tfrac{2\pi}{m}\cdot\tfrac{j+(j+a)}{2}=\varphi+\pi(2j+a)/m$. The foot of that
-perpendicular is the midpoint, which gives the stated $(t,d)$.
-\end{proof}
-
-\begin{proposition}[$(2,2)$ criterion]\label{prop:22}
-Let $R_i=R(r_i,\varphi_i,m)$ and $R_j=R(r_j,\varphi_j,m)$ be two rings of the same
-modulus $m$. For $R_i$ a chord spanning $a$ vertices at position $j$ has normal
-direction $t=\varphi_i+\pi(2j+a)/m$ and signed distance $d=r_i\cos(\pi a/m)$
-(Lemma~\ref{lem:chord}); similarly for $R_j$ spanning $b$ at $j'$.
-A line meets $R_i$ in the first chord and $R_j$ in the second iff
-$t\equiv t'\pmod{\pi}$ and $d=\pm d'$ with the same sign choice as the
-identification $(t,d)\sim(t+\pi,-d)$. In particular, for non-diameters
-($a,b\neq m/2$, so $\cos(\pi a/m),\cos(\pi b/m)\neq0$) this requires
-\begin{equation}\label{eq:linear}
-\varphi_i-\varphi_j\in\frac{\pi}{m}\Z,
-\qquad r_i\cos\!\Big(\frac{\pi a}{m}\Big)=\pm r_j\cos\!\Big(\frac{\pi b}{m}\Big),
-\end{equation}
-and the parity condition $a\equiv b\pmod 2$ when
-$\varphi_i\equiv\varphi_j\pmod{2\pi/m}$ and $a\not\equiv b\pmod2$ otherwise.
-For $a=m/2$ or $b=m/2$ the distance is $0$ and \eqref{eq:linear} imposes no
-condition on the radii: two rings with the same offset share every diameter
-regardless of $r_i/r_j$.
-The radius condition for non-diameters is \emph{linear in the radii} over
-$\Q(\cos(\pi/m))$. For example, $m=5$, $\varphi_i=\varphi_j=0$,
-$r_1=\cos(2\pi/5)/\cos(\pi/5)\approx0.381966$, $r_2=1$ satisfy
-$r_1\cos(\pi/5)=r_2\cos(2\pi/5)$ with $a=1,b=2$, but the normal parities are
-$(2j+1)\pi/5$ vs.\ $(2j'+2)\pi/5$ and no $j,j'$ coincide, so there is no common
-$(2,2)$ line; the distance equality alone is not sufficient.
-\end{proposition}
-
-\begin{proof}
-Lemma~\ref{lem:chord} gives the normal directions of the
-$2j+a$ family for $R_i$ as $\varphi_i+\pi(2j+a)/m$, $0\le j<m$, and similarly for $R_j$.
-Two chords lie on the same (unoriented) line iff their normals coincide mod $\pi$
-and, after fixing that identification, their signed distances coincide. The
-displayed parity condition is exactly $\varphi_i+\pi(2j+a)/m\equiv\varphi_j+\pi(2j'+b)/m\pmod\pi$ for some $j,j'$,
-and \eqref{eq:linear} is the distance equality with the sign of
-$(t,d)\sim(t+\pi,-d)$ absorbed. When $a=m/2$, $\cos(\pi a/m)=0$ and $d=0$;
-every diameter through the centre has $d=0$ and is shared by any two rings
-with $\varphi_i\equiv\varphi_j\pmod{2\pi/m}$ irrespective of radii.
-\end{proof}
-
-Two consequences make the search finite. First, rotation by $2\pi/m$ fixes each ring, so
-only $\varphi_i-\varphi_j \bmod 2\pi/m$ matters and the relative offsets reduce to the
-two classes $\{0,\pi/m\}$. Second, \eqref{eq:linear} says the useful radius ratios form
-the explicit finite set
-\begin{equation}\label{eq:ratio}
-\mathcal R_m=\Big\{\cos(\pi a/m)\big/\cos(\pi b/m)\ :\ 1\le a,b\le\lfloor m/2\rfloor,\
-\cos(\pi b/m)\ne0\Big\}\subset\Q(\cos(\pi/m)).
-\end{equation}
-The radii in Table~\ref{tab:records} are of exactly this shape: for $m=12$ they are
-$\cos(\pi a/12)/\cos(\pi/12)$ with $a=1,2,3,4$.
-
-Table~\ref{tab:types} shows why this mechanism dominates. Classify a $4$-point line by
-the partition of $4$ recording how many of its points lie on each ring.
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrr}
-\toprule
-$n$ & $m$ & $(2,2)$ & $(1,1,1,1)$ & total \\
-\midrule
-28 & 7  & 21 & 21 & 42 \\
-36 & 9  & 54 &  9 & 63 \\
-40 & 10 & 70 &  0 & 70 \\
-48 & 12 & 96 &  0 & 96 \\
-\bottomrule
-\end{tabular}
-\caption{Line types in the four constructions. A $(2,2)$ line meets two rings twice
-each and is therefore controlled by the linear condition \eqref{eq:linear}; a
-$(1,1,1,1)$ line is a transversal meeting all four rings once. For $n=40$ and $n=48$
-\emph{every} $4$-point line is of type $(2,2)$.}
-\label{tab:types}
-\end{table}
-
-\subsection{Optimality within the celestial family}\label{sec:familyopt}
-
-Proposition~\ref{prop:22} lets us replace a continuous search by a finite one, and the
-finite set is small enough to be exhausted. Define
-\[
-\mathcal F(m,k)=\Big\{\,S(m;\mathbf r,\boldsymbol\varphi)\ :\ r_0=1,\
-r_i\in\mathcal R_m,\ \varphi_i\in\{0,\pi/m\},\ r_i\ \text{distinct}\,\Big\}.
-\]
-
-\begin{lemma}[Completeness for non-diametral incidences]\label{lem:complete}
-Let $S$ be a union of $k$ concentric regular $m$-gons with distinct radii, and suppose
-every pair of rings shares at least one $(2,2)$ line whose two defining chords are
-non-diameters ($a,b\neq m/2$). Then $S$ lies in $\mathcal F(m,k)$ up to rotation,
-reflection and scaling. In particular, if $m$ is odd, or if no pair shares only a
-diameter, the conclusion holds.
-\end{lemma}
-
-\begin{proof}
-Scale so that $r_0=1$ and rotate so that $\varphi_0=0$. For each $i\ge1$, the pair
-$(R_0,R_i)$ shares a non-diametral $(2,2)$ line, so Proposition~\ref{prop:22} with
-$\cos(\pi a/m),\cos(\pi b/m)\neq0$ gives
-$r_i=\cos(\pi b/m)/\cos(\pi a/m)\in\mathcal R_m$ and
-$\varphi_i\in\pi\Z/m$; reducing modulo the ring's own symmetry $2\pi/m$ leaves
-$\varphi_i\in\{0,\pi/m\}$. If the only shared line of a pair is a diameter
-($a=m/2$ or $b=m/2$) then $d=0$ and no ratio is forced; e.g.\ two regular hexagons
-with radii $1$ and $\sqrt2$ and the same offset share a diameter with two points
-from each ring, irrespective of $r_i/r_j$.
-\end{proof}
-
-The hypothesis is a genuine restriction --- it excludes sets in which some pair of rings
-never meets in a $(2,2)$ line --- but it is satisfied by all four constructions, and a
-pair contributing no $(2,2)$ line forfeits its entire contribution.
-
-\begin{proposition}[Numerical enumeration of $\mathcal F(m,4)$]\label{thm:familyopt}
-For $m=7,9,10,12$ the largest number of $4$-point lines found among members of
-$\mathcal F(m,4)$ with no line of five points is respectively $42,63,70,96$,
-attained by the configurations of Table~\ref{tab:records}. For $m=8,11,13,14$ the
-largest numbers found are $40,77,91,98$, all below the best lower bounds known to us
-for those $n$. For $m=5,6$ the family $\mathcal F(m,4)$ is empty, since
-$\mathcal R_m$ has fewer than four non-zero ratios.
-\end{proposition}
-
-\begin{proof}[Computational evidence]
-By Lemma~\ref{lem:complete} the subfamily in which every pair shares a
-non-diametral $(2,2)$ line is finite; we enumerate it with radii sorted and offsets
-in $\{0,\pi/m\}$. The script \texttt{ring\_family.py} generates the ratio set
-$\mathcal R_m$ in floating point (10-decimal rounding), forms all $\binom{|\mathcal R_m|}{3}$ radius triples, and censuses each member by grouping directions at
-each point modulo $\pi$ with tolerance $10^{-9}$, counting a line only at its
-least-indexed point. The numbers of configurations and the observed maxima are in
-Table~\ref{tab:family}. The four \emph{winning} configurations themselves were
-re-verified in exact arithmetic over $\Q(\cos(\pi/m))$ and, via \texttt{verify.py},
-over $\Q(a)$ for the $s_4$ count; independent $O(n^3)$ determinant censuses on those
-four agree ($42/63/70/96$). The enumeration is therefore numerical evidence, not an
-exact exhaustive proof: a candidate could in principle be misclassified or lost due
-to rounding/tolerance. We state the family maxima as computational observations;
-the certified lower bounds $42,63,70,96$ themselves are exact (Section~\ref{sec:contributions}).
-\end{proof}
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrl}
-\toprule
-$m$ & $n=4m$ & $|\mathcal R_m|$ & configurations & $\max t_4$ & record \\
-\midrule
-5  & 20 & 3  & 0     & ---  & 23 \\
-6  & 24 & 3  & 0     & ---  & 31 \\
-7  & 28 & 7  & 160   & \textbf{42} & 42 \\
-8  & 32 & 7  & 160   & 40   & 48 \\
-9  & 36 & 13 & 1760  & \textbf{63} & 63 \\
-10 & 40 & 13 & 1760  & \textbf{70} & 70 \\
-11 & 44 & 21 & 9120  & 77   & 80 \\
-12 & 48 & 19 & 6528  & \textbf{96} & 96 \\
-13 & 52 & 31 & 32480 & 91   & 106 \\
-14 & 56 & 31 & 32480 & 98   & 119 \\
-\bottomrule
-\end{tabular}
-\caption{Complete enumeration of $\mathcal F(m,4)$. Bold entries are attained by our
-constructions and are therefore optimal in the family. The last column is the best
-lower bound known to us for $s_4(n)$, from \cite{OEISA172992} and, for
-$n=28,36,40,48$, from Table~\ref{tab:records}. Note $|\mathcal R_m|$ counts distinct ratios, including $1$.}
-\label{tab:family}
-\end{table}
-
-\subsection{Why four rings: a cap for even modulus}\label{sec:cap}
-
-The recurrence of exactly four rings in Table~\ref{tab:records} is not a coincidence.
-For even $m$ there is a hard obstruction, independent of the radii.
-
-\begin{theorem}[Ring cap]\label{thm:cap}
-Let $m$ be even and let $S$ be a union of $k$ concentric regular $m$-gons with distinct
-radii and offsets $\varphi_i\in(\pi/m)\Z$. If no line contains five or more points of
-$S$, then $k\le4$.
+\section{The exact at-least-four value for twelve points}\label{sec:twelve}
+\begin{theorem}\label{thm:twelve}
+$T_4(12)=t_4(12)=s_4(12)=7$.
 \end{theorem}
-
 \begin{proof}
-Since $m$ is even, the span $a=m/2$ is available and $\cos(\pi a/m)=0$: each ring
-contains $m/2$ \emph{diameters}, lines through the common centre. A diameter through
-vertex $j$ of ring $i$ has direction $\varphi_i+2\pi j/m$ (its normal is
-$\varphi_i+\pi/2+2\pi j/m$); as unoriented lines the $m/2$ diameters form the set
-$\varphi_i+(2\pi/m)\Z$, and with normals $\varphi_i+\pi/2+(2\pi/m)\Z$.
-Two rings share a diameter iff $\varphi_i\equiv\varphi_j\pmod{2\pi/m}$.
-Because $\varphi_i\in(\pi/m)\Z$, reduction mod $2\pi/m$ leaves exactly two
-classes, $0$ and $\pi/m$, whose diameter sets are disjoint.
+The lower bound $s_4(12)\ge7$ is realized by the integer-coordinate set
+\[
+\begin{gathered}
+(0,0),(42,84),(56,112),(70,70),(84,28),(84,63),\\
+(84,84),(84,168),(96,72),(105,105),(112,84),(126,42).
+\end{gathered}
+\]
+An exact pair-line census gives seven four-point lines and no five-point line; the accompanying script verifies the count. The set is a known integer-contest construction \cite{Contest,OEISreal}. Suppose eight rich lines exist.
 
-If three rings shared a class, their common diameter would contain two points from
-each ring, hence six points of $S$, contradicting the hypothesis. So each class
-holds at most two rings and $k\le4$.
+First suppose a line $\ell$ contains $h\ge5$ points. Select $\ell$ and seven other rich lines. Each other line contains at least three points outside $\ell$, and distinct lines use disjoint pairs of such points. Thus $21\le\binom{12-h}2$. This is impossible for $h\ge6$. If $h=5$, equality holds: each of the seven lines contains exactly three of the seven points outside $\ell$, and every pair of those seven points belongs to one of these triples. The seven points cannot all be collinear, since then those seven lines would coincide. This contradicts Sylvester--Gallai, which requires an ordinary line for a noncollinear real point set.
+
+Now suppose no line contains five points. Select eight four-point lines and let $r_p$ be their degrees. There are $32$ point-line incidences, $r_p\le3$ because each selected line through $p$ uses three other points, and
+\[
+ \sum_{p\in S}\binom{r_p}2\le\binom82=28.
+\]
+Lemma~\ref{lem:balance} gives the opposite bound: the balanced sequence for total degree $32$ consists of eight $3$'s and four $2$'s, with pair sum $8\cdot3+4=28$. Equality forces that sequence, so eight points are incident with exactly three selected lines. Dualizing the eight selected lines gives eight real projective points determining at least eight exactly-three-point lines. This contradicts the classical eight-point orchard bound $t_3(8)=7$ \cite[Table~1]{BGS}; a finite projective configuration may be moved to an affine chart. Hence $T_4(12)\le7$.
 \end{proof}
+\begin{remark}
+Bokowski and Pokora \cite[Corollary~1.7]{BokowskiPokora} derive a related nine-quadruple-point nonrealizability result by pseudoline duality. Their computer classification concerns a different multiplicity pattern. Theorem~\ref{thm:twelve} uses the eight-point triple-line bound in addition to the incidence argument.
+\end{remark}
 
-\begin{corollary}\label{cor:cap}
-For even $m$, every member of $\mathcal F(m,k)$ with $k\ge5$ contains a line of at least
-five points. In particular the constructions at $m=10$ and $m=12$ use the largest number
-of rings permitted by Theorem~\ref{thm:cap}.
-\end{corollary}
-
-Theorem~\ref{thm:cap} was also checked by exhaustion: for $m=6,8,10,12,14$, \emph{every}
-triple of distinct radii from $\mathcal R_m$ placed in a single offset class produces a
-line of at least five points ($1,35,286,969,4495$ triples respectively, with no
-exception). For odd $m$ there are no diameters and the argument fails; indeed valid
-same-class triples exist for $m=7,9,11,13$. Nevertheless the complete enumeration of
-$\mathcal F(m,5)$ and $\mathcal F(m,6)$ for all $m$ with $5m\le60$, resp.\ $6m\le60$,
-found \emph{no} member without a line of five points.
-
-Theorem~\ref{thm:familyopt} and Corollary~\ref{cor:cap} together explain why further brute-force search inside the enumerated subfamily is unlikely to help, and it helps to localise where progress must come from: rings
-of different moduli, or configurations in which some pair of rings shares no $(2,2)$
-line. We pursued both; \S\ref{sec:negative} reports the outcome.
+\section{Exactly verified algebraic constructions}\label{sec:constructions}
+Each entry is a list of points with coordinates in $\Q(a)$, where $a$ is a real root of the monic irreducible polynomial in Table~\ref{tab:records}. The accompanying verifier groups all connecting pairs by their exact line in $\Q(a)$ and checks distinctness, the absence of five-point lines, and the four-point-line count. Irreducibility implies the same equality and inequality tests hold under every real embedding. The verifier also exhibits irrational cross-ratios on four-point lines, which rule out projective equivalence to a rational-coordinate configuration; this is an additional certificate, not a requirement of the present integer contest.
 
 \begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrlrr}
+\centering\small
+\begin{tabular}{rclrr}
 \toprule
-$n$ & $[K:\Q]$ & previous & new & gain & family & $m$ & irr.\ cr. \\
+$n$ & degree & polynomial for $a$ & $t_4(S)$ & integer benchmark \\
 \midrule
-28 & 6 & 39 & \textbf{42} & $+3$ & $k4$-ratio & 7 & 42 \\
-36 & 6 & 59 & \textbf{63} & $+4$ & celestial & 9 & 63 \\
-40 & 8 & 69 & \textbf{70} & $+1$ & celestial & 10 & 65 \\
-48 & 8 & 93 & \textbf{96} & $+3$ & celestial & 12 & 72 \\
+28 & 6 & $a^6-7a^4+14a^2-7$ & 42 & 39\\
+36 & 6 & $a^6-6a^4+9a^2-3$ & 63 & 59\\
+40 & 8 & $a^8-8a^6+19a^4-12a^2+1$ & 70 & 69\\
+48 & 8 & $a^8-8a^6+20a^4-16a^2+1$ & 96 & 93\\
 \bottomrule
 \end{tabular}
-\caption{The four new lower bounds for $s_4(n)$. ``Previous'' is the
-integer-coordinate record of \cite{OEISA172992}, now live at \cite{Contest}
-(Johan Roos where beaten since 2011), also the best value we found in the
-literature. The defining polynomials are $a^6-7a^4+14a^2-7$ ($n=28$),
-$a^6-6a^4+9a^2-3$ ($n=36$), $a^8-8a^6+19a^4-12a^2+1$ ($n=40$), and
-$a^8-8a^6+20a^4-16a^2+1$ ($n=48$). The last column counts $4$-point lines with
-irrational cross-ratio, certifying honesty.}
-\label{tab:records}
+\caption{Certified scores and the integer no-five contest benchmarks as checked in November 2026 \cite{Contest}. The scores prove lower bounds for $s_4(n)$; they are not claimed to be the real maxima.}\label{tab:records}
 \end{table}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.60\textwidth]{figures/fig_N28.pdf}
-\caption{$n=28$, $42$ four-point lines, no line of five. A $k4$-ratio set with $m=7$;
-one radius exceeds $1$, so the outer ring lies far outside the others.
-Here $a^6-7a^4+14a^2-7=0$.}
-\label{fig:28}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.60\textwidth]{figures/fig_N36.pdf}
-\caption{$n=36$, $63$ four-point lines. Celestial set with $m=9$ and
-$a^6-6a^4+9a^2-3=0$. There are no $3$-point lines.}
-\label{fig:36}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.60\textwidth]{figures/fig_N40.pdf}
-\caption{$n=40$, $70$ four-point lines. Celestial set with $m=10$ in a field of degree
-$8$, $a^8-8a^6+19a^4-12a^2+1=0$.}
-\label{fig:40}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.60\textwidth]{figures/fig_N48.pdf}
-\caption{$n=48$, $96$ four-point lines. Celestial set with $m=12$,
-$a^8-8a^6+20a^4-16a^2+1=0$.}
-\label{fig:48}
-\end{figure}
-
-\subsection{Search and verification}
-
-The search proceeded in three stages. For each $m$ and offset pattern we imposed a set
-of desired incidences and solved for the radii symbolically, obtaining a
-zero-dimensional ideal whose real solutions give candidate fields. Each candidate was
-then scored exactly in $K$. Finally, entries were checked for honesty via cross-ratios
-and for root-independence of the count.
-
-We also ran extensive growth and deletion searches: adding a point, deleting a
-minimum-degree point, and closing under these operations. Over $164$ algebraic sources
-and all $50$ integer records these produced \emph{no} further improvement for
-$11\le n\le60$, suggesting the present table is locally optimal for these methods.
-In particular we seeded integer hill-climbing and intersection-based grow/prune
-searches from every ISS integer record ($24\le n\le60$); no move beating the ISS
-score was found, indicating local optimality of that table as well. Where the ISS
-integer score exceeds the algebraic one we adopt it as the entry ($a=0$, degree~$1$),
-so the repository now matches the best known lower bound for every $n$; see
-\texttt{docs/integer\_seeded\_search.md}. For $s_4$ the four celestial values
-remain the strongest honest lower bounds.
-
-\subsection{New approaches tried, and what they gave}\label{sec:negative}
-
-Theorem~\ref{thm:familyopt} closes the four-ring family, so we attacked the three
-remaining openings. We report the outcomes, including the failures, because the
-failures are what justify the structural results above.
-
-\paragraph{Continuous optimisation over many rings (failed).}
-Our first attempt ignored the algebra and treated the radii and offsets as free real
-parameters, hill-climbing the number of $4$-point lines with a soft collinearity
-penalty. Over $96$ ring signatures with $3$ to $6$ rings the best scores obtained were
-between $0$ and $7$, against records of $15$ to $43$. The reason is structural: each
-incidence is a codimension-one condition, so a generic perturbation destroys more
-collinearities than it creates, and the objective is almost everywhere flat. This
-failure is what motivated Proposition~\ref{prop:22}: the conditions must be
-\emph{solved}, not searched.
-
-\paragraph{More than four rings (closed).}
-The complete enumeration of $\mathcal F(m,3)$ for $6\le m\le20$, of $\mathcal F(m,5)$
-for $5\le m\le12$, and of $\mathcal F(m,6)$ for $5\le m\le10$ --- every case with
-$km\le60$ --- produced no configuration beating the records. For $k=3$ the maxima are
-far below the records (e.g.\ $70$ at $n=60$ against $131$). For $k=5,6$ \emph{no}
-member of the family is even admissible: every one contains a line of five points. For
-even $m$ this is forced by Theorem~\ref{thm:cap}; for odd $m$ it is an experimental
-finding, and we do not have a proof.
-
-\paragraph{Rings of different moduli (partial, negative).}
-Dropping the common modulus is a genuine enlargement: a chord of a modulus-$m$ ring has
-normal direction in $\varphi+\pi\Z/m$, so rings of moduli $m$ and $m'$ can share
-directions whenever their offsets differ by an element of
-$\pi\Z/\operatorname{lcm}(m,m')$, and \eqref{eq:linear} becomes
-$r\cos(\pi a/m)=r'\cos(\pi b/m')$. We enumerated two- and three-ring sets with
-$\operatorname{lcm}\le60$ and total size at most $60$, over the combined cosine-ratio
-set and the full offset lattice reduced by each ring's own symmetry. Ten modulus
-multisets were completed --- including $\{15,15,15\}$, $\{12,15,15\}$, $\{10,15,15\}$,
-$\{9,15,15\}$, $\{12,12,15\}$, $\{10,12,15\}$, $\{20,20\}$ and $\{19,19\}$ --- and none
-improved on the record. The search is not exhaustive over all mixed moduli, and we
-regard this as the most promising direction left open.
-
-\paragraph{Where this leaves the table.}
-No method we tried improves Table~\ref{tab:records} within the celestial paradigm.
-Combined with Theorem~\ref{thm:familyopt} and Theorem~\ref{thm:cap}, this is evidence
-that the four values $42,63,70,96$ are the natural ceiling of the construction, and that
-a further advance needs either mixed moduli with large $\operatorname{lcm}$, or a
-configuration outside the celestial class altogether.
-
-\section{The at-least-four variant}\label{sec:atleast4}
-
-\subsection{Four concurrent axes}
-
-Xiang Li \cite{XiangLi} gave the following construction. Place points
-\[
-\Big(\tfrac{1}{3n+x},0\Big),\quad
-\Big(0,\tfrac{1}{n+y}\Big),\quad
-\Big(\tfrac{1}{4n+z},\tfrac{1}{4n+z}\Big),\quad
-\Big(\tfrac{1}{2n+w},-\tfrac{1}{2n+w}\Big)
-\]
-for $x\in A$, $y\in B$, $z\in C$, $w\in D$, where $A,B,C,D$ are integer intervals with
-$|A|+|B|+|C|+|D|=n$. The line through the first two points is
-$(3n+x)X+(n+y)Y=1$; it meets the third axis where the parameter is $x+y$ and the fourth
-where it is $x-y$. Hence
-\begin{equation}\label{eq:transversal}
-\#\{\text{transversals}\}=\#\{(x,y)\in A\times B:\ x+y\in C,\ x-y\in D\},
-\end{equation}
-which for the balanced choice of intervals is $\lfloor(n^2+12)/28\rfloor$ when
-$n\ge28$. All coordinates are rational, so one dilation makes them integral.
-
-The four supporting lines are themselves rich, and in the at-least-four variant they
-count:
-
-\begin{proposition}\label{prop:T4family}
-For $n\ge28$,
-$\displaystyle T_4(n)\ \ge\ \left\lfloor\frac{n^2+12}{28}\right\rfloor+4 .$
+\begin{proposition}\label{prop:records}
+$s_4(28)\ge42$, $s_4(36)\ge63$, $s_4(40)\ge70$, and $s_4(48)\ge96$.
 \end{proposition}
-
 \begin{proof}
-Each axis carries at least four of the points for $n\ge28$, and the transversals of
-\eqref{eq:transversal} are distinct from the axes and from one another.
+The coordinate lists and exact line-census verifier supplied with this draft give the displayed scores with no line of five or more points. Table~\ref{tab:census} gives the complete line-size histograms; the pair-count identity provides an additional consistency check. The computation depends on the supplied code and is a finite certificate, not an assertion of optimality.
 \end{proof}
+\begin{table}[ht]
+\centering\begin{tabular}{rrrrrr}
+\toprule
+$n$ & $t_2$ & $t_3$ & $t_4$ & $t_{\ge5}$ & irrational cross-ratio lines\\
+\midrule
+28&126&0&42&0&42\\
+36&252&0&63&0&63\\
+40&240&40&70&0&65\\
+48&516&12&96&0&72\\
+\bottomrule\end{tabular}
+\caption{Exact verifier output for the four entries.}\label{tab:census}
+\end{table}
 
-\subsection{The case $n=60$}
+The configurations use concentric regular polygons, a shape familiar from the literature on celestial configurations \cite{Berman,Grunbaum}. We claim the stated scores, not novelty of that geometric shape. To avoid a false parity simplification, we record the precise chord test. A chord of the ring with radius $r$, offset $\phi$, modulus $m$, beginning at vertex $j$ and spanning $a$ vertices has signed normal data
+\[
+ \theta=\phi+\frac{\pi(2j+a)}m,\qquad d=r\cos\frac{\pi a}m.
+\]
+Two chords lie on the same line if and only if for some integer $h$, $\theta'=\theta+h\pi$ and $d'=(-1)^h d$. In particular, a shared non-diametral chord forces a ratio of nonzero cosine values, but equal distances alone do not guarantee matching directions. For even $m$, shared diameters impose no condition on radii.
 
-\begin{proposition}\label{prop:T460}
+\begin{theorem}[Restricted even-modulus ring cap]\label{thm:cap}
+Let $m$ be even and let a point set consist of $q$ concentric regular $m$-gons with distinct positive radii and offsets in $(\pi/m)\Z$. If no line contains five points, then $q\le4$.
+\end{theorem}
+\begin{proof}
+Modulo each polygon's rotation symmetry, the offsets fall into two classes. Three rings in the same class share a diameter, which contains six distinct vertices. Each class therefore contains at most two rings.
+\end{proof}
+The earlier numerical ratio-family search is retained as exploratory material in the companion archive. Its tolerance-based counts do not prove family optimality, and no claim is made that every pair of rings in each displayed construction shares a chord.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=.46\textwidth]{figures/fig_N28.pdf}\hfill
+\includegraphics[width=.46\textwidth]{figures/fig_N36.pdf}\\[1ex]
+\includegraphics[width=.46\textwidth]{figures/fig_N40.pdf}\hfill
+\includegraphics[width=.46\textwidth]{figures/fig_N48.pdf}
+\caption{The four certified configurations. The diagrams are visual aids; the exact coordinate files and arithmetic, not the plotted positions, determine the incidence counts.}
+\end{figure}
+
+\section{At least four points: four concurrent axes}\label{sec:axes}
+Following Li \cite{Li}, for $n\ge28$ put
+\[
+s=\left\lfloor\frac{3(n+1)}7\right\rfloor,\quad a=\lfloor s/2\rfloor,\quad b=\lceil s/2\rceil,\quad c=\lfloor(n-s)/2\rfloor,\quad d=\lceil(n-s)/2\rceil,
+\]
+\[
+u=\left\lfloor\frac{s-c-1}2\right\rfloor,\qquad v=\left\lceil\frac{s-d-1}2\right\rceil.
+\]
+Let $A=\{0,\ldots,a-1\}$, $B=\{0,\ldots,b-1\}$, $C=\{u,\ldots,u+c-1\}$, and $D=\{-(b-1)+v,\ldots,-(b-1)+v+d-1\}$. Place respectively
+\[
+\left(\frac1{3n+x},0\right),\quad \left(0,\frac1{n+y}\right),\quad
+\left(\frac1{4n+z},\frac1{4n+z}\right),\quad
+\left(\frac1{2n+w},-\frac1{2n+w}\right)
+\]
+for $x\in A$, $y\in B$, $z\in C$, $w\in D$. Li proves there are $\lfloor(n^2+12)/28\rfloor$ transversals, parameterized by $x+y\in C$ and $x-y\in D$.
+\begin{proposition}\label{prop:li}
+For $n\ge28$, $T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$.
+\end{proposition}
+\begin{proof}
+Li's four intervals each have at least four elements for $n\ge28$. Thus the four supporting axes are rich, distinct from each other and from every transversal. Add them to Li's count.
+\end{proof}
+\begin{proposition}\label{prop:60}
 $T_4(60)\ge133$.
 \end{proposition}
-
 \begin{proof}
-Take $A=B=\{0,\dots,12\}$, $C=\{4,\dots,20\}$, $D=\{-8,\dots,8\}$, i.e.\ denominators
-$180+x$, $60+y$, $240+z$, $120+w$. Then \eqref{eq:transversal} counts
-$169-10-10-20=129$ pairs. An exact census over $\Q$ of all $\binom{60}{2}$ connecting
-lines gives
-\[
-t_2=400,\quad t_3=56,\quad t_4=129,\quad t_{13}=2,\quad t_{17}=2,
-\]
-so $T_4=129+4=133$.
+Take $A=B=\{0,\ldots,12\}$, $C=\{4,\ldots,20\}$ and $D=\{-8,\ldots,8\}$. There are $169-10-10-20=129$ transversals. An exact rational census yields $t_2=400$, $t_3=56$, $t_4=129$, $t_{13}=2$, $t_{17}=2$, and no other lines through at least two points. Hence $T_4=133$. An independent census script is supplied.
 \end{proof}
+The axes carry more than four points, so this construction is not admissible for $s_4$. A restricted numerical search over axis slopes is exploratory only; it establishes no global optimality for the constant $1/28$.
 
-This exceeds the best no-five value at $n=60$ (the integer record $131$). It is
-\emph{not} admissible for $s_4$, since two axes carry $17$ points.
-For $n=59$ the family
-gives $124+4=128$, tying the integer record; for $n<59$ the no-five records are better.
+\section{Reproducibility, limitations and open questions}
+The accompanying files include the four algebraic entries, the exact verifier, and an independent rational census for Proposition~\ref{prop:60}. They derive from the source repository at commit \texttt{a247d4e} \cite{Repository}; this draft and the additional search scripts are supplied separately. The verifier requires Python, SymPy and NumPy. The calculations do not by themselves establish that these are the best real lower bounds in the literature. Theorem~\ref{thm:twelve} relies on the previously published eight-point triple-line upper bound, not a new proof of that classical result.
 
-
-\subsection{Optimality within the family}
-
-The construction generalises: replace the axis directions $(1,0),(0,1),(1,1),(1,-1)$ by
-$(1,0),(0,1),(p_3,q_3),(p_4,q_4)$. A transversal with parameters $(x,y)$ meets the last
-two axes at parameters $p_3x+q_3y$ and $p_4x+q_4y$, so \eqref{eq:transversal} becomes the
-number of lattice points in the convex polygon
-\[
-0\le x\le a,\quad 0\le y\le b,\quad
-0\le p_3x+q_3y-o_3\le c,\quad 0\le p_4x+q_4y-o_4\le d,
-\]
-and the asymptotic constant is its area, maximised subject to $a+b+c+d=1$.
-
-We optimised this over all $231$ pairs of distinct primitive directions with coordinates
-in $[-4,4]$. The maximum is $1/28$, attained by the original slopes $(1,1),(1,-1)$ and by
-the unimodular choices $(1,1),(1,2)$ and $(1,1),(2,1)$; every other pair gives at most
-$1/36$. We also tested whether lattice point sets of other shapes help: disks, squares,
-hexagons and triangles all give only about $n^2/67.7$, far below $n^2/28$.
-
-\begin{problem}
-Is $T_4(n)=\big(\tfrac1{28}+o(1)\big)n^2$, or can the constant be improved?
-Proposition~\ref{prop:classical} gives $1/14$, a factor of two away.
-\end{problem}
-
-\section{Reproducibility}
-
-Every reported lower-bound count (Sections~\ref{sec:constructions} and~\ref{sec:atleast4}) was obtained by exact arithmetic, either in $\Q(a)$ or over $\Q$ after clearing denominators; no floating-point tolerance appears in any \emph{construction} certificate. The family enumeration of Proposition~\ref{thm:familyopt} is numerical evidence as described there, and the asymptotic claims are analytic. The repository
-\begin{center}
-\url{https://github.com/dimkadimon/Orchard}
-\end{center}
-contains the field and scoring libraries, the $50$ entries (algebraic $s_4$ records
-and degree-$1$ integer records adopted where they are best, see
-\texttt{docs/integer\_seeded\_search.md}), the $60$-point $T_4$ certificate,
-the bound computations, the figure scripts, and a verifier that re-derives every
-score from the submitted coordinates. This paper corresponds to commit
-\texttt{a247d4e} of the repository; each entry file lists its
-defining polynomial and all point coordinates, and Appendix~A reproduces the four
-principal $s_4$ certificates verbatim. Corollary~\ref{cor:test} is implemented in
-\texttt{second\_order\_k.py} and was additionally checked against a brute-force
-enumeration of \emph{all} admissible degree sequences for $11\le n\le18$, confirming
-Lemma~\ref{lem:balanced}.
-
-\section{Open problems}
-
-\begin{problem}
-Determine $T_4(12)\in\{7,8\}$, and close the remaining unit gaps at $n=14,15$.
-\end{problem}
-
-\begin{problem}
-Improve the constant $1/14$ in Proposition~\ref{prop:classical} for $k=4$, or show it is
-attained. By \cite{SolymosiStojakovic} no polynomial improvement is possible for
-$s_4$, but the constant is wide open.
-\end{problem}
-
-\begin{problem}
-Does the method extend to a third order, applying Melchior to a still smaller
-sub-arrangement? For $k=4$ the three tests of Corollary~\ref{cor:test} stop binding at
-$n=16$; a genuinely asymptotic improvement would need a new idea.
-\end{problem}
-
-\begin{problem}
-Find an algebraic (honest $s_4$) orchard at $n=24$ exceeding the integer record $31$,
-or prove none exists. The repository now matches the integer record at $n=24$ with a
-degree-$1$ entry; the gap referred to is for honest algebraic $s_4$ configurations.
-\end{problem}
-
-\appendix
-\section{Certificates for the four principal $s_4$ records}
-The four configurations attaining $s_4=42,63,70,96$ are defined over
-$\Q(a)$ with $p(a)$ as listed in Table~\ref{tab:records}. For reproducibility we
-reproduce each entry file verbatim (polynomial and point list) as stored in
-\texttt{entries/N28.txt}, \texttt{N36.txt}, \texttt{N40.txt}, \texttt{N48.txt} at
-the pinned commit. The verifier \texttt{verify.py} recomputes each score
-exactly; each has an irrational cross-ratio on a $4$-point line, certifying
-honesty. Coordinates are omitted here for brevity but are present in the
-repository and in the ancillary files of the arXiv submission.
+It remains open in this account whether $T_4(14)$ is $10$ or $11$, or $T_4(15)$ is $12$ or $13$. Can the asymptotic upper bound $1/14$ for $T_4$ be improved? Can the listed $s_4$ constructions be improved or their cosine-ratio subfamily optimized by a complete exact enumeration? Searching larger or mixed-modulus families is a possibility, not a consequence of an optimality theorem.
 
 \begin{thebibliography}{99}
-
-\bibitem{BermanEtAl}
-L.~W. Berman, G.~G\'evay, J.~Richter-Gebert and S.~Tabachnikov,
-\emph{When Gr\"unbaum meets Poncelet: infinite classes of movable $(n_4)$ configurations},
-arXiv:2408.09203 (2024); Forum of Mathematics, Sigma (2026).
-
-\bibitem{BokowskiPokora}
-J.~Bokowski and P.~Pokora,
-\emph{On the Sylvester--Gallai and the orchard problem for pseudoline arrangements},
-Period.\ Math.\ Hungar.\ (2018); arXiv:1607.05864.
-
-\bibitem{BGS1974}
-S.~A. Burr, B.~Gr\"unbaum and N.~J.~A. Sloane,
-\emph{The orchard problem}, Geometriae Dedicata \textbf{2} (1974), 397--424.
-
-\bibitem{Contest}
-\emph{Orchard Planting}, Infinite Search Space contest,
-\url{https://infinitesearchspace.com/contests/orchard}.
-
-\bibitem{Du2019}
-Z.~H. Du, \emph{Optimal four-point orchards for small $n$}, eMath blog (2019).
-
-\bibitem{Elkies}
-N.~D. Elkies, \emph{On some points-and-lines problems and configurations},
-arXiv:math/0612749 (2006).
-
-\bibitem{Friedman}
-E.~Friedman, \emph{Packing trees in rows},
-\url{https://erich-friedman.github.io/packing/trees/}.
-
-\bibitem{FurediPalasti}
-Z.~F\"uredi and I.~Pal\'asti,
-\emph{Arrangements of lines with a large number of triangles},
-Proc.\ Amer.\ Math.\ Soc.\ \textbf{92} (1984), 561--566.
-
-\bibitem{Gallai1944}
-T.~Gallai, \emph{Solution to problem 4065},
-Amer.\ Math.\ Monthly \textbf{51} (1944), 169--171.
-
-\bibitem{Goodman1980}
-J.~E. Goodman, \emph{Proof of a conjecture of Burr, Gr\"unbaum and Sloane},
-Discrete Math.\ \textbf{32} (1980), 27--35.
-
-\bibitem{GreenTao2013}
-B.~Green and T.~Tao, \emph{On sets defining few ordinary lines},
-Discrete Comput.\ Geom.\ \textbf{50} (2013), 409--468.
-
-\bibitem{GrunbaumBook}
-B.~Gr\"unbaum, \emph{Configurations of Points and Lines},
-Graduate Studies in Mathematics \textbf{103}, Amer.\ Math.\ Soc., 2009.
-
-\bibitem{KellyRottenberg}
-L.~M. Kelly and R.~Rottenberg, \emph{Simple points in pseudoline arrangements},
-Pacific J.\ Math.\ \textbf{40} (1972), 617--622.
-
-\bibitem{MathWorld}
-E.~W. Weisstein, \emph{Orchard-planting problem}, MathWorld,
-\url{https://mathworld.wolfram.com/Orchard-PlantingProblem.html} (accessed Nov.\ 2026).
-
-\bibitem{Melchior1941}
-E.~Melchior, \emph{\"Uber Vielseite der projektiven Ebene},
-Deutsche Math.\ \textbf{5} (1941), 461--475.
-
-\bibitem{OEISA006065}
-OEIS Foundation Inc., \emph{Entry A006065: maximal number of four-point lines},
-\url{https://oeis.org/A006065}.
-
-\bibitem{OEISA172992}
-OEIS Foundation Inc., \emph{Entry A172992: integer four-point orchard records},
-\url{https://oeis.org/A172992}.
-
-\bibitem{Pegg2018}
-E.~Pegg~Jr., \emph{Cultivating New Solutions for the Orchard-Planting Problem}, Wolfram Blog (2 Feb 2018).
-
-\bibitem{Pokora}
-P.~Pokora, \emph{Hirzebruch-type inequalities viewed as tools in combinatorics},
-Electron.\ J.\ Combin.\ \textbf{28} (2021), \#P1.9; arXiv:1808.09167.
-
-\bibitem{SolymosiStojakovic}
-J.~Solymosi and M.~Stojakovi\'c,
-\emph{Many collinear $k$-tuples with no $k+1$ collinear points},
-Discrete Comput.\ Geom.\ (2013); arXiv:1107.0327.
-
-\bibitem{XiangLi}
-X.~Li, \emph{A four-point-line construction for OEIS A172992},
-OEIS attachment \texttt{a172992\_1.pdf} (September 2026).
-
+\bibitem{Berman} L.~W.~Berman, G.~G\'evay, J.~Richter-Gebert and S.~Tabachnikov, When Gr\"unbaum meets Poncelet: infinite classes of movable $(n_4)$ configurations, \emph{Forum Math. Sigma} 14 (2026), e104, \url{https://doi.org/10.1017/fms.2026.10254}.
+\bibitem{Grunbaum} B.~Gr\"unbaum, \emph{Configurations of Points and Lines}, American Mathematical Society, 2009.
+\bibitem{BGS} S.~A. Burr, B.~Gr\"unbaum and N.~J.~A. Sloane, The orchard problem, \emph{Geometriae Dedicata} 2 (1974), 397--424, \url{https://doi.org/10.1007/BF00147569}.
+\bibitem{BokowskiPokora} J.~Bokowski and P.~Pokora, On the Sylvester--Gallai and the orchard problem for pseudoline arrangements, \emph{Period. Math. Hungar.} 77 (2018), 164--174, \url{https://arxiv.org/abs/1607.05864}.
+\bibitem{Contest} Infinite Search Space, Orchard Planting, \url{https://infinitesearchspace.com/contests/orchard}, accessed November 2026.
+\bibitem{Du} Z.~H. Du, Orchard planting problem and small examples, \url{https://emathgroup.github.io/blog/orchard-planting-problem}.
+\bibitem{GreenTao} B.~Green and T.~Tao, On sets defining few ordinary lines, \emph{Discrete Comput. Geom.} 50 (2013), 409--468.
+\bibitem{Li} X.~Li, A construction for a new lower bound for A172992, September 2026, \url{https://oeis.org/A172992/a172992_1.pdf}.
+\bibitem{Melchior} E.~Melchior, \"Uber Vielseite der projektiven Ebene, \emph{Deutsche Math.} 5 (1941), 461--475.
+\bibitem{OEISreal} OEIS Foundation, A006065, \url{https://oeis.org/A006065}.
+\bibitem{OEISint} OEIS Foundation, A172992, \url{https://oeis.org/A172992}.
+\bibitem{Repository} D.~Kamenetsky, Orchard, commit \texttt{a247d4e}, \url{https://github.com/dimkadimon/Orchard/tree/a247d4e}.
+\bibitem{Solymosi} J.~Solymosi and M.~Stojakovi\'c, Many collinear $k$-tuples with no $k+1$ collinear points, \emph{Discrete Comput. Geom.} 50 (2013), 811--820.
 \end{thebibliography}
-
 \end{document}
