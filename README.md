@@ -11,8 +11,11 @@ with **no five collinear** (the strict competition variant), and at-least-four
 lines `T₄`. These are different optimisation problems. The revised paper proves
 `T₄(12) = 7`, using the known eight-point three-line orchard bound, and supplies
 strict constructions with (n, score) = (28,42), (36,63), (40,70), (48,96).
-These four scores exceed the cited integer-coordinate competition scores; this
-comparison does **not** establish new global real-coordinate records.
+A further nested algebraic construction gives strict scores **75, 78, 81, 84, 87**
+for n = **42, 43, 44, 45, 46**, respectively. Each is one above the cited
+integer-coordinate competition score. These comparisons do **not** establish
+new global real-coordinate records; the irrational constructions cannot be
+submitted to the integer-only contest.
 
 For the at-least-four problem, an exact rational census establishes `T₄(60) ≥ 133`.
 That configuration contains long lines and is **not** admissible in the strict
@@ -30,7 +33,7 @@ The files in `docs/` are historical research notes, **not** the revised claims.
 
 See [research/README.md](research/README.md) for methods, seeds, commands,
 comparisons, recorded results and limitations. The new search includes exact
-projective beam search, algebraic-field beam search, two finite-pool/grid MILPs,
+projective beam search, algebraic-field regrowth and multi-step growth beams, two finite-pool/grid MILPs,
 and earlier deletion and extension searches. These searches are incomplete and
 cannot prove that no improvements exist.
 
@@ -39,11 +42,13 @@ python -m pip install numpy sympy scipy
 python verify.py entries/N11.txt entries/N12.txt entries/N13.txt entries/N28.txt entries/N36.txt entries/N40.txt entries/N48.txt
 python verify_rational_censuses.py
 python verify_determinants.py
+python verify.py entries/extended_N{42,43,44,45,46}.txt
+python verify_independent_algebraic.py entries/extended_N{42,43,44,45,46}.txt
 ```
 
-The determinant verifier uses a different line-census method but shares the
-number-field arithmetic implementation; the rational checks use Python
-`Fraction` independently. Generate figures with `make_figures.py` (requires
+The earlier determinant verifier uses a different census but shares number-field
+arithmetic. The new independent algebraic verifier uses separate integer-polynomial
+arithmetic and triple determinants; the rational checks use Python `Fraction`. Generate figures with `make_figures.py` (requires
 matplotlib); compile the manuscript from `paper/` with a LaTeX installation:
 
 ```bash

@@ -20,11 +20,11 @@ For logs marked optimal, numerical HiGHS termination and the exact line enumerat
 
 `python verify.py entries/N11.txt entries/N12.txt entries/N13.txt entries/N28.txt entries/N36.txt entries/N40.txt entries/N48.txt` verifies exact number-field line counts and no-five. `python verify_determinants.py` performs a different determinant-based census for the four large certificates, but shares the field parser and arithmetic. `python verify_rational_censuses.py` independently checks the rational n=12 and n=60 configurations using `Fraction`; the latter has 129 exactly-four lines and four longer axes, hence 133 at-least-four lines.
 
-`slope_opt2.py` fixes the prior lost-offset and empty-initial-state errors, but remains a numerical heuristic. `ring_family.py` uses rounded floats and tolerance-based incidence grouping and cannot establish family completeness or optimality. See the revised manuscript for the counterexample and the conditional even-modulus ring-cap statement. The old `docs/` notes and pre-existing results files are retained as historical material and may contain superseded claims. The seven-page PDF was built from the revised source in the earlier revision workspace and copied here unchanged. The author has not yet approved this AI-assisted revision; independent mathematical review and a fuller novelty audit remain necessary.
+`slope_opt2.py` fixes the prior lost-offset and empty-initial-state errors, but remains a numerical heuristic. `ring_family.py` uses rounded floats and tolerance-based incidence grouping and cannot establish family completeness or optimality. See the revised manuscript for the counterexample and the conditional even-modulus ring-cap statement. The old `docs/` notes and pre-existing results files are retained as historical material and may contain superseded claims. The manuscript PDF was rebuilt from the revised source after the deeper search and figure improvements. The author has not yet approved this AI-assisted revision; independent mathematical review and a fuller novelty audit remain necessary.
 
 ## Recorded outcome of this bounded attempt
 
-No candidate exceeded the pinned comparison scores. In the exact projective beam,
+In the earlier bounded attempt, no candidate exceeded the pinned comparison scores. In its exact projective beam,
 11 runs completed: n=24–29, 35–37, 47, and 60 (the latter used depth 4). These
 runs evaluated 124,220 child states from 2,094,654 proposed points. Runs at
 n=30, 38 and 48 were deliberately interrupted after 3, 1 and 2 completed rounds;
@@ -40,3 +40,77 @@ The grid MILP found scores 25 (7×7, n=24; solver-optimal within that grid), 31
 in the JSON were separately verified by `verify_rational_candidate.py`: all had
 no five collinear and the recorded counts. They did not exceed the pinned baselines.
 All model optimality claims are subject to the numerical solver qualification above.
+
+
+## Deeper search: November 2026
+
+A subsequent algebraic multi-step growth beam found a nested family of exact
+strict configurations, with the first n points of `entries/extended_N46.txt`
+giving n=42,43,44,45,46 and scores 75,78,81,84,87. The previously pinned
+repository/ISS integer no-five benchmarks are 74,77,80,83,86 respectively.
+The coordinates have irrational cross-ratio witnesses and cannot be submitted
+to the integer-only competition. A larger exactly-four count for real coordinates
+has not been ruled out by a literature search; do not claim a global record or
+optimum. In the current OEIS A172992 sequence, which allows long lines, the
+listed integer exactly-four counts at n=42–46 are 72,75,78,80,83, respectively
+(accessed November 2026); those are published lower bounds, not a complete list
+of all possible known constructions.
+
+| n | strict score | t2 | t3 | t4 | irrational cross-ratio lines |
+|--:|--:|--:|--:|--:|--:|
+| 42 | 75 | 297 | 38 | 75 | 70 |
+| 43 | 78 | 324 | 37 | 78 | 73 |
+| 44 | 81 | 349 | 37 | 81 | 76 |
+| 45 | 84 | 384 | 34 | 84 | 79 |
+| 46 | 87 | 420 | 31 | 87 | 82 |
+
+Two independent census implementations agree on these histograms: the original
+`verify.py` and `verify_independent_algebraic.py`. The second parses the trusted
+coordinate polynomials with SymPy, checks irreducibility and a real root, and
+uses its own integer-polynomial quotient arithmetic and triple determinants.
+It does not independently verify cross ratios. Both rely on SymPy for polynomial
+parsing/irreducibility and on trusted input, so neither is a formal proof assistant.
+
+The search starts from `entries/N40.txt` and expands intersections in the same
+number field, pruning numerically but checking every retained child exactly:
+
+```sh
+python beam_algebraic_grow.py --n 40 --steps 3 --width 3 --branch 6 \
+  --pairs32 500 --pairs22 700 --seed 99040 --result research/algebraic_grow/n40.json
+python beam_algebraic_grow.py --n 43 \
+  --entry research/candidates/algebraic_grow_n43_s78_seed99040_25.txt \
+  --steps 5 --width 4 --branch 8 --pairs32 800 --pairs22 1200 --seed 100043 \
+  --result research/algebraic_grow/improved_n43.json
+python verify.py entries/extended_N{42,43,44,45,46}.txt
+python verify_independent_algebraic.py entries/extended_N{42,43,44,45,46}.txt
+```
+
+The seed 99040 42-point candidate is a different 75-line set; the published
+42-point file is the 42-point prefix of the final 46-point candidate, whose
+full ancestry is documented by the n43 and n46 candidate files. The beam
+retains only a small number of states and tests a sample of 3/2 and 2/2
+intersections; no search completeness is asserted.
+
+Additional tests used depth 5, width 12, ten rounds per size and 1000/1200
+intersection samples for projective integer-source delete/regrow beams; the
+`research/deeper_beam` logs identify completed versus interrupted runs. Expanded
+finite candidate-pool MILPs used 100 extra points, six deletions, 16 trials
+and 90 seconds (seeds 97000+n); see `research/deeper_milp/`. Large MILPs that
+reached the time limit did not certify even their finite-pool optimum. The
+algebraic growth logs also cover starting seeds 28,36,40,41,42,48,49 and the
+improved 43- and 46-point sets. All results and incompleteness are recorded in
+the logs and JSON rather than being presented as global impossibility claims.
+
+The manuscript's first figure was redrawn with larger dark dots, white halos,
+light line segments, two configurations per page-width figure, and exact
+incidence lists. It was rebuilt twice with pdfLaTeX; the final log has no
+overfull, float-size, or undefined-reference warnings.
+
+
+The deeper projective beam completed n=24, 28 and 35: 88,200 child
+states from 1,850,924 proposed points, with no improvement; n=39 stopped after
+one completed round (2,940 child states). The remaining scheduled sizes were
+not run. All five expanded finite-pool MILPs (n=28,36,39,49,60) reached the
+90-second limit with open gaps; incumbents were below the input source scores,
+so these runs say nothing useful about optimality. The separate n=46 growth
+run reached 89,92,95 at sizes 47,48,49, below or equal to existing baselines.

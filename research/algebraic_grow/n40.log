@@ -1,0 +1,6 @@
+{"source": 40, "size": 41, "beam_retained": 3, "max_score": 72, "baseline": 72, "counts": {"proposed": 1186, "exact_checks": 6, "valid_children": 6}, "seconds": 6.54}
+NEW algebraic_grow_n42_s75_seed99040_7
+{"source": 40, "size": 42, "beam_retained": 3, "max_score": 75, "baseline": 75, "counts": {"proposed": 4902, "exact_checks": 24, "valid_children": 24}, "seconds": 27.9}
+NEW algebraic_grow_n43_s78_seed99040_25
+{"source": 40, "size": 43, "beam_retained": 3, "max_score": 78, "baseline": 78, "counts": {"proposed": 8547, "exact_checks": 41, "valid_children": 41}, "seconds": 49.39}
+RESULT {"source": 40, "steps": 3, "width": 3, "branch": 6, "pairs32": 500, "pairs22": 700, "seed": 99040, "tol": 1e-08, "reports": [{"source": 40, "size": 41, "beam_retained": 3, "max_score": 72, "baseline": 72, "counts": {"proposed": 1186, "exact_checks": 6, "valid_children": 6}, "seconds": 6.54}, {"source": 40, "size": 42, "beam_retained": 3, "max_score": 75, "baseline": 75, "counts": {"proposed": 4902, "exact_checks": 24, "valid_children": 24}, "seconds": 27.9}, {"source": 40, "size": 43, "beam_retained": 3, "max_score": 78, "baseline": 78, "counts": {"proposed": 8547, "exact_checks": 41, "valid_children": 41}, "seconds": 49.39}], "saved": ["algebraic_grow_n42_s75_seed99040_7", "algebraic_grow_n43_s78_seed99040_25"], "seconds": 49.39}

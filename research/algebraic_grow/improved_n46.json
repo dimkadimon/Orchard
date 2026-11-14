@@ -1,0 +1,54 @@
+{
+  "source": 46,
+  "entry": "research/candidates/algebraic_grow_n46_s87_seed100043_36.txt",
+  "steps": 3,
+  "width": 5,
+  "branch": 12,
+  "pairs32": 1000,
+  "pairs22": 1400,
+  "seed": 100046,
+  "tol": 1e-08,
+  "reports": [
+    {
+      "source": 46,
+      "size": 47,
+      "beam_retained": 5,
+      "max_score": 89,
+      "baseline": 89,
+      "counts": {
+        "proposed": 2093,
+        "exact_checks": 12,
+        "valid_children": 12
+      },
+      "seconds": 31.14
+    },
+    {
+      "source": 46,
+      "size": 48,
+      "beam_retained": 5,
+      "max_score": 92,
+      "baseline": 96,
+      "counts": {
+        "proposed": 12769,
+        "exact_checks": 64,
+        "valid_children": 64
+      },
+      "seconds": 137.03
+    },
+    {
+      "source": 46,
+      "size": 49,
+      "beam_retained": 5,
+      "max_score": 95,
+      "baseline": 97,
+      "counts": {
+        "proposed": 23479,
+        "exact_checks": 121,
+        "valid_children": 121
+      },
+      "seconds": 222.01
+    }
+  ],
+  "saved": [],
+  "seconds": 222.01
+}

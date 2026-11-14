@@ -1,0 +1,19 @@
+{
+  "n": 36,
+  "source": 59,
+  "pool": 136,
+  "pool_lines": 250,
+  "seed": 97036,
+  "extra": 100,
+  "deletions": 6,
+  "trials": 16,
+  "time_limit": 90,
+  "status": 1,
+  "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "solver_fun": -45.00000000000012,
+  "mip_dual_bound": -90.0,
+  "seconds": 96.05,
+  "selected_score": 45,
+  "candidate": null,
+  "baseline": 63
+}

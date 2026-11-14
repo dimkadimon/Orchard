@@ -1,0 +1,10 @@
+OK entries/extended_N42.txt: N=42 score=75 valid=True honest=True deg=8 hist={2: 297, 3: 38, 4: 75}
+OK entries/extended_N43.txt: N=43 score=78 valid=True honest=True deg=8 hist={2: 324, 3: 37, 4: 78}
+OK entries/extended_N44.txt: N=44 score=81 valid=True honest=True deg=8 hist={2: 349, 3: 37, 4: 81}
+OK entries/extended_N45.txt: N=45 score=84 valid=True honest=True deg=8 hist={2: 384, 3: 34, 4: 84}
+OK entries/extended_N46.txt: N=46 score=87 valid=True honest=True deg=8 hist={2: 420, 3: 31, 4: 87}
+entries/extended_N42.txt: N=42 field_degree=8 histogram={2: 297, 3: 38, 4: 75} strict=True
+entries/extended_N43.txt: N=43 field_degree=8 histogram={2: 324, 3: 37, 4: 78} strict=True
+entries/extended_N44.txt: N=44 field_degree=8 histogram={2: 349, 3: 37, 4: 81} strict=True
+entries/extended_N45.txt: N=45 field_degree=8 histogram={2: 384, 3: 34, 4: 84} strict=True
+entries/extended_N46.txt: N=46 field_degree=8 histogram={2: 420, 3: 31, 4: 87} strict=True

@@ -1,0 +1,2 @@
+Two passes of pdflatex -interaction=nonstopmode -halt-on-error orchard.tex from paper/; second pass: Output written on orchard.pdf (8 pages, 318390 bytes).
+Second pass warnings (Overfull, undefined references, or float too large): none

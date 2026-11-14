@@ -14,7 +14,7 @@
 \thanks{Revision draft prepared with AI assistance; author review and approval are required before submission. This draft removes unsupported optimality claims from the earlier manuscript.}
 \begin{document}
 \begin{abstract}
-For $k\ge4$ we apply Melchior's inequality to the nonconcurrent arrangement of lines containing at least $k$ points of a finite real point set. A convexity argument yields a necessary condition on the number of such lines and strengthens the usual pair-count bound in small cases. Combining this idea with the classical eight-point three-line orchard bound gives $T_4(12)=7$, where $T_4$ counts lines with at least four points. We give exactly verified point sets with no five collinear and respectively $42,63,70,96$ four-point lines on $28,36,40,48$ points. These exceed the cited integer-coordinate contest scores, but their optimality among real configurations is not asserted. We also count the four supporting axes in Xiang Li's construction, giving $T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$ for $n\ge28$, and verify $T_4(60)\ge133$.
+For $k\ge4$ we apply Melchior's inequality to the nonconcurrent arrangement of lines containing at least $k$ points of a finite real point set. A convexity argument yields a necessary condition on the number of such lines and strengthens the usual pair-count bound in small cases. Combining this idea with the classical eight-point three-line orchard bound gives $T_4(12)=7$, where $T_4$ counts lines with at least four points. We give exactly verified point sets with no five collinear and respectively $42,63,70,96$ four-point lines on $28,36,40,48$ points, and further constructions with $75,78,81,84,87$ lines on $42,43,44,45,46$ points. These exceed the cited integer-coordinate contest scores, but their optimality among real configurations is not asserted. We also count the four supporting axes in Xiang Li's construction, giving $T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$ for $n\ge28$, and verify $T_4(60)\ge133$.
 \end{abstract}
 \maketitle
 \section{Introduction and notation}
@@ -28,7 +28,7 @@ Thus $s_k(n)\le t_k(n)\le T_k(n)$. The Infinite Search Space integer-coordinate 
 
 For $k=3$, Green and Tao established the sufficiently large-$n$ orchard bound \cite{GreenTao}. For $k=4$, the classical Melchior pair-count bound is $T_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ for $n\ge5$. Li's construction gives order $n^2/28$ for $t_4$ and $T_4$ \cite{Li}; it does not give a strict $s_4$ lower bound because its supporting lines are long. For strict $s_k$, Solymosi and Stojakovi\'c \cite{Solymosi} established the lower bound $n^{2-c/\sqrt{\log n}}$ for sufficiently large $n$, with $c$ depending on $k$.
 
-Our contributions are an application of Melchior to rich lines themselves; the small-case consequences including $T_4(12)=7$; four exact algebraic lower-bound certificates; and the observation that Li's supporting axes add four lines to the at-least-four count. The exact values in small cases were previously reported for the exactly-four variant \cite{OEISreal,Du}; our proofs give upper bounds for the at-least-four variant. The exact $n=12$ argument below uses the previously established three-point orchard bound for eight points \cite[Table~1]{BGS}; we do not claim that the numerical value itself is new to the literature.
+Our contributions are an application of Melchior to rich lines themselves; the small-case consequences including $T_4(12)=7$; nine exact algebraic lower-bound certificates; and the observation that Li's supporting axes add four lines to the at-least-four count. The exact values in small cases were previously reported for the exactly-four variant \cite{OEISreal,Du}; our proofs give upper bounds for the at-least-four variant. The exact $n=12$ argument below uses the previously established three-point orchard bound for eight points \cite[Table~1]{BGS}; we do not claim that the numerical value itself is new to the literature.
 
 \section{A second-order Melchior inequality}\label{sec:bound}
 We work in the real projective plane: any finite affine point set embeds there, and any finite projective set can be moved into an affine chart. For a noncollinear finite set, the pair count and Melchior inequality are
@@ -131,6 +131,11 @@ $n$ & degree & polynomial for $a$ & $t_4(S)$ & integer benchmark \\
 28 & 6 & $a^6-7a^4+14a^2-7$ & 42 & 39\\
 36 & 6 & $a^6-6a^4+9a^2-3$ & 63 & 59\\
 40 & 8 & $a^8-8a^6+19a^4-12a^2+1$ & 70 & 69\\
+42 & 8 & same as $n=40$ & 75 & 74\\
+43 & 8 & same as $n=40$ & 78 & 77\\
+44 & 8 & same as $n=40$ & 81 & 80\\
+45 & 8 & same as $n=40$ & 84 & 83\\
+46 & 8 & same as $n=40$ & 87 & 86\\
 48 & 8 & $a^8-8a^6+20a^4-16a^2+1$ & 96 & 93\\
 \bottomrule
 \end{tabular}
@@ -138,7 +143,7 @@ $n$ & degree & polynomial for $a$ & $t_4(S)$ & integer benchmark \\
 \end{table}
 
 \begin{proposition}\label{prop:records}
-$s_4(28)\ge42$, $s_4(36)\ge63$, $s_4(40)\ge70$, and $s_4(48)\ge96$.
+$s_4(28)\ge42$, $s_4(36)\ge63$, $s_4(40)\ge70$, $s_4(48)\ge96$, and $s_4(n)\ge3n-51$ for $42\le n\le46$.
 \end{proposition}
 \begin{proof}
 The coordinate lists and exact line-census verifier supplied with this draft give the displayed scores with no line of five or more points. Table~\ref{tab:census} gives the complete line-size histograms; the pair-count identity provides an additional consistency check. The computation depends on the supplied code and is a finite certificate, not an assertion of optimality.
@@ -151,12 +156,19 @@ $n$ & $t_2$ & $t_3$ & $t_4$ & $t_{\ge5}$ & irrational cross-ratio lines\\
 28&126&0&42&0&42\\
 36&252&0&63&0&63\\
 40&240&40&70&0&65\\
+42&297&38&75&0&70\\
+43&324&37&78&0&73\\
+44&349&37&81&0&76\\
+45&384&34&84&0&79\\
+46&420&31&87&0&82\\
 48&516&12&96&0&72\\
 \bottomrule\end{tabular}
-\caption{Exact verifier output for the four entries.}\label{tab:census}
+\caption{Exact verifier output for the nine entries.}\label{tab:census}
 \end{table}
 
-The configurations use concentric regular polygons, a shape familiar from the literature on celestial configurations \cite{Berman,Grunbaum}. We claim the stated scores, not novelty of that geometric shape. To avoid a false parity simplification, we record the precise chord test. A chord of the ring with radius $r$, offset $\phi$, modulus $m$, beginning at vertex $j$ and spanning $a$ vertices has signed normal data
+The five constructions with $42\le n\le46$ are nested extensions of the $40$-point entry. The file \texttt{entries/extended\_N46.txt} gives all 46 points over $\Q(a)$, where $a$ is the real root in $(1.97,1.98)$; its first $n$ points give the displayed construction for each $42\le n\le46$. A bounded beam search proposed intersections of existing point-pair lines, and the recorded incidences were checked exactly. A second implementation uses polynomial remainder arithmetic and triple determinants independently of the original field implementation; it agrees on the complete histograms. The coordinate lists are finite computational certificates, not a claim that a full literature search establishes global record novelty. They have irrational cross-ratio witnesses and cannot be submitted to the integer-only contest.
+
+The four original seed configurations use concentric regular polygons, a shape familiar from the literature on celestial configurations \cite{Berman,Grunbaum}. We claim the stated scores, not novelty of that geometric shape. To avoid a false parity simplification, we record the precise chord test. A chord of the ring with radius $r$, offset $\phi$, modulus $m$, beginning at vertex $j$ and spanning $a$ vertices has signed normal data
 \[
  \theta=\phi+\frac{\pi(2j+a)}m,\qquad d=r\cos\frac{\pi a}m.
 \]
@@ -172,11 +184,15 @@ The earlier numerical ratio-family search is retained as exploratory material in
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=.46\textwidth]{figures/fig_N28.pdf}\hfill
-\includegraphics[width=.46\textwidth]{figures/fig_N36.pdf}\\[1ex]
-\includegraphics[width=.46\textwidth]{figures/fig_N40.pdf}\hfill
-\includegraphics[width=.46\textwidth]{figures/fig_N48.pdf}
-\caption{The four certified configurations. The diagrams are visual aids; the exact coordinate files and arithmetic, not the plotted positions, determine the incidence counts.}
+\includegraphics[width=.62\textwidth]{figures/fig_N28.pdf}\\[1ex]
+\includegraphics[width=.62\textwidth]{figures/fig_N36.pdf}
+\caption{The $28$- and $36$-point certified configurations. Dark dots mark the points and light segments mark four-point lines; crossings without a dot are not points of the configuration. The exact coordinate files, rather than the drawings, determine the counts.}\label{fig:configs-a}
+\end{figure}
+\begin{figure}[p]
+\centering
+\includegraphics[width=.62\textwidth]{figures/fig_N40.pdf}\\[1ex]
+\includegraphics[width=.62\textwidth]{figures/fig_N48.pdf}
+\caption{The $40$- and $48$-point certified configurations, with the same conventions as Figure~\ref{fig:configs-a}.}\label{fig:configs-b}
 \end{figure}
 
 \section{At least four points: four concurrent axes}\label{sec:axes}
@@ -209,7 +225,7 @@ Take $A=B=\{0,\ldots,12\}$, $C=\{4,\ldots,20\}$ and $D=\{-8,\ldots,8\}$. There a
 The axes carry more than four points, so this construction is not admissible for $s_4$. A restricted numerical search over axis slopes is exploratory only; it establishes no global optimality for the constant $1/28$.
 
 \section{Reproducibility, limitations and open questions}
-The accompanying files include the four algebraic entries, the exact verifier, and an independent rational census for Proposition~\ref{prop:60}. They derive from the source repository at commit \texttt{a247d4e} \cite{Repository}; this draft and the additional search scripts are supplied separately. The verifier requires Python, SymPy and NumPy. The calculations do not by themselves establish that these are the best real lower bounds in the literature. Theorem~\ref{thm:twelve} relies on the previously published eight-point triple-line upper bound, not a new proof of that classical result.
+The accompanying files include the algebraic entries, two exact census implementations, and an independent rational census for Proposition~\ref{prop:60}. They derive from the source repository at commit \texttt{a247d4e} \cite{Repository}; this draft and the additional search scripts are supplied separately. The verifier requires Python, SymPy and NumPy. The calculations do not by themselves establish that these are the best real lower bounds in the literature. Theorem~\ref{thm:twelve} relies on the previously published eight-point triple-line upper bound, not a new proof of that classical result.
 
 It remains open in this account whether $T_4(14)$ is $10$ or $11$, or $T_4(15)$ is $12$ or $13$. Can the asymptotic upper bound $1/14$ for $T_4$ be improved? Can the listed $s_4$ constructions be improved or their cosine-ratio subfamily optimized by a complete exact enumeration? Searching larger or mixed-modulus families is a possibility, not a consequence of an optimality theorem.
 

@@ -1,0 +1,54 @@
+{
+  "source": 36,
+  "entry": null,
+  "steps": 3,
+  "width": 3,
+  "branch": 6,
+  "pairs32": 500,
+  "pairs22": 700,
+  "seed": 99036,
+  "tol": 1e-08,
+  "reports": [
+    {
+      "source": 36,
+      "size": 37,
+      "beam_retained": 3,
+      "max_score": 63,
+      "baseline": 63,
+      "counts": {
+        "proposed": 497,
+        "exact_checks": 6,
+        "valid_children": 6
+      },
+      "seconds": 4.76
+    },
+    {
+      "source": 36,
+      "size": 38,
+      "beam_retained": 3,
+      "max_score": 64,
+      "baseline": 64,
+      "counts": {
+        "proposed": 2815,
+        "exact_checks": 24,
+        "valid_children": 24
+      },
+      "seconds": 19.77
+    },
+    {
+      "source": 36,
+      "size": 39,
+      "beam_retained": 3,
+      "max_score": 66,
+      "baseline": 67,
+      "counts": {
+        "proposed": 5248,
+        "exact_checks": 42,
+        "valid_children": 42
+      },
+      "seconds": 34.35
+    }
+  ],
+  "saved": [],
+  "seconds": 34.35
+}

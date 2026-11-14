@@ -1,0 +1,2 @@
+{"n": 28, "candidate_pool": 128, "new_points": 100, "possible": 6113, "rich_pool_lines": 275, "variables": 403, "time_limit_s": 90, "seed": 97028}
+RESULT {"n": 28, "source": 39, "pool": 128, "pool_lines": 275, "seed": 97028, "extra": 100, "deletions": 6, "trials": 16, "time_limit": 90, "status": 1, "message": "Time limit reached. (HiGHS Status 13: Time limit reached)", "solver_fun": -32.0, "mip_dual_bound": -79.0, "seconds": 91.85, "selected_score": 32, "candidate": null, "baseline": 42}
