@@ -52,16 +52,20 @@ Consequences for `k = 4`:
 For larger `k` the improvements are bigger: the test beats the classical bound up to
 `n = 25` for `k=5`, `n = 37` for `k=6`, `n = 51` for `k=7`, `n = 67` for `k=8`.
 
-### 2. Six new algebraic lower bounds for `t_4^(5)`
+### 2. Four new algebraic lower bounds for `t_4^(5)`
 
 | n | field degree | previous record | new | gain | family |
 |---:|---:|---:|---:|---:|---|
 | 28 | 6 | 39 | **42** | +3 | k4-ratio, m=7 |
 | 36 | 6 | 59 | **63** | +4 | celestial, m=9 |
-| 37 | 6 | 62 | **63** | +1 | celestial + 1 |
 | 40 | 8 | 69 | **70** | +1 | celestial, m=10 |
 | 48 | 8 | 93 | **96** | +3 | celestial, m=12 |
-| 49 | 8 | 96 | **97** | +1 | celestial + 1 |
+
+These four counts are **proved optimal within their family**: the incidence conditions
+are linear in the radii over a real cyclotomic field, which confines the useful radii to
+a finite set of cosine ratios, and that family can be enumerated completely
+(`ring_family.py`, paper Theorem 5.4). For even `m` at most four rings are possible at all
+(Theorem 5.5). See [`docs/ring_structure.md`](docs/ring_structure.md).
 
 All are four-ring *celestial* sets: four concentric regular `m`-gons with consecutive
 rings offset by half a step, radii chosen in a real number field of degree 6 or 8 so
@@ -94,9 +98,11 @@ much worse, about `n²/67.7`.
 * Four-ring celestial sets are a **known** class of configurations
   (Berman–Gévay–Richter-Gebert–Tabachnikov). Our contribution is the parameter choices
   and the record counts, not the shape.
-* The six lower bounds are new **to the best of our knowledge** after checking OEIS
+* The four lower bounds are new **to the best of our knowledge** after checking OEIS
   A006065 / A172992, Friedman's tables, MathWorld, Du, Pegg, Elkies and the
-  configuration literature. They are not claimed to be optimal.
+  configuration literature. They are, however, proved optimal *within the four-ring cosine-ratio family*
+  (paper, Theorem 5.4), and for even `m` no more than four rings are possible at all
+  (Theorem 5.5).
 
 ## Layout
 
@@ -108,6 +114,7 @@ paper/orchard.tex, orchard.pdf   the paper (LaTeX + compiled PDF)
 paper/figures/                   construction diagrams (PDF + PNG)
 entries/N11.txt … N60.txt        50 exact algebraic submissions
 docs/                            literature audit, novelty assessment, bound tables
+docs/ring_structure.md           the (2,2) mechanism, optimality + ring-cap theorems
 
 algfield.py                      exact arithmetic in Q[a]/p(a)
 orchard.py                       exact scoring, cross-ratios, honesty check
@@ -116,7 +123,11 @@ second_order_full.py             k=4 table
 verify_second_order.py           brute-force check of the majorisation lemma
 validate_theorem.py              inequality vs 100 known configurations
 validate_k.py                    inequality vs 158 grid/pencil/random tests, k=4..8
-make_figures.py                  regenerate the six construction figures
+ring_family.py                   COMPLETE enumeration of the celestial family  ← new
+ring_optimal.py                  ranked + mixed-modulus ring search
+ring_collision.py                chord normal forms and (2,2) pair tables
+multiring_search.py              continuous hill-climb (negative result, kept)
+make_figures.py                  regenerate the four construction figures
 fig_t4b.py                       the T_4(60) parameter-space figure
 atleast4_li.py                   four-axis optimiser, n=11..60
 slope_opt.py, slope_opt2.py      axis-slope family optimisation
@@ -135,7 +146,7 @@ python3 second_order_k.py        # the new bound for k=4..8, with all improvemen
 python3 verify_second_order.py   # exhaustive check: balanced == optimal (n=11..18)
 python3 validate_theorem.py      # 0 violations over 100 configurations
 python3 validate_k.py            # 0 violations over 158 tests, k=4..8
-python3 make_figures.py          # five figures, scores asserted exactly
+python3 make_figures.py          # four figures, scores asserted exactly
 python3 fig_t4b.py               # T_4(60) = 133 certificate + figure
 python3 atleast4_li.py           # four-axis table, n=11..60
 ```

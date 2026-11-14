@@ -57,9 +57,15 @@ arrangements; and improvements at $n=14,15$. The inequality is sharp: the optima
 $13$-point configuration attains equality. Writing $T_4$ for the ``at least four''
 variant, we obtain $T_4(n)=t_4(n)$ at $n=8,9,10,11,13$.
 
-On the constructive side we exhibit six new lower bounds for the no-five-collinear
-variant at $n=28,36,37,40,48,49$, from four-ring \emph{celestial} configurations whose
-radii lie in real number fields of degree $6$ and $8$. Finally we verify
+On the constructive side we exhibit four new lower bounds for the no-five-collinear
+variant at $n=28,36,40,48$, from four-ring \emph{celestial} configurations whose
+radii lie in real number fields of degree $6$ and $8$. We then explain these sets
+structurally: nearly all their four-point lines meet two rings twice each, which makes
+the incidence conditions \emph{linear} in the radii over a real cyclotomic field and
+confines the useful radii to an explicit finite set of cosine ratios. Enumerating that
+family completely, we prove the four counts are \emph{optimal within it}; and we show
+that for even modulus no more than four rings are possible at all, since three rings in
+the same offset class share a diameter carrying six points. Finally we verify
 $T_4(60)\ge133$ and show that the asymptotic constant $1/28$ is optimal within a
 natural family of four-axis constructions. All certificates and verification code are
 public, and are available at \url{https://github.com/dimkadimon/Orchard}.
@@ -96,28 +102,77 @@ invalidates an entry; $T_4$ is the natural ``at least four'' variant. The distin
 matters: constructions with long rows are excellent for $T_4$ but inadmissible for
 $t_4^{(5)}$.
 
-\subsection*{Contributions}
+\section{Contributions}\label{sec:contributions}
 
-\begin{enumerate}
-\item \textbf{A second-order Melchior bound} (Theorem~\ref{thm:secondorder}), valid for
-every $k\ge4$, obtained by applying Melchior's inequality to the arrangement of rich
-lines rather than to the dual of the point set.
-\item \textbf{New exact values by hand} (Corollary~\ref{cor:exact}):
-$t_4(8)=2$, $t_4(9)=3$, $t_4(10)=5$, $t_4(11)=6$, $t_4(13)=9$, together with
-$t_4(12)\le8$, $t_4(14)\le11$, $t_4(15)\le13$. The same values hold for $T_4$ at
-$n=8,9,10,11,13$.
-\item \textbf{Six new algebraic lower bounds} for $t_4^{(5)}$ at $n=28,36,37,40,48,49$
-(Section~\ref{sec:constructions}), with exact coordinates, defining polynomials and
-diagrams.
-\item \textbf{Progress on $T_4$}: $T_4(60)\ge133$, and an optimality result for the
-four-axis family (Section~\ref{sec:atleast4}).
-\end{enumerate}
+The paper has three strands: a new upper-bound argument, new constructions for the
+no-five problem together with a proof that they are optimal within their family, and
+results for the at-least-four variant. We summarise them here and
+indicate where each is proved.
 
-We emphasise what is \emph{not} claimed. The general bound
-$t_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ is classical and is stated, for example, in
-\cite{MathWorld}. The four-ring sets we use have the shape of the known
-\emph{celestial} $(n_4)$ configurations \cite{BermanEtAl,GrunbaumBook}. Our contribution
-is the specific parameter choices and record counts, and the new upper-bound argument.
+\subsection{Upper bounds}
+\begin{itemize}
+\item \textbf{A second-order Melchior inequality} (Theorem~\ref{thm:secondorder}).
+Melchior's inequality is classically applied to the dual of the point set. We apply it
+a second time, to the arrangement formed by the rich lines themselves, obtaining
+$\sum_p w(r_p)\le\binom{L}{2}-3$. The statement holds for every $k\ge4$ and requires
+no hypothesis forbidding long lines, so it bounds $T_k$ as well as $t_k^{(k+1)}$.
+\item \textbf{A closed-form test} (Corollary~\ref{cor:test}). A majorisation
+argument (Lemma~\ref{lem:balanced}) reduces the inequality, the degree cap and the
+pair count to three explicit inequalities in $n,k,L$.
+\item \textbf{Exact values proved by hand} (Corollary~\ref{cor:exact}):
+$t_4(8)=2$, $t_4(9)=3$, $t_4(10)=5$, $t_4(11)=6$, $t_4(13)=9$. These were previously
+known only from exhaustive computer search. The inequality is sharp, the optimal
+$13$-point configuration attaining equality.
+\item \textbf{An elementary replacement for a classification}
+(Corollary~\ref{cor:exact}): $t_4(12)\le8$ follows in two lines, where the published
+proof required enumerating pseudoline arrangements \cite{BokowskiPokora}.
+\item \textbf{Improvements for larger $k$} (Table~\ref{tab:k}): the test beats the
+classical bound up to $n=25,37,51,67$ for $k=5,6,7,8$ respectively.
+\end{itemize}
+
+\subsection{Constructions}
+\begin{itemize}
+\item \textbf{Four new lower bounds for $t_4^{(5)}$} at $n=28,36,40,48$
+(Section~\ref{sec:constructions}, Table~\ref{tab:records}), from four-ring celestial
+sets over real fields of degree $6$ and $8$, with exact coordinates, defining
+polynomials, diagrams and honesty certificates.
+\item \textbf{A structural explanation} of why these sets work
+(Section~\ref{sec:mechanism}): almost all their $4$-point lines meet two rings twice
+each, which turns the incidence conditions into \emph{linear} equations in the radii
+over a real cyclotomic field. This reduces the search to a finite, tractable problem.
+\item \textbf{An optimality theorem for the construction}
+(Theorem~\ref{thm:familyopt}). The linear condition confines the useful radii to an
+explicit finite set of cosine ratios, and we enumerate the resulting family
+\emph{completely}. The four values $42,63,70,96$ are exactly the maxima of that family
+at $m=7,9,10,12$. So these are not merely records found by search: they are the best
+possible within the paradigm, and no amount of further searching inside it can help.
+\item \textbf{A ring cap} (Theorem~\ref{thm:cap}). For even $m$, a union of concentric
+regular $m$-gons with half-step offsets and no five collinear points has at most
+\emph{four} rings, because three rings in the same offset class share a diameter
+carrying six points. Our $m=10$ and $m=12$ constructions therefore use the maximum
+permitted number of rings.
+\end{itemize}
+
+\subsection{The at-least-four variant}
+\begin{itemize}
+\item \textbf{$T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$} for $n\ge28$
+(Proposition~\ref{prop:T4family}), and the exact certificate $T_4(60)\ge133$
+(Proposition~\ref{prop:T460}).
+\item \textbf{An optimality result} (Section~\ref{sec:atleast4}): the constant $1/28$
+is maximal over all $231$ admissible pairs of axis slopes, and grid-shaped point sets
+are far worse.
+\end{itemize}
+
+\subsection{What is not claimed}
+The general bound $t_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ is classical and is stated,
+for example, in \cite{MathWorld}. The four-ring sets we use have the shape of the known
+\emph{celestial} $(n_4)$ configurations \cite{BermanEtAl,GrunbaumBook}, and the
+four-axis construction is due to Xiang Li \cite{XiangLi}. Our contribution is the
+parameter choices and record counts, the structural analysis, and the new upper-bound
+argument. The four lower bounds are proved optimal \emph{within the four-ring
+cosine-ratio family} (Theorem~\ref{thm:familyopt}), but not unconditionally: a better
+configuration outside that family is not excluded, and \S\ref{sec:negative} records
+the searches we ran against the remaining openings.
 
 \section{Prior work}\label{sec:prior}
 
@@ -440,7 +495,7 @@ for $k=8$, $n=30,40,50$.}
 For $k=4$ and $n\ge16$ the three tests never bind, and Proposition~\ref{prop:classical}
 remains the best available. Improving the constant $1/14$ asymptotically is open.
 
-\section{Six new algebraic constructions}\label{sec:constructions}
+\section{Four new algebraic constructions}\label{sec:constructions}
 
 \subsection{Exact arithmetic and the honesty condition}
 
@@ -472,18 +527,210 @@ familiar from \cite{BermanEtAl,GrunbaumBook}. A \emph{$k4$-ratio} variant allows
 radius to exceed $1$, so the rings need not be nested.
 
 Searching over $(m,\boldsymbol\varphi)$ and solving the collinearity conditions exactly
-in the resulting field gave six improvements over the integer records; see
+in the resulting field gave four improvements over the integer records; see
 Table~\ref{tab:records} and Figures~\ref{fig:28}--\ref{fig:48}.
 
-Two entries deserve comment. At $n=36$ the configuration has \emph{no} $3$-point lines,
-so adjoining any further point of $K$ creates no new $4$-point line; we adjoin
-$(a,a)$, giving $37$ points and still $63$ lines, which beats the integer record $62$.
-At $n=48$ there are $12$ three-point lines, and the point
+\subsection{The $(2,2)$ mechanism}\label{sec:mechanism}
+
+The constructions above were found by search, but they are not accidents: they are
+governed by a linear condition that can be written down and then solved. We record it
+here, both because it explains the shape of Table~\ref{tab:records} and because it makes
+the family amenable to a \emph{complete} enumeration (Theorem~\ref{thm:familyopt}).
+
+Write a line in normal form
+$\ell(t,d)=\{x\in\R^2:\ x\cdot(\cos t,\sin t)=d\}$ with $d\ge0$, the pair $(t,d)$ being
+unique after the identification $(t,d)\sim(t+\pi,-d)$. For a ring
+$R(r,\varphi,m)=\{r(\cos(\tfrac{2\pi j}{m}+\varphi),\sin(\tfrac{2\pi j}{m}+\varphi)):0\le j<m\}$
+call the chord joining vertices $j$ and $j+a$ a chord of \emph{span} $a$.
+
+\begin{lemma}[Chord normal form]\label{lem:chord}
+The chord of span $a$ at vertex $j$ of $R(r,\varphi,m)$ lies on $\ell(t,d)$ with
 \[
-\big(1-a-4a^2+4a^3+a^4-a^5,\ \ a+a^3-4a^4+a^6\big)
+d=r\cos\!\Big(\frac{\pi a}{m}\Big),\qquad
+t=\varphi+\frac{\pi(2j+a)}{m},
 \]
-lies on exactly one of them, giving $49$ points and $97$ lines. We do not picture this
-case separately, since it is Figure~\ref{fig:48} together with that single point.
+where $d<0$ is normalised by $(t,d)\mapsto(t+\pi,-d)$. In particular $d$ depends only on
+the span, and $t$ only on $j+a/2$.
+\end{lemma}
+
+\begin{proof}
+The two endpoints subtend a central angle $2\pi a/m$. Their midpoint is at distance
+$r\cos(\pi a/m)$ from the centre, and the perpendicular from the centre to the chord
+points along the bisector of the two vertex angles, whose argument is
+$\varphi+\tfrac{2\pi}{m}\cdot\tfrac{j+(j+a)}{2}=\varphi+\pi(2j+a)/m$. The foot of that
+perpendicular is the midpoint, which gives the stated $(t,d)$.
+\end{proof}
+
+\begin{proposition}[$(2,2)$ criterion]\label{prop:22}
+Let $R_i=R(r_i,\varphi_i,m)$ and $R_j=R(r_j,\varphi_j,m)$ be two rings of the same
+modulus. A line meeting each of them in exactly two points exists if and only if
+\begin{equation}\label{eq:linear}
+\varphi_i-\varphi_j\in\frac{\pi}{m}\Z
+\qquad\text{and}\qquad
+r_i\cos\!\Big(\frac{\pi a}{m}\Big)=r_j\cos\!\Big(\frac{\pi b}{m}\Big)
+\end{equation}
+for some spans $a,b\in\{1,\dots,m-1\}$. The second condition is \emph{linear in the
+radii} over the real cyclotomic field $\Q(\cos(\pi/m))$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:chord} the normal directions available to $R_i$ are
+$\varphi_i+\pi\Z/m$ and those available to $R_j$ are $\varphi_j+\pi\Z/m$; these sets meet
+iff $\varphi_i-\varphi_j\in\pi\Z/m$. Given a common direction, the two chords lie on the
+same line iff their signed distances agree, which is \eqref{eq:linear}. Each chord
+already meets its own ring twice, so the line meets both rings twice.
+\end{proof}
+
+Two consequences make the search finite. First, rotation by $2\pi/m$ fixes each ring, so
+only $\varphi_i-\varphi_j \bmod 2\pi/m$ matters and the relative offsets reduce to the
+two classes $\{0,\pi/m\}$. Second, \eqref{eq:linear} says the useful radius ratios form
+the explicit finite set
+\begin{equation}\label{eq:ratio}
+\mathcal R_m=\Big\{\cos(\pi a/m)\big/\cos(\pi b/m)\ :\ 1\le a,b\le\lfloor m/2\rfloor,\
+\cos(\pi b/m)\ne0\Big\}\subset\Q(\cos(\pi/m)).
+\end{equation}
+The radii in Table~\ref{tab:records} are of exactly this shape: for $m=12$ they are
+$\cos(\pi a/12)/\cos(\pi/12)$ with $a=1,2,3,4$.
+
+Table~\ref{tab:types} shows why this mechanism dominates. Classify a $4$-point line by
+the partition of $4$ recording how many of its points lie on each ring.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & $m$ & $(2,2)$ & $(1,1,1,1)$ & total \\
+\midrule
+28 & 7  & 21 & 21 & 42 \\
+36 & 9  & 54 &  9 & 63 \\
+40 & 10 & 70 &  0 & 70 \\
+48 & 12 & 96 &  0 & 96 \\
+\bottomrule
+\end{tabular}
+\caption{Line types in the four constructions. A $(2,2)$ line meets two rings twice
+each and is therefore controlled by the linear condition \eqref{eq:linear}; a
+$(1,1,1,1)$ line is a transversal meeting all four rings once. For $n=40$ and $n=48$
+\emph{every} $4$-point line is of type $(2,2)$.}
+\label{tab:types}
+\end{table}
+
+\subsection{Optimality within the celestial family}\label{sec:familyopt}
+
+Proposition~\ref{prop:22} lets us replace a continuous search by a finite one, and the
+finite set is small enough to be exhausted. Define
+\[
+\mathcal F(m,k)=\Big\{\,S(m;\mathbf r,\boldsymbol\varphi)\ :\ r_0=1,\
+r_i\in\mathcal R_m,\ \varphi_i\in\{0,\pi/m\},\ r_i\ \text{distinct}\,\Big\}.
+\]
+
+\begin{lemma}[Completeness of the family]\label{lem:complete}
+Let $S$ be a union of $k$ concentric regular $m$-gons with distinct radii, and suppose
+every pair of rings carries at least one $(2,2)$ line. Then $S$ lies in
+$\mathcal F(m,k)$ up to rotation, reflection and scaling.
+\end{lemma}
+
+\begin{proof}
+Scale so that $r_0=1$ and rotate so that $\varphi_0=0$. Applying
+Proposition~\ref{prop:22} to the pair $(R_0,R_i)$ gives
+$r_i\in\mathcal R_m$ and $\varphi_i\in\pi\Z/m$; reducing modulo the ring's own rotational
+symmetry $2\pi/m$ leaves $\varphi_i\in\{0,\pi/m\}$.
+\end{proof}
+
+The hypothesis is a genuine restriction --- it excludes sets in which some pair of rings
+never meets in a $(2,2)$ line --- but it is satisfied by all four constructions, and a
+pair contributing no $(2,2)$ line forfeits its entire contribution.
+
+\begin{theorem}[Optimality in $\mathcal F(m,4)$]\label{thm:familyopt}
+For $m=7,9,10,12$ the maximum number of $4$-point lines over all members of
+$\mathcal F(m,4)$ having no line of five points is respectively $42,63,70,96$, attained
+by the configurations of Table~\ref{tab:records}. For $m=8,11,13,14$ the maxima are
+$40,77,91,98$, all below the best lower bounds known to us for those $n$. For
+$m=5,6$ the family $\mathcal F(m,4)$ is empty, since $\mathcal R_m$ has fewer than four
+elements.
+\end{theorem}
+
+\begin{proof}
+Finite verification. By Lemma~\ref{lem:complete} the family is finite; we enumerate it
+with the radii sorted, since the rings are unordered, and census each member by grouping
+directions at each point modulo $\pi$ with an exact-tolerance rule, counting a line only
+at its least-indexed point. The number of configurations and the resulting maxima are
+given in Table~\ref{tab:family}. The census routine was cross-checked against an
+independent $O(n^3)$ determinant-based census on all four record configurations, and the
+maximising configurations were re-verified in exact arithmetic over
+$\Q(\cos(\pi/m))$. The script is \texttt{ring\_family.py} in the repository.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrl}
+\toprule
+$m$ & $n=4m$ & $|\mathcal R_m|$ & configurations & $\max t_4$ & record \\
+\midrule
+5  & 20 & 3  & 0     & ---  & 23 \\
+6  & 24 & 3  & 0     & ---  & 31 \\
+7  & 28 & 7  & 160   & \textbf{42} & 42 \\
+8  & 32 & 7  & 160   & 40   & 48 \\
+9  & 36 & 13 & 1760  & \textbf{63} & 63 \\
+10 & 40 & 13 & 1760  & \textbf{70} & 70 \\
+11 & 44 & 21 & 9120  & 77   & 80 \\
+12 & 48 & 19 & 6528  & \textbf{96} & 96 \\
+13 & 52 & 31 & 32480 & 91   & 106 \\
+14 & 56 & 31 & 32480 & 98   & 119 \\
+\bottomrule
+\end{tabular}
+\caption{Complete enumeration of $\mathcal F(m,4)$. Bold entries are attained by our
+constructions and are therefore optimal in the family. The last column is the best
+lower bound known to us for $t_4^{(5)}(n)$, from \cite{OEISA172992} and, for
+$n=28,36,40,48$, from Table~\ref{tab:records}. Note $|\mathcal R_m|$ counts distinct ratios, including $1$.}
+\label{tab:family}
+\end{table}
+
+\subsection{Why four rings: a cap for even modulus}\label{sec:cap}
+
+The recurrence of exactly four rings in Table~\ref{tab:records} is not a coincidence.
+For even $m$ there is a hard obstruction, independent of the radii.
+
+\begin{theorem}[Ring cap]\label{thm:cap}
+Let $m$ be even and let $S$ be a union of $k$ concentric regular $m$-gons with distinct
+radii and offsets $\varphi_i\in(\pi/m)\Z$. If no line contains five or more points of
+$S$, then $k\le4$.
+\end{theorem}
+
+\begin{proof}
+Since $m$ is even, the span $a=m/2$ is available and $\cos(\pi a/m)=0$: each ring
+contains $m/2$ \emph{diameters}, lines through the common centre. By
+Lemma~\ref{lem:chord} the diameters of ring $i$ have directions
+\[
+\varphi_i+\frac{\pi}{2}+\frac{2\pi j}{m},\qquad 0\le j<m/2,
+\]
+so as unoriented lines they form the set $\varphi_i+\pi/2+(2\pi/m)\Z$. Two rings share a
+diameter if and only if $\varphi_i\equiv\varphi_j \pmod{2\pi/m}$. Because
+$\varphi_i\in(\pi/m)\Z$, reduction modulo $2\pi/m$ leaves exactly two classes,
+$0$ and $\pi/m$, and by the above the two classes have disjoint diameter sets.
+
+If three rings shared a class, their common diameter would contain two points from each
+ring, hence six points of $S$, contradicting the hypothesis. So each class holds at most
+two rings and $k\le4$.
+\end{proof}
+
+\begin{corollary}\label{cor:cap}
+For even $m$, every member of $\mathcal F(m,k)$ with $k\ge5$ contains a line of at least
+five points. In particular the constructions at $m=10$ and $m=12$ use the largest number
+of rings permitted by Theorem~\ref{thm:cap}.
+\end{corollary}
+
+Theorem~\ref{thm:cap} was also checked by exhaustion: for $m=6,8,10,12,14$, \emph{every}
+triple of distinct radii from $\mathcal R_m$ placed in a single offset class produces a
+line of at least five points ($1,35,286,969,4495$ triples respectively, with no
+exception). For odd $m$ there are no diameters and the argument fails; indeed valid
+same-class triples exist for $m=7,9,11,13$. Nevertheless the complete enumeration of
+$\mathcal F(m,5)$ and $\mathcal F(m,6)$ for all $m$ with $5m\le60$, resp.\ $6m\le60$,
+found \emph{no} member without a line of five points.
+
+Theorem~\ref{thm:familyopt} and Corollary~\ref{cor:cap} together explain why further
+search inside this family is futile, and localise where progress must come from: rings
+of different moduli, or configurations in which some pair of rings shares no $(2,2)$
+line. We pursued both; \S\ref{sec:negative} reports the outcome.
 
 \begin{table}[ht]
 \centering
@@ -493,17 +740,15 @@ $n$ & $[K:\Q]$ & previous & new & gain & family & $m$ & irr.\ cr. \\
 \midrule
 28 & 6 & 39 & \textbf{42} & $+3$ & $k4$-ratio & 7 & 42 \\
 36 & 6 & 59 & \textbf{63} & $+4$ & celestial & 9 & 63 \\
-37 & 6 & 62 & \textbf{63} & $+1$ & celestial$+1$ & 9 & 63 \\
 40 & 8 & 69 & \textbf{70} & $+1$ & celestial & 10 & 65 \\
 48 & 8 & 93 & \textbf{96} & $+3$ & celestial & 12 & 72 \\
-49 & 8 & 96 & \textbf{97} & $+1$ & celestial$+1$ & 12 & 73 \\
 \bottomrule
 \end{tabular}
-\caption{The six new lower bounds for $t_4^{(5)}(n)$. ``Previous'' is the
+\caption{The four new lower bounds for $t_4^{(5)}(n)$. ``Previous'' is the
 integer-coordinate record of \cite{OEISA172992}, also the best value we found in the
 literature. The defining polynomials are $a^6-7a^4+14a^2-7$ ($n=28$),
-$a^6-6a^4+9a^2-3$ ($n=36,37$), $a^8-8a^6+19a^4-12a^2+1$ ($n=40$), and
-$a^8-8a^6+20a^4-16a^2+1$ ($n=48,49$). The last column counts $4$-point lines with
+$a^6-6a^4+9a^2-3$ ($n=36$), $a^8-8a^6+19a^4-12a^2+1$ ($n=40$), and
+$a^8-8a^6+20a^4-16a^2+1$ ($n=48$). The last column counts $4$-point lines with
 irrational cross-ratio, certifying honesty.}
 \label{tab:records}
 \end{table}
@@ -523,14 +768,6 @@ Here $a^6-7a^4+14a^2-7=0$.}
 \caption{$n=36$, $63$ four-point lines. Celestial set with $m=9$ and
 $a^6-6a^4+9a^2-3=0$. There are no $3$-point lines.}
 \label{fig:36}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.60\textwidth]{figures/fig_N37.pdf}
-\caption{$n=37$, $63$ four-point lines: Figure~\ref{fig:36} with the point $(a,a)$
-adjoined. The count is unchanged, but the integer record at $n=37$ is $62$.}
-\label{fig:37}
 \end{figure}
 
 \begin{figure}[ht]
@@ -561,6 +798,51 @@ We also ran extensive growth and deletion searches: adding a point, deleting a
 minimum-degree point, and closing under these operations. Over $164$ algebraic sources
 and all $50$ integer records these produced \emph{no} further improvement for
 $11\le n\le60$, suggesting the present table is locally optimal for these methods.
+
+\subsection{New approaches tried, and what they gave}\label{sec:negative}
+
+Theorem~\ref{thm:familyopt} closes the four-ring family, so we attacked the three
+remaining openings. We report the outcomes, including the failures, because the
+failures are what justify the structural results above.
+
+\paragraph{Continuous optimisation over many rings (failed).}
+Our first attempt ignored the algebra and treated the radii and offsets as free real
+parameters, hill-climbing the number of $4$-point lines with a soft collinearity
+penalty. Over $96$ ring signatures with $3$ to $6$ rings the best scores obtained were
+between $0$ and $7$, against records of $15$ to $43$. The reason is structural: each
+incidence is a codimension-one condition, so a generic perturbation destroys more
+collinearities than it creates, and the objective is almost everywhere flat. This
+failure is what motivated Proposition~\ref{prop:22}: the conditions must be
+\emph{solved}, not searched.
+
+\paragraph{More than four rings (closed).}
+The complete enumeration of $\mathcal F(m,3)$ for $6\le m\le20$, of $\mathcal F(m,5)$
+for $5\le m\le12$, and of $\mathcal F(m,6)$ for $5\le m\le10$ --- every case with
+$km\le60$ --- produced no configuration beating the records. For $k=3$ the maxima are
+far below the records (e.g.\ $70$ at $n=60$ against $131$). For $k=5,6$ \emph{no}
+member of the family is even admissible: every one contains a line of five points. For
+even $m$ this is forced by Theorem~\ref{thm:cap}; for odd $m$ it is an experimental
+finding, and we do not have a proof.
+
+\paragraph{Rings of different moduli (partial, negative).}
+Dropping the common modulus is a genuine enlargement: a chord of a modulus-$m$ ring has
+normal direction in $\varphi+\pi\Z/m$, so rings of moduli $m$ and $m'$ can share
+directions whenever their offsets differ by an element of
+$\pi\Z/\operatorname{lcm}(m,m')$, and \eqref{eq:linear} becomes
+$r\cos(\pi a/m)=r'\cos(\pi b/m')$. We enumerated two- and three-ring sets with
+$\operatorname{lcm}\le60$ and total size at most $60$, over the combined cosine-ratio
+set and the full offset lattice reduced by each ring's own symmetry. Ten modulus
+multisets were completed --- including $\{15,15,15\}$, $\{12,15,15\}$, $\{10,15,15\}$,
+$\{9,15,15\}$, $\{12,12,15\}$, $\{10,12,15\}$, $\{20,20\}$ and $\{19,19\}$ --- and none
+improved on the record. The search is not exhaustive over all mixed moduli, and we
+regard this as the most promising direction left open.
+
+\paragraph{Where this leaves the table.}
+No method we tried improves Table~\ref{tab:records} within the celestial paradigm.
+Combined with Theorem~\ref{thm:familyopt} and Theorem~\ref{thm:cap}, this is evidence
+that the four values $42,63,70,96$ are the natural ceiling of the construction, and that
+a further advance needs either mixed moduli with large $\operatorname{lcm}$, or a
+configuration outside the celestial class altogether.
 
 \section{The at-least-four variant}\label{sec:atleast4}
 

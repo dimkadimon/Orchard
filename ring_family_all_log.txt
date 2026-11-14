@@ -1,0 +1,47 @@
+check m=7: fast=(42, 0) slow=(42, 0) expected=42
+check m=9: fast=(63, 0) slow=(63, 0) expected=63
+check m=10: fast=(70, 0) slow=(70, 0) expected=70
+check m=12: fast=(96, 0) slow=(96, 0) expected=96
+census cross-check OK
+
+m= 7 k=4 n=28: tested    160  max n4= 42  target= 42  OPTIMAL  (0.1s)
+m= 9 k=4 n=36: tested   1760  max n4= 63  target= 63  OPTIMAL  (1.9s)
+m=10 k=4 n=40: tested   1760  max n4= 70  target= 70  OPTIMAL  (2.3s)
+m=12 k=4 n=48: tested   6528  max n4= 96  target= 96  OPTIMAL  (11.2s)
+m= 8 k=4 n=32: tested    160  max n4= 40  target= 48  below  (0.1s)
+m=11 k=4 n=44: tested   9120  max n4= 77  target= 80  below  (13.4s)
+m= 6 k=4 n=24: tested      0  max n4= -1  target= 31  below  (0.0s)
+m= 5 k=4 n=20: tested      0  max n4= -1  target= 23  below  (0.0s)
+m=13 k=4 n=52: tested  32480  max n4= 91  target=106  below  (62.4s)
+m=14 k=4 n=56: tested  32480  max n4= 98  target=119  below  (71.8s)
+m= 6 k=3 n=18: tested      4  max n4= 15  target= 18  below  (0.0s)
+m= 7 k=3 n=21: tested     60  max n4= 21  target= 24  below  (0.0s)
+m= 8 k=3 n=24: tested     60  max n4= 28  target= 31  below  (0.0s)
+m= 9 k=3 n=27: tested    264  max n4= 27  target= 37  below  (0.2s)
+m=10 k=3 n=30: tested    264  max n4= 35  target= 44  below  (0.2s)
+m=11 k=3 n=33: tested    760  max n4= 33  target= 51  below  (0.7s)
+m=12 k=3 n=36: tested    612  max n4= 54  target= 63  below  (0.7s)
+m=13 k=3 n=39: tested   1740  max n4= 39  target= 67  below  (2.1s)
+m=14 k=3 n=42: tested   1740  max n4= 49  target= 74  below  (2.5s)
+m=15 k=3 n=45: tested   2520  max n4= 45  target= 83  below  (3.9s)
+m=16 k=3 n=48: tested   3444  max n4= 56  target= 96  below  (5.8s)
+m=17 k=3 n=51: tested   6160  max n4= 51  target=102  below  (12.1s)
+m=18 k=3 n=54: tested   3784  max n4= 99  target=113  below  (7.9s)
+m=19 k=3 n=57: tested  10224  max n4= 57  target=122  below  (23.3s)
+m=20 k=3 n=60: tested  10224  max n4= 70  target=131  below  (25.0s)
+m= 5 k=5 n=25: tested      0  max n4= -1  target= 32  below  (0.0s)
+m= 6 k=5 n=30: tested      0  max n4= -1  target= 44  below  (0.0s)
+m= 7 k=5 n=35: tested    240  max n4= -1  target= 56  below  (0.2s)
+m= 8 k=5 n=40: tested    240  max n4= -1  target= 70  below  (0.3s)
+m= 9 k=5 n=45: tested   7920  max n4= -1  target= 83  below  (12.0s)
+m=10 k=5 n=50: tested   7920  max n4= -1  target= 99  below  (14.7s)
+m=11 k=5 n=55: tested  77520  max n4= -1  target=116  below  (161.7s)
+m=12 k=5 n=60: tested  48960  max n4= -1  target=131  below  (116.0s)
+m= 5 k=6 n=30: tested      0  max n4= -1  target= 44  below  (0.0s)
+m= 6 k=6 n=36: tested      0  max n4= -1  target= 63  below  (0.0s)
+m= 7 k=6 n=42: tested    192  max n4= -1  target= 74  below  (0.3s)
+m= 8 k=6 n=48: tested    192  max n4= -1  target= 96  below  (0.3s)
+m= 9 k=6 n=54: tested  25344  max n4= -1  target=113  below  (51.5s)
+m=10 k=6 n=60: tested  25344  max n4= -1  target=131  below  (60.2s)
+
+TOTAL IMPROVEMENTS: 0

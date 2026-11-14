@@ -1,0 +1,29 @@
+testing 96 ring signatures
+ms=[4, 4, 8] n=16 best=4 record=15 
+ms=[4, 4, 4, 4] n=16 best=4 record=15 
+ms=[6, 6, 6] n=18 best=3 record=18 
+ms=[4, 8, 8] n=20 best=4 record=23 
+ms=[5, 5, 10] n=20 best=5 record=23 
+ms=[5, 5, 5, 5] n=20 best=5 record=23 
+ms=[4, 4, 4, 8] n=20 best=4 record=23 
+ms=[4, 4, 4, 4, 4] n=20 best=4 record=23 
+ms=[7, 7, 7] n=21 best=0 record=24 
+ms=[8, 8, 8] n=24 best=4 record=29 
+ms=[6, 6, 12] n=24 best=6 record=29 
+ms=[6, 6, 6, 6] n=24 best=6 record=29 
+ms=[4, 4, 8, 8] n=24 best=6 record=29 
+ms=[4, 4, 4, 4, 8] n=24 best=4 record=29 
+ms=[4, 4, 4, 4, 4, 4] n=24 best=0 record=29 
+ms=[5, 10, 10] n=25 best=5 record=32 
+ms=[5, 5, 5, 10] n=25 best=5 record=32 
+ms=[5, 5, 5, 5, 5] n=25 best=5 record=32 
+ms=[9, 9, 9] n=27 best=0 record=37 
+ms=[7, 7, 14] n=28 best=7 record=42 
+ms=[4, 8, 8, 8] n=28 best=6 record=42 
+ms=[7, 7, 7, 7] n=28 best=7 record=42 
+ms=[4, 4, 4, 8, 8] n=28 best=6 record=42 
+ms=[6, 12, 12] n=30 best=6 record=43 
+ms=[10, 10, 10] n=30 best=5 record=43 
+ms=[6, 6, 6, 12] n=30 best=6 record=43 
+ms=[5, 5, 10, 10] n=30 best=5 record=43 
+ms=[5, 5, 5, 5, 10] n=30 best=5 record=43 

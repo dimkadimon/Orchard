@@ -1,0 +1,13 @@
+  mixed [15, 15, 15] n=45 grid=15: 37 radii ratios, target 83
+  mixed [14, 14, 14] n=42 grid=14: 31 radii ratios, target 74
+  mixed [12, 15, 15] n=42 grid=60: 99 radii ratios, target 74
+  mixed [20, 20] n=40 grid=20: 73 radii ratios, target 70
+  mixed [10, 15, 15] n=40 grid=30: 61 radii ratios, target 70
+  mixed [13, 13, 13] n=39 grid=13: 31 radii ratios, target 67
+  mixed [9, 15, 15] n=39 grid=45: 85 radii ratios, target 67
+  mixed [12, 12, 15] n=39 grid=60: 99 radii ratios, target 67
+  mixed [19, 19] n=38 grid=19: 73 radii ratios, target 64
+  mixed [10, 12, 15] n=37 grid=60: 139 radii ratios, target 63
+    deadline
+budget reached
+IMPROVEMENTS: []
