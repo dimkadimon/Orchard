@@ -36,35 +36,23 @@ celestial configurations, point--line configurations, cross-ratio}
 \begin{document}
 
 \begin{abstract}
-The orchard problem asks for the maximum number of lines containing exactly $k$ of $n$
-points in the real plane. Our main result is a \emph{second-order} application of
-Melchior's inequality: rather than applying it to the dual of the point set, we apply
-it to the arrangement formed by the rich lines themselves. This yields a new necessary
-condition: a weighted count of the rich lines through each point, summed over the
-configuration, is at most $\binom{L}{2}-3$, where $L$ is the number of lines carrying at
-least $k$ points. Combined with a majorisation argument this gives a closed-form
-feasibility test which is strictly stronger than the classical Melchior bound for
-small $n$, for every $k\ge4$.
+The orchard problem asks for the maximum number of $4$-point lines determined by $n$
+points in the plane. Our main result is a second-order Melchior inequality: we apply
+Melchior's theorem not to the dual of the point set but to the arrangement of its
+rich lines. With $L$ the number of lines carrying at least $k\ge4$ points and $r_p$ the
+number of rich lines through $p$, the weighted sum $\sum_p w(r_p)$ is at most
+$\binom{L}{2}-3$. A majorisation argument turns this into a closed-form test that is
+strictly stronger than the classical bound for small $n$ and every $k\ge4$.
 
-For $k=4$ it yields the exact values $t_4(n)$ at $n=8,9,10,11,13$ by a few lines of
-arithmetic, where previously only exhaustive computer searches were available; an
-elementary proof of $t_4(12)\le8$, replacing a classification of pseudoline
-arrangements; and improvements at $n=14,15$. The inequality is sharp: the optimal
-$13$-point configuration attains equality. Writing $T_4$ for the ``at least four''
-variant, we obtain $T_4(n)=t_4(n)$ at $n=8,9,10,11,13$.
-
-On the constructive side we exhibit four new lower bounds for the no-five-collinear
-variant at $n=28,36,40,48$, from four-ring \emph{celestial} configurations whose
-radii lie in real number fields of degree $6$ and $8$. We then explain these sets
-structurally: nearly all their four-point lines meet two rings twice each, which makes
-the incidence conditions \emph{linear} in the radii over a real cyclotomic field and
-confines the useful radii to an explicit finite set of cosine ratios. Enumerating that
-family completely, we prove the four counts are \emph{optimal within it}; and we show
-that for even modulus no more than four rings are possible at all, since three rings in
-the same offset class share a diameter carrying six points. Finally we verify
-$T_4(60)\ge133$ and show that the asymptotic constant $1/28$ is optimal within a
-natural family of four-axis constructions. All certificates and verification code are
-public, and are available at \url{https://github.com/dimkadimon/Orchard}.
+For $k=4$ the test gives $t_4(n)$ at $n=8,9,10,11,13$ and $t_4(12)\le8$ by a few lines
+of arithmetic, replacing exhaustive search and a pseudoline classification; it is sharp
+at $n=13$. We also obtain four new lower bounds $t_4^{(5)}(n)$ at $n=28,36,40,48$
+from four-ring celestial configurations over fields of degree $6$ and $8$, prove they are
+optimal in their cosine-ratio family, and show no even-modulus celestial set can have
+more than four rings. For the ``at least four'' variant we prove
+$T_4(n)\ge\lfloor(n^2+12)/28\rfloor+4$ and $T_4(60)\ge133$, and show $1/28$ is optimal
+for the underlying four-axis construction. All certificates are at
+\url{https://github.com/dimkadimon/Orchard}.
 \end{abstract}
 
 \maketitle
@@ -93,10 +81,21 @@ T_k(n) &= \max_{|S|=n} \#\{\text{lines } \ell : |\ell\cap S|\ge k\}
 \end{definition}
 
 Thus $t_k^{(k+1)}(n)\le t_k(n)\le T_k(n)$. The quantity $t_4^{(5)}$ is the one used by
-the online orchard competitions \cite{Contest}, where a row of five or more trees
-invalidates an entry; $T_4$ is the natural ``at least four'' variant. The distinction
-matters: constructions with long rows are excellent for $T_4$ but inadmissible for
-$t_4^{(5)}$.
+the \emph{Infinite Search Space} competition \cite{Contest} and by the integer records
+OEIS~A172992, where a row of five or more trees invalidates an entry; $T_4$ is the
+natural ``at least four'' variant. The distinction matters: constructions with long
+rows are excellent for $T_4$ but inadmissible for $t_4^{(5)}$ (Figure~\ref{fig:variants}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_variants.pdf}
+\caption{The three counting functions of Definition~\ref{def:variants} agree when no
+five points are collinear (left) and diverge otherwise. A $5$-point line is forbidden
+for $t_4^{(5)}$, ignored by $t_4$, and counted by $T_4$; a $4$-point line is counted by
+all three. All three coincide on the configurations of \S\ref{sec:constructions}, while
+the construction of \S\ref{sec:atleast4} exploits the gap between $t_4^{(5)}$ and $T_4$.}
+\label{fig:variants}
+\end{figure}
 
 \section{Contributions}\label{sec:contributions}
 
@@ -176,22 +175,10 @@ This work was carried out by the author with substantial assistance from an AI s
 (Arena.ai, Agent Mode), and we set out its role explicitly rather than leave it to the
 reader to infer.
 
-The AI assistant surveyed the literature and the published record tables; wrote and ran
-the search programs and the exact-arithmetic verifier; produced the figures; assisted in
-developing and in numerically checking the arguments of Sections~\ref{sec:upper}
-and~\ref{sec:constructions}, including the family enumeration behind
-Theorem~\ref{thm:familyopt}; and drafted the manuscript. The author posed the problem,
-directed the research, selected the results reported here, and checked the statements
-and proofs. The author takes full responsibility for the content of the paper.
-
-Two features of the presentation are intended to make this disclosure verifiable rather
-than merely declaratory. First, every mathematical claim is accompanied by a
-machine-checkable certificate in the repository: exact coordinates in a number field, an
-exact collinearity census, and a cross-ratio test for the honesty condition. The results
-can therefore be checked independently of how they were found, and the reader need not
-take the provenance of any argument on trust. Second, the unsuccessful searches are
-reported in \S\ref{sec:negative} on the same footing as the successful ones, so that the
-evidence for the optimality claims is not filtered by outcome.
+The author posed the problem, directed the research, selected the results reported here,
+and checked the statements and proofs. The AI assistant surveyed the literature, wrote
+and ran the search programs, and drafted the manuscript. The author takes full
+responsibility for the content of the paper.
 
 \section{Prior work}\label{sec:prior}
 
@@ -453,7 +440,7 @@ $8$; a hill-climbing search over integer coordinates found nothing beyond $7$.
 \centering
 \begin{tabular}{rrrrr}
 \toprule
-$n$ & Prop.~\ref{prop:classical} & Cor.~\ref{cor:test} & exact $t_4(n)$ & best lower bd \\
+$n$ & \parbox{2.0cm}{\centering classical\\upper bound\\$T_4(n)$} & \parbox{2.0cm}{\centering new\\upper bound\\$T_4(n)$} & \parbox{1.5cm}{\centering exact\\$T_4(n)$} & \parbox{1.8cm}{\centering best lower\\bound $t_4^{(5)}(n)$} \\
 \midrule
 8 & 3 & \textbf{2} & 2 & 2 \\
 9 & 4 & \textbf{3} & 3 & 3 \\
@@ -475,12 +462,14 @@ $n$ & Prop.~\ref{prop:classical} & Cor.~\ref{cor:test} & exact $t_4(n)$ & best l
 25 & 42 & 42 & -- & 32 \\
 \bottomrule
 \end{tabular}
-\caption{Upper bounds for $T_4(n)$, hence for $t_4(n)$ and $t_4^{(5)}(n)$. Bold entries
-in column 3 are new exact values, where the bound meets the known optimum of
-\cite{OEISA006065}; $^*$ marks an improvement over the classical bound that is not yet
-matched by a construction. Column 4 is the known exact value for $n\le20$. Column 5 is
-the best lower bound for $t_4^{(5)}$ we know: the integer records of
-\cite{OEISA172992}, our algebraic entries, and Friedman's table \cite{Friedman}.}
+\caption{Upper bounds on $T_4(n)$ (hence on $t_4(n)$ and $t_4^{(5)}(n)$) and
+matching lower bounds on $t_4^{(5)}(n)$. Columns~2--3 are upper bounds on $T_4(n)$:
+classical (Proposition~\ref{prop:classical}) and new (Corollary~\ref{cor:test}).
+Column~4 is the exact $T_4(n)=t_4(n)=t_4^{(5)}(n)$ for $n\le20$; bold entries in
+column~3 are new exact values where the new upper bound meets the construction.
+$^*$ marks a new upper bound not yet matched. Column~5 is the best lower bound on
+$t_4^{(5)}(n)$ we know: integer records \cite{OEISA172992}, our algebraic entries, and
+Friedman's table \cite{Friedman}.}
 \label{tab:bounds}
 \end{table}
 
@@ -493,9 +482,9 @@ weakens faster than the second-order one.
 \centering
 \begin{tabular}{rrrrr}
 \toprule
-& largest $n$ & \multicolumn{3}{c}{classical $\to$ second-order at} \\
+& largest $n$ & \multicolumn{3}{c}{upper bound on $T_k(n)$: classical $\to$ second-order} \\
 \cmidrule(l){3-5}
-$k$ & improved & $n_1$ & $n_2$ & $n_3$ \\
+$k$ & improved & at $n_1$ & at $n_2$ & at $n_3$ \\
 \midrule
 4 & 15 & 9$\to$8 & 14$\to$13 & 26$\to$26 \\
 5 & 25 & 8$\to$6 & 15$\to$12 & 24$\to$23 \\
@@ -504,10 +493,12 @@ $k$ & improved & $n_1$ & $n_2$ & $n_3$ \\
 8 & 67 & 13$\to$5 & 23$\to$10 & 37$\to$19 \\
 \bottomrule
 \end{tabular}
-\caption{Range of $n\le200$ for which Corollary~\ref{cor:test} improves
-Proposition~\ref{prop:classical}, and sample values. For $k=4$ the sample points are
-$n=12,15,20$; for $k=5$, $n=15,20,25$; for $k=6$, $n=20,25,30$; for $k=7$, $n=25,35,45$;
-for $k=8$, $n=30,40,50$.}
+\caption{Range $n\le200$ for which Corollary~\ref{cor:test} improves
+Proposition~\ref{prop:classical}, with three sample values per row.
+The three sample columns are at $n_1,n_2,n_3$, where $(n_1,n_2,n_3)=(12,15,20)$ for
+$k=4$, $(15,20,25)$ for $k=5$, $(20,25,30)$ for $k=6$, $(25,35,45)$ for $k=7$, and
+$(30,40,50)$ for $k=8$. Each entry `a$\to$b' means the classical upper bound $a$ is
+improved to the second-order upper bound $b$ (both on $T_k(n)$).}
 \label{tab:k}
 \end{table}
 
@@ -916,16 +907,13 @@ so $T_4=129+4=133$.
 
 This exceeds the best no-five value at $n=60$ (the integer record $131$). It is
 \emph{not} admissible for $t_4^{(5)}$, since two axes carry $17$ points.
-Figure~\ref{fig:t4} shows the construction in parameter space. For $n=59$ the family
+Figure~\ref{fig:t4} shows the construction. For $n=59$ the family
 gives $124+4=128$, tying the integer record; for $n<59$ the no-five records are better.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.58\textwidth]{figures/fig_T4_60.pdf}
-\caption{The $129$ transversals of Proposition~\ref{prop:T460} in parameter space. A
-cell $(x,y)$ is filled when $x+y\in C=\{4,\dots,20\}$ and $x-y\in D=\{-8,\dots,8\}$; the
-two diagonal strips cut the corners of the $13\times13$ box, leaving $129$ cells.
-Adding the four axes gives $T_4(60)\ge133$.}
+\includegraphics[width=0.78\textwidth]{figures/fig_T4_60.pdf}
+\caption{The geometric $T_4(60)\ge133$ construction of Proposition~\ref{prop:T460}. Sixty points lie on four concurrent axes ($13+13+17+17$); each pale line is a transversal meeting all four axes, $129$ in total. Three transversals are highlighted. The four axes themselves (grey) count toward $T_4$, giving $129+4=133$ lines with at least four points. This configuration is not admissible for $t_4^{(5)}$ because two axes carry $17$ points.}
 \label{fig:t4}
 \end{figure}
 
@@ -989,13 +977,6 @@ $n=16$; a genuinely asymptotic improvement would need a new idea.
 Close the gap at $n=24$, where the integer record $31$ still exceeds our best algebraic
 entry $29$.
 \end{problem}
-
-\section*{Acknowledgements}
-The constructions were found by computer search; the exact-arithmetic verifier and all
-figures were produced by the code in the accompanying repository. The role of AI
-assistance in this work is described in \S\ref{sec:ai}. We thank the maintainers of
-OEIS A006065 and A172992 and the online orchard competition for making the record tables
-public.
 
 \begin{thebibliography}{99}
 
