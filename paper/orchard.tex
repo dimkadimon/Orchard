@@ -808,6 +808,13 @@ We also ran extensive growth and deletion searches: adding a point, deleting a
 minimum-degree point, and closing under these operations. Over $164$ algebraic sources
 and all $50$ integer records these produced \emph{no} further improvement for
 $11\le n\le60$, suggesting the present table is locally optimal for these methods.
+In particular we seeded integer hill-climbing and intersection-based grow/prune
+searches from every ISS integer record ($24\le n\le60$); no move beating the ISS
+score was found, indicating local optimality of that table as well. Where the ISS
+integer score exceeds the algebraic one we adopt it as the entry ($a=0$, degree~$1$),
+so the repository now matches the best known lower bound for every $n$; see
+\texttt{docs/integer\_seeded\_search.md}. For $t_4^{(5)}$ the four celestial values
+remain the strongest honest lower bounds.
 
 \subsection{New approaches tried, and what they gave}\label{sec:negative}
 
