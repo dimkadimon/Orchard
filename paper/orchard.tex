@@ -81,8 +81,11 @@ T_k(n) &= \max_{|S|=n} \#\{\text{lines } \ell : |\ell\cap S|\ge k\}
 \end{definition}
 
 Thus $t_k^{(k+1)}(n)\le t_k(n)\le T_k(n)$. The quantity $t_4^{(5)}$ is the one used by
-the \emph{Infinite Search Space} competition \cite{Contest} and by the integer records
-OEIS~A172992, where a row of five or more trees invalidates an entry; $T_4$ is the
+the \emph{Infinite Search Space} competition \cite{Contest} (live tables at
+\url{https://infinitesearchspace.com/contests/orchard}; By-Satellite/By-Lantern
+boards, Johan Roos leading By-Satellite with 131 at $n=60$ as of Nov.~2026) and by
+the integer records OEIS~A172992, where a row of five or more trees invalidates an
+entry; $T_4$ is the
 natural ``at least four'' variant. The distinction matters: constructions with long
 rows are excellent for $T_4$ but inadmissible for $t_4^{(5)}$ (Figure~\ref{fig:variants}).
 
@@ -130,7 +133,11 @@ classical bound up to $n=25,37,51,67$ for $k=5,6,7,8$ respectively.
 \item \textbf{Four new lower bounds for $t_4^{(5)}$} at $n=28,36,40,48$
 (Section~\ref{sec:constructions}, Table~\ref{tab:records}), from four-ring celestial
 sets over real fields of degree $6$ and $8$, with exact coordinates, defining
-polynomials, diagrams and honesty certificates.
+polynomials, diagrams and honesty certificates. These beat the whole-number records
+live at \cite{Contest} (Johan Roos, Nov.~2026) at those $n$, and together with the
+degree-$4$/$6$ entries at $n=16,17,18,22,37,49$ they beat the live By-Satellite
+ integer table at ten sizes; elsewhere we match it, so the repository attains the
+best known lower bound for every $11\le n\le60$.
 \item \textbf{A structural explanation} of why these sets work
 (Section~\ref{sec:mechanism}): almost all their $4$-point lines meet two rings twice
 each, which turns the incidence conditions into \emph{linear} equations in the radii
@@ -468,7 +475,8 @@ classical (Proposition~\ref{prop:classical}) and new (Corollary~\ref{cor:test}).
 Column~4 is the exact $T_4(n)=t_4(n)=t_4^{(5)}(n)$ for $n\le20$; bold entries in
 column~3 are new exact values where the new upper bound meets the construction.
 $^*$ marks a new upper bound not yet matched. Column~5 is the best lower bound on
-$t_4^{(5)}(n)$ we know: integer records \cite{OEISA172992}, our algebraic entries, and
+$t_4^{(5)}(n)$ we know: integer records \cite{OEISA172992} (now mirrored live at
+\cite{Contest}, Johan Roos 131 at $n=60$), our algebraic entries, and
 Friedman's table \cite{Friedman}.}
 \label{tab:bounds}
 \end{table}
@@ -537,7 +545,8 @@ familiar from \cite{BermanEtAl,GrunbaumBook}. A \emph{$k4$-ratio} variant allows
 radius to exceed $1$, so the rings need not be nested.
 
 Searching over $(m,\boldsymbol\varphi)$ and solving the collinearity conditions exactly
-in the resulting field gave four improvements over the integer records; see
+in the resulting field gave four improvements over the whole-number integer
+records live at \cite{Contest} (hence over \cite{OEISA172992}); see
 Table~\ref{tab:records} and Figures~\ref{fig:28}--\ref{fig:48}.
 
 \subsection{The $(2,2)$ mechanism}\label{sec:mechanism}
@@ -755,7 +764,8 @@ $n$ & $[K:\Q]$ & previous & new & gain & family & $m$ & irr.\ cr. \\
 \bottomrule
 \end{tabular}
 \caption{The four new lower bounds for $t_4^{(5)}(n)$. ``Previous'' is the
-integer-coordinate record of \cite{OEISA172992}, also the best value we found in the
+integer-coordinate record of \cite{OEISA172992}, now live at \cite{Contest}
+(Johan Roos where beaten since 2011), also the best value we found in the
 literature. The defining polynomials are $a^6-7a^4+14a^2-7$ ($n=28$),
 $a^6-6a^4+9a^2-3$ ($n=36$), $a^8-8a^6+19a^4-12a^2+1$ ($n=40$), and
 $a^8-8a^6+20a^4-16a^2+1$ ($n=48$). The last column counts $4$-point lines with
@@ -1002,8 +1012,10 @@ S.~A. Burr, B.~Gr\"unbaum and N.~J.~A. Sloane,
 \emph{The orchard problem}, Geometriae Dedicata \textbf{2} (1974), 397--424.
 
 \bibitem{Contest}
-\emph{Orchard-planting competition}, online record tables for the algebraic and integer
-variants, \url{https://www.azspcs.net}.
+\emph{Orchard Planting}, Infinite Search Space contest, live record tables for the
+whole-number (integer) variant and archive of the 2011 algebraic competition,
+\url{https://infinitesearchspace.com/contests/orchard} (records as of Nov.~2026
+show Johan Roos leading the By-Satellite board with 131 at $n=60$).
 
 \bibitem{Du2019}
 Z.~H. Du, \emph{Optimal four-point orchards for small $n$}, eMath blog (2019).
