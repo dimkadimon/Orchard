@@ -426,8 +426,11 @@ $\Sigma_w=12\cdot3=36>\binom{9}{2}-3=33$. Hence $T_4(12)\le8$.
 \begin{remark}
 The case $T_4(12)\le8$ is equivalent to the non-existence of an arrangement of $12$
 pseudolines with $9$ quadruple and $12$ double points, proved by Bokowski and Pokora
-\cite[Cor.~1.7]{BokowskiPokora} via an exhaustive sweeping argument; that arrangement is
-the dual of the Hesse configuration. Corollary~\ref{cor:exact} gives a short counting alternative to the pseudoline dual argument of Bokowski and Pokora~\cite[Cor.~1.7]{BokowskiPokora}; their computational sweeping/classification result concerns a different parameter set (19 triple and 9 double points) \cite[Table~1]{BokowskiPokora}. We do not know whether $T_4(12)$ is $7$ or $8$; a hill-climbing search over integer coordinates found nothing beyond $7$.
+\cite[Cor.~1.7]{BokowskiPokora} via pseudoline duality. Their computational
+sweeping/classification result concerns a different parameter set (19 triple and 9
+double points) \cite[Table~1]{BokowskiPokora}; Corollary~\ref{cor:exact} gives a short
+counting proof of the former. We do not know whether $T_4(12)$ is $7$ or $8$; a
+hill-climbing search over integer coordinates found nothing beyond $7$.
 \label{rem:12}
 \end{remark}
 
@@ -1002,7 +1005,7 @@ and degree-$1$ integer records adopted where they are best, see
 \texttt{docs/integer\_seeded\_search.md}), the $60$-point $T_4$ certificate,
 the bound computations, the figure scripts, and a verifier that re-derives every
 score from the submitted coordinates. This paper corresponds to commit
-\texttt{6074d4d} (and later revisions) of the repository; each entry file lists its
+\texttt{a247d4e} of the repository; each entry file lists its
 defining polynomial and all point coordinates, and Appendix~A reproduces the four
 principal $s_4$ certificates verbatim. Corollary~\ref{cor:test} is implemented in
 \texttt{second\_order\_k.py} and was additionally checked against a brute-force
