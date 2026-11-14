@@ -172,10 +172,6 @@ the searches we ran against the remaining openings.
 
 \subsection{Contribution of AI assistance}\label{sec:ai}
 
-This work was carried out by the author with substantial assistance from an AI system
-(Arena.ai, Agent Mode), and we set out its role explicitly rather than leave it to the
-reader to infer.
-
 The author posed the problem, directed the research, selected the results reported here,
 and checked the statements and proofs. The AI assistant surveyed the literature, wrote
 and ran the search programs, and drafted the manuscript. The author takes full
@@ -506,6 +502,29 @@ improved to the second-order upper bound $b$ (both on $T_k(n)$).}
 
 For $k=4$ and $n\ge16$ the three tests never bind, and Proposition~\ref{prop:classical}
 remains the best available. Improving the constant $1/14$ asymptotically is open.
+Figure~\ref{fig:kbounds} shows the effect for $k=5,6,7,8$: the shaded gap is the
+strict improvement of Corollary~\ref{cor:test} over the classical bound.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_k_bounds.pdf}
+\caption{Upper bounds on $T_k(n)$ for $k=5,6,7,8$. Dashed grey: classical
+Proposition~\ref{prop:classical}; solid colour: second-order
+Corollary~\ref{cor:test}. Shading marks the strict improvement; the largest
+percentage gain grows with $k$ (e.g. $k=8$, $n=50$: $37\to19$, $49\%$).
+The range where the new bound binds is $n\le25,37,51,67$ respectively
+(Table~\ref{tab:k}).}
+\label{fig:kbounds}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/fig_k_gain.pdf}
+\caption{Gain $\Delta(n)=$ classical $-$ new for $k=5,6,7,8$ as a function of $n$.
+The peak $\Delta$ moves to larger $n$ and grows roughly like $n^2/(4k^2)$,
+illustrating why the classical bound weakens faster than the second-order one.}
+\label{fig:kgain}
+\end{figure}
 
 \section{Four new algebraic constructions}\label{sec:constructions}
 

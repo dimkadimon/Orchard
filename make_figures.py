@@ -53,7 +53,7 @@ def make(N,label,fname,expected):
     ax.plot(P[:,0],P[:,1],'o',ms=3.0,mfc='#111111',mec='white',mew=0.4,zorder=3)
     ax.set_aspect('equal'); ax.set_xticks([]); ax.set_yticks([])
     for s in ax.spines.values(): s.set_visible(False)
-    ax.set_title(f'$N={N}$,  $t_4^{{(5)}}\\geq {sc}$',fontsize=11,pad=6)
+    ax.set_title(f'$N={N}$,  $s_4\\geq {sc}$',fontsize=11,pad=6)
     ax.margins(0.06)
     fig.tight_layout(pad=0.4)
     fig.savefig(f'paper/figures/{fname}.pdf',bbox_inches='tight')
