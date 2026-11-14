@@ -175,6 +175,20 @@ prior reference, please open an issue — we would like to cite it.
 }
 ```
 
+## AI assistance
+
+This work was carried out by Dmitry Kamenetsky with substantial assistance from an AI
+system (Arena.ai, Agent Mode). The AI assistant surveyed the literature and record
+tables, wrote and ran the search and exact-arithmetic verification code, produced the
+figures, assisted in developing and numerically checking the arguments, and drafted the
+manuscript. The author posed the problem, directed the research, selected the results,
+checked the statements and proofs, and takes full responsibility for the content.
+
+Every claim here ships with a machine-checkable certificate — exact coordinates in a
+number field, an exact collinearity census, and a cross-ratio honesty test — so results
+can be verified independently of how they were found. Failed searches are reported
+alongside successful ones (`docs/ring_structure.md`). See §2.5 of the paper.
+
 ## Licence
 
 MIT — see [LICENSE](LICENSE).

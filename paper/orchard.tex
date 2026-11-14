@@ -39,14 +39,10 @@ celestial configurations, point--line configurations, cross-ratio}
 The orchard problem asks for the maximum number of lines containing exactly $k$ of $n$
 points in the real plane. Our main result is a \emph{second-order} application of
 Melchior's inequality: rather than applying it to the dual of the point set, we apply
-it to the arrangement formed by the rich lines themselves. This yields the new
-necessary condition
-\[
-\sum_{p\in S} w(r_p)\ \le\ \binom{L}{2}-3,
-\qquad w(0{,}1{,}2)=0,\ w(3)=3,\ w(j)=\tbinom{j}{2}+j-3\ (j\ge4),
-\]
-where $L$ is the number of lines carrying at least $k$ points and $r_p$ counts the rich
-lines through $p$. Combined with a majorisation argument this gives a closed-form
+it to the arrangement formed by the rich lines themselves. This yields a new necessary
+condition: a weighted count of the rich lines through each point, summed over the
+configuration, is at most $\binom{L}{2}-3$, where $L$ is the number of lines carrying at
+least $k$ points. Combined with a majorisation argument this gives a closed-form
 feasibility test which is strictly stronger than the classical Melchior bound for
 small $n$, for every $k\ge4$.
 
@@ -173,6 +169,29 @@ argument. The four lower bounds are proved optimal \emph{within the four-ring
 cosine-ratio family} (Theorem~\ref{thm:familyopt}), but not unconditionally: a better
 configuration outside that family is not excluded, and \S\ref{sec:negative} records
 the searches we ran against the remaining openings.
+
+\subsection{Contribution of AI assistance}\label{sec:ai}
+
+This work was carried out by the author with substantial assistance from an AI system
+(Arena.ai, Agent Mode), and we set out its role explicitly rather than leave it to the
+reader to infer.
+
+The AI assistant surveyed the literature and the published record tables; wrote and ran
+the search programs and the exact-arithmetic verifier; produced the figures; assisted in
+developing and in numerically checking the arguments of Sections~\ref{sec:upper}
+and~\ref{sec:constructions}, including the family enumeration behind
+Theorem~\ref{thm:familyopt}; and drafted the manuscript. The author posed the problem,
+directed the research, selected the results reported here, and checked the statements
+and proofs. The author takes full responsibility for the content of the paper.
+
+Two features of the presentation are intended to make this disclosure verifiable rather
+than merely declaratory. First, every mathematical claim is accompanied by a
+machine-checkable certificate in the repository: exact coordinates in a number field, an
+exact collinearity census, and a cross-ratio test for the honesty condition. The results
+can therefore be checked independently of how they were found, and the reader need not
+take the provenance of any argument on trust. Second, the unsuccessful searches are
+reported in \S\ref{sec:negative} on the same footing as the successful ones, so that the
+evidence for the optimality claims is not filtered by outcome.
 
 \section{Prior work}\label{sec:prior}
 
@@ -973,9 +992,10 @@ entry $29$.
 
 \section*{Acknowledgements}
 The constructions were found by computer search; the exact-arithmetic verifier and all
-figures were produced by the code in the accompanying repository. We thank the
-maintainers of OEIS A006065 and A172992 and the online orchard competition for making
-the record tables public.
+figures were produced by the code in the accompanying repository. The role of AI
+assistance in this work is described in \S\ref{sec:ai}. We thank the maintainers of
+OEIS A006065 and A172992 and the online orchard competition for making the record tables
+public.
 
 \begin{thebibliography}{99}
 
