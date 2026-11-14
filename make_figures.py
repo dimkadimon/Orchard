@@ -63,8 +63,9 @@ def make(N,label,fname,expected):
 
 if __name__=='__main__':
     info=[]
+    # N=49 is deliberately not drawn: it is the N=48 set plus one point.
     for N,fn,exp in [(28,'fig_N28',42),(36,'fig_N36',63),(37,'fig_N37',63),
-                     (40,'fig_N40',70),(48,'fig_N48',96),(49,'fig_N49',97)]:
+                     (40,'fig_N40',70),(48,'fig_N48',96)]:
         info.append(make(N,None,fn,exp))
     json.dump(info,open('paper/figures/figure_info.json','w'),indent=1)
     print("figures written")

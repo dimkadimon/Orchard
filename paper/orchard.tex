@@ -23,12 +23,9 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
 
-\title[Four-point orchards]{Four-point orchards: new algebraic constructions\\ and a second-order Melchior bound}
+\title[New constructions of four-point orchards]{New constructions of four-point orchards}
 
-% NOTE TO AUTHOR: confirm name / affiliation / email before arXiv submission.
-\author{Dimitri Kamenetsky}
-\address{Independent researcher}
-\email{dimkadimon@users.noreply.github.com}
+\author{Dmitry Kamenetsky}
 
 \date{\today}
 
@@ -65,7 +62,7 @@ variant at $n=28,36,37,40,48,49$, from four-ring \emph{celestial} configurations
 radii lie in real number fields of degree $6$ and $8$. Finally we verify
 $T_4(60)\ge133$ and show that the asymptotic constant $1/28$ is optimal within a
 natural family of four-axis constructions. All certificates and verification code are
-public.
+public, and are available at \url{https://github.com/dimkadimon/Orchard}.
 \end{abstract}
 
 \maketitle
@@ -476,7 +473,7 @@ radius to exceed $1$, so the rings need not be nested.
 
 Searching over $(m,\boldsymbol\varphi)$ and solving the collinearity conditions exactly
 in the resulting field gave six improvements over the integer records; see
-Table~\ref{tab:records} and Figures~\ref{fig:28}--\ref{fig:49}.
+Table~\ref{tab:records} and Figures~\ref{fig:28}--\ref{fig:48}.
 
 Two entries deserve comment. At $n=36$ the configuration has \emph{no} $3$-point lines,
 so adjoining any further point of $K$ creates no new $4$-point line; we adjoin
@@ -485,7 +482,8 @@ At $n=48$ there are $12$ three-point lines, and the point
 \[
 \big(1-a-4a^2+4a^3+a^4-a^5,\ \ a+a^3-4a^4+a^6\big)
 \]
-lies on exactly one of them, giving $49$ points and $97$ lines.
+lies on exactly one of them, giving $49$ points and $97$ lines. We do not picture this
+case separately, since it is Figure~\ref{fig:48} together with that single point.
 
 \begin{table}[ht]
 \centering
@@ -549,14 +547,6 @@ $8$, $a^8-8a^6+19a^4-12a^2+1=0$.}
 \caption{$n=48$, $96$ four-point lines. Celestial set with $m=12$,
 $a^8-8a^6+20a^4-16a^2+1=0$.}
 \label{fig:48}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.60\textwidth]{figures/fig_N49.pdf}
-\caption{$n=49$, $97$ four-point lines: Figure~\ref{fig:48} with one further point of
-$K$, lying on exactly one of its twelve $3$-point lines.}
-\label{fig:49}
 \end{figure}
 
 \subsection{Search and verification}
@@ -667,7 +657,7 @@ Every count in this paper was obtained by exact arithmetic, either in a number f
 $\Q(a)$ or over $\Q$ after clearing denominators; no floating-point tolerance appears in
 any certificate. The repository
 \begin{center}
-\url{https://github.com/dimkadimon/four-point-orchards}
+\url{https://github.com/dimkadimon/Orchard}
 \end{center}
 contains the field and scoring libraries, the $50$ algebraic entries, the $60$-point
 certificate, the bound computations, the figure scripts, and a verifier that re-derives

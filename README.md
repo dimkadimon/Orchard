@@ -1,10 +1,10 @@
-# Four-point orchards
+# Orchard
 
 New algebraic constructions for the four-point orchard-planting problem, and a
 **second-order Melchior bound** that proves several small cases exactly by hand.
 
 Companion code and certificates for the paper
-[*Four-point orchards: new algebraic constructions and a second-order Melchior bound*](paper/orchard.pdf).
+[*New constructions of four-point orchards*](paper/orchard.pdf).
 
 ---
 
@@ -135,7 +135,7 @@ python3 second_order_k.py        # the new bound for k=4..8, with all improvemen
 python3 verify_second_order.py   # exhaustive check: balanced == optimal (n=11..18)
 python3 validate_theorem.py      # 0 violations over 100 configurations
 python3 validate_k.py            # 0 violations over 158 tests, k=4..8
-python3 make_figures.py          # six figures, scores asserted exactly
+python3 make_figures.py          # five figures, scores asserted exactly
 python3 fig_t4b.py               # T_4(60) = 133 certificate + figure
 python3 atleast4_li.py           # four-axis table, n=11..60
 ```
@@ -156,12 +156,11 @@ prior reference, please open an issue — we would like to cite it.
 ## Citation
 
 ```bibtex
-@misc{fourpointorchards2026,
-  author = {Kamenetsky, Dimitri},
-  title  = {Four-point orchards: new algebraic constructions and a
-            second-order Melchior bound},
+@misc{orchard2026,
+  author = {Kamenetsky, Dmitry},
+  title  = {New constructions of four-point orchards},
   year   = {2026},
-  url    = {https://github.com/dimkadimon/four-point-orchards}
+  url    = {https://github.com/dimkadimon/Orchard}
 }
 ```
 
