@@ -1,0 +1,8 @@
+At-least-four orchard, n=60, T_4=133 (129 transversals + 4 supporting axes)
+A x=0..12: (1/(180+x), 0)
+B y=0..12: (0, 1/(60+y))
+C z=4..20: (1/(240+z), 1/(240+z))
+D w=-8..8: (1/(120+w), -1/(120+w))
+A transversal through (1/(180+x),0) and (0,1/(60+y)) also contains the C-point with z=x+y and the D-point with w=x-y.
+There are 129 pairs (x,y) with x+y in [4,20] and x-y in [-8,8].
+Multiply all coordinates by the lcm of all denominators to obtain integer coordinates.
