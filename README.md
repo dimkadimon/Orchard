@@ -19,8 +19,8 @@ submitted to the integer-only contest.
 For the at-least-four problem, an exact rational census establishes `T₄(60) ≥ 133`.
 That configuration contains long lines and is **not** admissible in the strict
 no-five variant. It is based on Xiang Li's four-axis construction; see the
-research files for details. This older observation is not a result claimed in the
-focused arXiv draft.
+paper for the general lower bound and references. The paper also includes an
+at-least-four proof of `T₄(12) = 7`, using the known eight-point three-line bound.
 
 The earlier parity-only chord condition is incorrect. The earlier claims of
 complete family enumeration, family-optimal scores, and a proven optimum for the

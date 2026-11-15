@@ -1,7 +1,8 @@
 Reproducibility of the algebraic constructions
 ==============================================
 
-Files N28.txt, N36.txt, N40.txt and N48.txt contain the four ring
+Files N14.txt and N15.txt are strict small-case certificates. Files
+N28.txt, N36.txt, N40.txt and N48.txt contain the four ring
 configurations. Files extended_N42.txt through extended_N46.txt contain
 the 40-point configuration's nested extensions. Each file gives ordered
 affine coordinates in Q(a); the defining polynomial is on its first line.
@@ -12,8 +13,11 @@ Requirements: Python 3, SymPy and NumPy. Run both exact implementations:
 
   python verify_independent_algebraic.py N*.txt extended_N*.txt
   python verify.py N*.txt extended_N*.txt
+  python verify_rational_censuses.py
 
 Expected histograms (numbers of lines of each size):
+  N=14: {2:19, 3:4, 4:10}
+  N=15: {2:24, 3:3, 4:12}
   N=28: {2:126, 4:42}
   N=36: {2:252, 4:63}
   N=40: {2:240, 3:40, 4:70}
@@ -29,5 +33,6 @@ the defining polynomial and reports no_five=True for all nine entries. It
 uses SymPy for parsing, irreducibility and existence of a real root. Its
 parser is intended for trusted inputs, not untrusted text. It checks the
 constructions, not global optimality or priority. The primary verifier groups normalized field line equations and checks irrational
-cross-ratios. The source repository is
+cross-ratios. The rational verifier independently checks the 12- and 60-point examples.
+The source repository is
 https://github.com/dimkadimon/Orchard/.
