@@ -9,28 +9,111 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
-\title[Rich-line arrangements and four-point orchards]{A dual Melchior bound and algebraic constructions for four-point orchards}
+\title[Algebraic four-point orchards]{Algebraic four-point orchards and a dual Melchior bound}
 \author{Dmitry Kamenetsky}
 \begin{document}
 \begin{abstract}
-We apply Melchior's inequality to a selected arrangement of rich lines and derive a necessary condition involving the incidence degrees of a finite point set. In combination with pair counting and degree balancing, this gives explicit improvements over the classical Melchior pair-count bound in small cases. We also give five exact algebraic configurations of 42 to 46 points with no five collinear and respectively 75, 78, 81, 84 and 87 four-point lines. The constructions and line counts are accompanied by exact computational certificates. Finally, an outside-pair count restricts the long-line cases in small at-least-five orchard problems. No global optimality or record claim is made for the constructions.
+We give four algebraic point configurations with no five collinear: 28 points with 42 four-point lines, 36 with 63, 40 with 70, and 48 with 96. Each consists of four concentric regular polygons, and each has an exact coordinate and incidence certificate. By extending the 40-point configuration, we obtain strict constructions with 75, 78, 81, 84 and 87 four-point lines for 42 through 46 points, respectively. The scores exceed the cited integer-coordinate contest scores, but the algebraic sets are not integer contest entries and no global real-coordinate record or optimality claim is made. We also apply Melchior's inequality to arrangements of rich lines, deriving a balanced-degree test that improves the classical pair-count bound in several small cases.
 \end{abstract}
 \maketitle
 \section{Introduction}
-For a finite set $S\subset\R^2$, let $t_j(S)$ be the number of lines containing exactly $j$ points of $S$. For $n\ge k\ge4$ define
+The orchard problem asks how many collinear rows a finite planar point set can determine. A crucial distinction is whether longer rows are forbidden, ignored, or counted. For a finite set $S\subset\R^2$, let $t_j(S)$ denote the number of lines containing exactly $j$ points of $S$. For $n\ge k\ge4$ define
 \[
  t_k(n)=\max_{|S|=n}t_k(S),\quad
  s_k(n)=\max_{\substack{|S|=n\\t_j(S)=0\;\forall j\ge k+1}}t_k(S),\quad
  T_k(n)=\max_{|S|=n}\sum_{j\ge k}t_j(S).
 \]
-These are different extremal problems: $s_k(n)\le t_k(n)\le T_k(n)$. Figure~\ref{fig:definitions} illustrates the counting rules. The classical orchard problem and its variants have a substantial literature; see, for example, \cite{BGS,Elkies,Solymosi}. The exactly-four problem is tabulated in \cite{OEIS,MathWorld}, while the integer-coordinate no-five contest \cite{Contest} has a more restrictive feasible set than $s_4(n)$.
+Thus $s_k(n)\le t_k(n)\le T_k(n)$. Figure~\ref{fig:definitions} illustrates the three counting rules. The classical orchard problem and its variants have a substantial literature; see, for example, \cite{BGS,Elkies,Solymosi}. The exactly-four problem is tabulated in \cite{OEIS,MathWorld}, while the integer-coordinate no-five contest \cite{Contest} has a more restrictive feasible set than $s_4(n)$.
 
-We present a dual application of Melchior's inequality with a balanced-degree test, exact certificates for five constructed point sets, and an outside-pair reduction applicable to long lines. Our comparison for the bound is with the classical Melchior pair-count formula, not with every published upper bound. The construction scores exceed the cited integer contest scores, but the configurations are not integer contest entries, and their optimality or priority among real point sets has not been established. No previously reported configuration is presented as a new record.
+Our main results are four explicitly certified concentric-polygon constructions, together with five exact extensions of the 40-point construction. We give their point coordinates, complete line-size histograms and figures, and compare their scores with the cited integer-coordinate contest benchmarks. Because the coordinates are algebraic and the contest requires integer coordinates, exceeding those scores is not by itself a real-coordinate record. The literature review has not established priority or optimality among all real configurations.
 
-\begin{figure}[ht]
-\centering\includegraphics[width=.97\textwidth]{figures/definitions.pdf}
+As a complementary upper-bound method, we apply Melchior's inequality to the rich lines themselves and combine the resulting degree inequality with pair counting. The resulting small-case bounds improve the classical Melchior pair-count formula; we do not claim an improvement over all previously published bounds. A further outside-pair argument restricts the possible long-line cases for rich-line configurations.
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=.65\textwidth]{figures/definitions.pdf}
 \caption{The strict, exactly-four, and at-least-four counting rules. The displayed counts describe these point sets, not extremal values.}\label{fig:definitions}
 \end{figure}
+\section{Four-ring constructions and algebraic extensions}\label{sec:constructions}
+The principal constructions are four concentric-ring configurations with $n=28,36,40,48$ points. For $m=7,9,10,12$, respectively, each consists of four concentric regular $m$-gons with selected radii and rotations. Figures~\ref{fig:ring-a}--\ref{fig:ring-b} show these four configurations. Their coordinates are algebraic; the ancillary files specify them exactly. The 40-point configuration also serves as the seed of nested 42--46 point extensions, illustrated at $n=46$ in Figure~\ref{fig:46}.
+
+\begin{theorem}\label{thm:construction}
+There exist real point sets with no five collinear and
+\[
+ s_4(28)\ge42,\quad s_4(36)\ge63,\quad s_4(40)\ge70,\quad s_4(48)\ge96,
+\]
+and $s_4(n)\ge3n-51$ for each $42\le n\le46$.
+\end{theorem}
+\begin{proof}
+For each $n$ take the affine coordinates in the ancillary certificate named in Table~\ref{tab:fields}. Its first line gives a monic irreducible polynomial for $a$, and the remaining lines give the points in $\Q(a)^2$. Each polynomial has a real root; since it is irreducible, field equalities and non-equalities remain valid under every real embedding. An exact line census checks that the points are distinct, that no line has five or more points, and that the complete histograms are those in Table~\ref{tab:census}. The four-point-line counts establish the stated bounds. The pair identity $\sum_j\binom j2t_j=\binom n2$ provides a consistency check. The census is a finite computation reproducible using the ancillary verifier; it is not a proof of optimality.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rclrrr}
+\toprule
+$n$ & degree & defining polynomial & $t_4(S)$ & integer score & difference\\
+\midrule
+28 & 6 & $a^6-7a^4+14a^2-7$ & 42 & 39 & $+3$\\
+36 & 6 & $a^6-6a^4+9a^2-3$ & 63 & 59 & $+4$\\
+40 & 8 & $a^8-8a^6+19a^4-12a^2+1$ & 70 & 69 & $+1$\\
+42 & 8 & same as $n=40$ & 75 & 74 & $+1$\\
+43 & 8 & same as $n=40$ & 78 & 77 & $+1$\\
+44 & 8 & same as $n=40$ & 81 & 80 & $+1$\\
+45 & 8 & same as $n=40$ & 84 & 83 & $+1$\\
+46 & 8 & same as $n=40$ & 87 & 86 & $+1$\\
+48 & 8 & $a^8-8a^6+20a^4-16a^2+1$ & 96 & 93 & $+3$\\
+\bottomrule
+\end{tabular}
+\caption{Exact constructions and the integer-coordinate contest scores recorded in November 2026 \cite{Contest}. The figures in the last column compare different feasible classes; they do not establish real-coordinate records. The four ring certificates are \texttt{N28.txt}, \texttt{N36.txt}, \texttt{N40.txt}, \texttt{N48.txt}; the extensions are \texttt{extended\_N42.txt} through \texttt{extended\_N46.txt}.}\label{tab:fields}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & two-point lines & three-point lines & four-point lines & lines with $\ge5$ points\\
+\midrule
+28&126&0&42&0\\
+36&252&0&63&0\\
+40&240&40&70&0\\
+42&297&38&75&0\\
+43&324&37&78&0\\
+44&349&37&81&0\\
+45&384&34&84&0\\
+46&420&31&87&0\\
+48&516&12&96&0\\
+\bottomrule
+\end{tabular}
+\caption{Complete exact line-size histograms for the nine constructions.}\label{tab:census}
+\end{table}
+
+The five extensions were generated from the 40-point seed by a bounded search over intersections of spanned lines; the first $n$ points of \texttt{extended\_N46.txt} give the extension at each size $42\le n\le46$. For this field one may take the root $a\in(1.97,1.98)$ of $a^8-8a^6+19a^4-12a^2+1$. The ring pictures use real embeddings chosen for visual clarity; incidences are established by the exact certificates, not by their numerical renderings.
+
+Two implementations agree on all nine histograms: one groups exact number-field line equations, and the other uses integer-polynomial remainders and triple determinants. Both implementations are bundled with the submission. The line-equation verifier additionally finds irrational cross-ratios on four-point lines, ruling out projective equivalence to a rational-coordinate configuration. This explains why these constructions cannot be converted by a projective transformation into integer-coordinate contest entries. Our comparison with the cited integer scores is therefore contextual rather than a claim of a new real-coordinate record.
+
+The ring geometry gives an explanation for the search, not a completeness theorem. If a regular $m$-gon of radius $r$ and offset $\phi$ has a chord beginning at vertex $j$ and spanning $b$ vertices, its signed normal data are
+\[
+ \theta=\phi+\frac{\pi(2j+b)}m,\qquad d=r\cos\frac{\pi b}m.
+\]
+Two chords share a line precisely when $\theta'=\theta+h\pi$ and $d'=(-1)^h d$ for some integer $h$. Matching absolute distances alone does not establish coincidence. The numerical search for radii is not claimed to enumerate all configurations or prove optimality within the ring family.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=.65\textwidth]{figures/fig_N28.pdf}\\[0.8ex]
+\includegraphics[width=.65\textwidth]{figures/fig_N36.pdf}
+\caption{Four-ring configurations for $n=28$ and $n=36$. Dark dots are points; pale segments are four-point lines. A crossing without a dot is not a point.}\label{fig:ring-a}
+\end{figure}
+\begin{figure}[p]
+\centering
+\includegraphics[width=.65\textwidth]{figures/fig_N40.pdf}\\[0.8ex]
+\includegraphics[width=.65\textwidth]{figures/fig_N48.pdf}
+\caption{Four-ring configurations for $n=40$ and $n=48$, with the conventions of Figure~\ref{fig:ring-a}. Exact coordinate certificates, not the drawings, determine the incidences.}\label{fig:ring-b}
+\end{figure}
+\begin{figure}[p]
+\centering\includegraphics[width=.70\textwidth]{figures/N46.pdf}
+\caption{The 46-point extension of the 40-point configuration. Dark dots represent points; pale segments mark four-point lines. Crossings without dots are not points of the set.}\label{fig:46}
+\end{figure}
+\clearpage
 \section{A second-order Melchior inequality}\label{sec:bound}
 We work in the real projective plane: any finite affine point set embeds there, and any finite projective set can be moved into an affine chart. For a noncollinear finite set, the pair count and Melchior inequality \cite{Melchior} are
 \begin{equation}\label{eq:melchior}
@@ -102,39 +185,6 @@ Combined test & 2 & 3 & 5 & 6 & 8 & 9 & 11 & 13\\
 \caption{Upper bounds for $T_4(n)$. The second row is the result of combining the classical bound and Corollary~\ref{cor:test}, not a claim of the best published bounds.}\label{tab:comparison}
 \end{table}
 
-\section{Algebraic constructions}\label{sec:constructions}
-\begin{theorem}\label{thm:construction}
-For $42\le n\le46$, there is an $n$-point real configuration with no five points collinear and at least $3n-51$ four-point lines. In particular, $s_4(n)\ge3n-51$ for these values of $n$.
-\end{theorem}
-\begin{proof}
-Let $a$ be the real root in $(1.97,1.98)$ of
-\[
- a^8-8a^6+19a^4-12a^2+1=0.
-\]
-For each $n$ take the coordinates in the ancillary file \texttt{extended\_N$n$.txt}, interpreted in $\Q(a)$. The coordinate files contain the exact configurations; they are nested, with the first $n$ points of the 46-point file giving the $n$-point configuration. An exact census gives the complete histograms in Table~\ref{tab:census}; no line contains five or more points. The histogram identity $\sum_j\binom j2t_j=\binom n2$ provides an additional consistency check. The line census is a finite computation and can be reproduced with the accompanying verifier, as described below. Figure~\ref{fig:46} depicts the 46-point case.
-\end{proof}
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrr}
-\toprule
-$n$ & two-point lines & three-point lines & four-point lines & lines with $\ge5$ points\\
-\midrule
-42&297&38&75&0\\
-43&324&37&78&0\\
-44&349&37&81&0\\
-45&384&34&84&0\\
-46&420&31&87&0\\
-\bottomrule
-\end{tabular}
-\caption{Complete line-size histograms of the five algebraic point sets.}\label{tab:census}
-\end{table}
-\begin{figure}[ht]
-\centering\includegraphics[width=.72\textwidth]{figures/N46.pdf}
-\caption{The 46-point construction. Dark dots represent points; pale segments mark four-point lines. Crossings without dots are not points of the set. Coordinates and incidences are defined by the exact certificate, not this numerical rendering.}\label{fig:46}
-\end{figure}
-
-The construction was obtained by extending a 40-point algebraic seed using a bounded intersection search. Two exact calculations were used: one normalizes number-field line equations and the other checks polynomial-remainder determinants. They agree on each complete histogram. The ancillary verifier is the latter implementation; it uses SymPy to parse coordinates and check irreducibility and real-root existence. Coordinates are trusted input: the parser is not a sandbox. The calculations establish the displayed lower bounds, not global optimality or novelty of the incidence types. These sets are not integer-coordinate contest entries; comparison with the integer scores in \cite{Contest} does not by itself demonstrate a real-coordinate record.
-
 \section{A long-line reduction for rich-line counts}
 \begin{proposition}\label{prop:longline}
 Suppose an $n$-point set has a line containing $q\ge k$ points, where $k\ge3$. Then the number $L$ of lines containing at least $k$ points satisfies
@@ -148,11 +198,12 @@ Each rich line other than the given line meets it in at most one point of the se
 For example, the classical bound gives $T_5(24)\le22$. For $L=20,21,22$, the balanced weights $B_w$ are respectively $188,213,238$, exceeding the corresponding $\binom L2-3$ values $187,207,228$; thus $T_5(24)\le19$. Proposition~\ref{prop:longline} shows that any 24-point set with 19 lines containing at least five points has no line containing nine or more points. This does not exclude lines containing six, seven or eight points, and so does not decide whether $T_5(24)=19$.
 
 \section{Reproducibility and scope}
-The accompanying ancillary files contain the five coordinate certificates and the independent determinant census. From the ancillary directory run
+The accompanying ancillary files contain all nine coordinate certificates and both exact census implementations. From the ancillary directory run
 \begin{quote}\ttfamily\small
-python verify\_independent\_algebraic.py extended\_N*.txt
+python verify\_independent\_algebraic.py N*.txt extended\_N*.txt\\
+python verify.py N*.txt extended\_N*.txt
 \end{quote}
-The program checks point distinctness, irreducibility and real-root existence, and counts every spanned line exactly. The polynomial is irreducible, so an equality in its quotient field holds at every real root and a nonzero field element remains nonzero at each such root. The 46-point diagram uses the specified root. Additional code, a second line-equation census, and search details are available in the repository \cite{Repository}. Numerical search and rendering are not used to certify the stated incidences.
+The program checks point distinctness, irreducibility and real-root existence, and counts every spanned line exactly. Each defining polynomial is irreducible, so an equality in its quotient field holds at every real root and a nonzero field element remains nonzero at each such root. The 46-point diagram uses the specified root. Additional code and search details are available in the repository \cite{Repository}. Numerical search and rendering are not used to certify the stated incidences.
 
 The literature comparison is not exhaustive, and independent mathematical review and a priority check remain necessary. In particular, neither the bounds nor the certificates assert a global orchard record. The dual Melchior test does not by itself improve the leading asymptotic coefficient of the classical bound: for fixed $k$ and $L$ quadratic in $n$, the balanced weight is $O(n^3)$, while $\binom L2$ is $\Theta(n^4)$.
 

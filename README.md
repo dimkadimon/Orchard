@@ -1,16 +1,15 @@
 # Four-point orchards
 
 This repository contains code, certificates, search results and a revised draft of
-[*Four-point orchards: a second-order Melchior bound and exact constructions*](paper/orchard.pdf).
+[*Algebraic four-point orchards and a dual Melchior bound*](paper/orchard.pdf).
 The revision needs the author's review and approval before submission.
 
 ## Results and scope
 
 For an n-point set, distinguish exactly-four lines `t₄`, the exactly-four count
 with **no five collinear** (the strict competition variant), and at-least-four
-lines `T₄`. These are different optimisation problems. The revised paper proves
-`T₄(12) = 7`, using the known eight-point three-line orchard bound, and supplies
-strict constructions with (n, score) = (28,42), (36,63), (40,70), (48,96).
+lines `T₄`. These are different optimisation problems. The revised paper centers on four exact ring constructions, giving
+strict configurations with (n, score) = (28,42), (36,63), (40,70), (48,96).
 A further nested algebraic construction gives strict scores **75, 78, 81, 84, 87**
 for n = **42, 43, 44, 45, 46**, respectively. Each is one above the cited
 integer-coordinate competition score. These comparisons do **not** establish
@@ -19,8 +18,9 @@ submitted to the integer-only contest.
 
 For the at-least-four problem, an exact rational census establishes `T₄(60) ≥ 133`.
 That configuration contains long lines and is **not** admissible in the strict
-no-five variant. It is based on Xiang Li's four-axis construction; see the paper
-for the general lower bound and references.
+no-five variant. It is based on Xiang Li's four-axis construction; see the
+research files for details. This older observation is not a result claimed in the
+focused arXiv draft.
 
 The earlier parity-only chord condition is incorrect. The earlier claims of
 complete family enumeration, family-optimal scores, and a proven optimum for the
@@ -28,6 +28,10 @@ four-axis slope family are withdrawn; the relevant numerical searches are
 heuristics or finite restricted computations. Novelty has not been fully
 established and neither the proof nor code has undergone independent peer review.
 The files in `docs/` are historical research notes, **not** the revised claims.
+
+The focused [arXiv source package](arxiv_submission/orchard_arxiv_source.tar.gz)
+and [submission notes](arxiv_submission/SUBMISSION_NOTES.md) include all four
+ring figures, the five extensions, and their exact verification certificates.
 
 ## Search and verification
 
