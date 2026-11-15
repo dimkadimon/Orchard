@@ -4,7 +4,7 @@
 
 ## Scope
 
-The submission draft excludes the previously published 24-point/18-line five-orchard, unrelated exploratory searches. It retains the four explicitly certified 28-, 36-, 40- and 48-point ring constructions, five 42–46 point extensions, the dual bound, an at-least-four proof for 12 points, the Li-based axis count, and long-line reductions. Known exactly-four values and Li’s construction are attributed and included only as background or inputs to the arguments, not claimed as new discoveries. Prior results are cited where necessary for context or comparison. Existing repository reports are not part of the upload bundle.
+The submission draft excludes the previously published 24-point/18-line five-orchard, unrelated exploratory searches. It retains the four explicitly certified 28-, 36-, 40- and 48-point ring constructions, five 42–46 point extensions, the four-point specialization of the dual bound, an at-least-four proof for 12 points, the Li-based axis count, and four-rich long-line reductions. It omits cases for richer-line thresholds above four. Known exactly-four values and Li’s construction are attributed and included only as background or inputs to the arguments, not claimed as new discoveries. Prior results are cited where necessary for context or comparison. Existing repository reports are not part of the upload bundle.
 
 ## Reference audit
 
@@ -13,7 +13,7 @@ The earlier manuscript at commit `fb1e3c6` contained 14 bibliography entries. Al
 ## Files
 
 - `orchard_preprint.pdf`: compiled reading copy.
-- `orchard_arxiv_source.tar.gz`: upload archive, with `main.tex`, six PDF figures, and the `anc/` exact coordinate certificates and independent verifiers. The bibliography is embedded in `main.tex` (no BibTeX or .bbl needed).
+- `orchard_arxiv_source.tar.gz`: upload archive, with `main.tex`, five PDF image files, and the `anc/` exact coordinate certificates and independent verifiers. The bibliography is embedded in `main.tex` (no BibTeX or .bbl needed).
 - `source/`: readable version of the archive; `source/anc/README.txt` has reproduction commands.
 
 The uploaded article source is compiled by arXiv; do not upload the compiled reading-copy PDF as the TeX source. See the official [submission instructions](https://info.arxiv.org/help/submit/index.html) and [ancillary-file instructions](https://info.arxiv.org/help/ancillary_files.html). After upload, check arXiv's generated PDF, references, figures and ancillary files before submitting.

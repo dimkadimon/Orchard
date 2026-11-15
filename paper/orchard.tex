@@ -18,15 +18,15 @@ We give four algebraic point configurations with no five collinear: 28 points wi
 \end{abstract}
 \maketitle
 \section{Introduction}
-The orchard problem asks how many collinear rows a finite planar point set can determine. A crucial distinction is whether longer rows are forbidden, ignored, or counted. For a finite set $S\subset\R^2$, let $t_j(S)$ denote the number of lines containing exactly $j$ points of $S$. For $n\ge k\ge4$ define
+The orchard problem asks how many collinear rows a finite planar point set can determine. We consider four-point rows and distinguish whether longer rows are forbidden, ignored, or counted. For a finite set $S\subset\R^2$, let $t_j(S)$ denote the number of lines containing exactly $j$ points of $S$. For $n\ge4$ define
 \[
- t_k(n)=\max_{|S|=n}t_k(S),\quad
- s_k(n)=\max_{\substack{|S|=n\\t_j(S)=0\;\forall j\ge k+1}}t_k(S),\quad
- T_k(n)=\max_{|S|=n}\sum_{j\ge k}t_j(S).
+ t_4(n)=\max_{|S|=n}t_4(S),\quad
+ s_4(n)=\max_{\substack{|S|=n\\t_j(S)=0\;\forall j\ge5}}t_4(S),\quad
+ T_4(n)=\max_{|S|=n}\sum_{j\ge4}t_j(S).
 \]
-Thus $s_k(n)\le t_k(n)\le T_k(n)$. Figure~\ref{fig:definitions} illustrates the three counting rules. The classical orchard problem and its variants have a substantial literature; see, for example, \cite{BGS,Elkies,Solymosi}. Green and Tao proved the sufficiently-large-$n$ three-point orchard bound \cite{GreenTao}. For fixed $k\ge4$, Solymosi and Stojakovi\'c give a strict lower bound of the form $n^{2-c/\sqrt{\log n}}$ for sufficiently large $n$ \cite{Solymosi}. The exactly-four problem is tabulated in \cite{OEISreal,Du,MathWorld}. The integer-coordinate no-five contest \cite{Contest} has a more restrictive feasible set than $s_4(n)$; OEIS A172992 instead counts exactly-four lines with integer coordinates and permits longer lines \cite{OEISint}.
+Thus $s_4(n)\le t_4(n)\le T_4(n)$. Figure~\ref{fig:definitions} illustrates the three counting rules. The classical orchard problem and its variants have a substantial literature; see, for example, \cite{BGS,Elkies,Solymosi}. Green and Tao proved the sufficiently-large-$n$ three-point orchard bound \cite{GreenTao}. For four-point lines with no five collinear, Solymosi and Stojakovi\'c give a strict lower bound of the form $n^{2-c/\sqrt{\log n}}$ for sufficiently large $n$ \cite{Solymosi}. The exactly-four problem is tabulated in \cite{OEISreal,Du,MathWorld}. The integer-coordinate no-five contest \cite{Contest} has a more restrictive feasible set than $s_4(n)$; OEIS A172992 instead counts exactly-four lines with integer coordinates and permits longer lines \cite{OEISint}.
 
-Our main results are four explicitly certified concentric-polygon constructions, together with five exact extensions of the 40-point construction. We give their point coordinates, complete line-size histograms and figures, and compare their scores with the cited integer-coordinate contest benchmarks. Because the coordinates are algebraic and the contest requires integer coordinates, exceeding those scores is not by itself a real-coordinate record. The literature review has not established priority or optimality among all real configurations.
+Our main results are four explicitly certified concentric-polygon constructions, together with five exact extensions of the 40-point construction. We give their point coordinates and figures, verify their line counts, and compare their scores with the cited integer-coordinate contest benchmarks. Because the coordinates are algebraic and the contest requires integer coordinates, exceeding those scores is not by itself a real-coordinate record. The literature review has not established priority or optimality among all real configurations.
 
 As a complementary upper-bound method, we apply Melchior's inequality to the rich lines themselves and combine the resulting degree inequality with pair counting. The resulting small-case bounds improve the classical Melchior pair-count formula; we do not claim an improvement over all previously published bounds. A further outside-pair argument restricts the possible long-line cases for rich-line configurations.
 
@@ -35,7 +35,7 @@ As a complementary upper-bound method, we apply Melchior's inequality to the ric
 \caption{The strict, exactly-four, and at-least-four counting rules. The displayed counts describe these point sets, not extremal values.}\label{fig:definitions}
 \end{figure}
 \section{Four-ring constructions and algebraic extensions}\label{sec:constructions}
-Concentric-polygon and related incidence configurations have been studied extensively; see \cite{Grunbaum,Berman}. The principal constructions presented here are four concentric-ring configurations with $n=28,36,40,48$ points. For $m=7,9,10,12$, respectively, each consists of four concentric regular $m$-gons with selected radii and rotations. Figures~\ref{fig:ring-a}--\ref{fig:ring-b} show these four configurations. Their coordinates are algebraic; the ancillary files specify them exactly. The 40-point configuration also serves as the seed of nested 42--46 point extensions, illustrated at $n=46$ in Figure~\ref{fig:46}.
+Concentric-polygon and related incidence configurations have been studied extensively; see \cite{Grunbaum,Berman}. The principal constructions presented here are four concentric-ring configurations with $n=28,36,40,48$ points. For $m=7,9,10,12$, respectively, each consists of four concentric regular $m$-gons with selected radii and rotations. Figures~\ref{fig:ring-a}--\ref{fig:ring-b} show these four configurations. Their coordinates are algebraic; the ancillary files specify them exactly. The 40-point configuration also serves as the seed of nested 42--46 point extensions.
 
 \begin{theorem}\label{thm:construction}
 There exist real point sets with no five collinear and
@@ -45,7 +45,7 @@ There exist real point sets with no five collinear and
 and $s_4(n)\ge3n-51$ for each $42\le n\le46$.
 \end{theorem}
 \begin{proof}
-For each $n$ take the affine coordinates in the ancillary certificate named in Table~\ref{tab:fields}. Its first line gives a monic irreducible polynomial for $a$, and the remaining lines give the points in $\Q(a)^2$. Each polynomial has a real root; since it is irreducible, field equalities and non-equalities remain valid under every real embedding. An exact line census checks that the points are distinct, that no line has five or more points, and that the complete histograms are those in Table~\ref{tab:census}. The four-point-line counts establish the stated bounds. The pair identity $\sum_j\binom j2t_j=\binom n2$ provides a consistency check. The census is a finite computation reproducible using the ancillary verifier; it is not a proof of optimality.
+For each $n$ take the affine coordinates in the ancillary certificate named in Table~\ref{tab:fields}. Its first line gives a monic irreducible polynomial for $a$, and the remaining lines give the points in $\Q(a)^2$. Each polynomial has a real root; since it is irreducible, field equalities and non-equalities remain valid under every real embedding. An exact line census checks that the points are distinct, that no line has five or more points, and that the four-point-line counts are those in Table~\ref{tab:fields}. The four-point-line counts establish the stated bounds. The pair identity $\sum_j\binom j2t_j=\binom n2$ provides a consistency check. The census is a finite computation reproducible using the ancillary verifier; it is not a proof of optimality.
 \end{proof}
 
 \begin{table}[ht]
@@ -68,25 +68,7 @@ $n$ & degree & defining polynomial & $t_4(S)$ & integer score & difference\\
 \caption{Exact constructions and the integer-coordinate contest scores recorded in November 2026 \cite{Contest}. The figures in the last column compare different feasible classes; they do not establish real-coordinate records. The four ring certificates are \texttt{N28.txt}, \texttt{N36.txt}, \texttt{N40.txt}, \texttt{N48.txt}; the extensions are \texttt{extended\_N42.txt} through \texttt{extended\_N46.txt}.}\label{tab:fields}
 \end{table}
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrr}
-\toprule
-$n$ & two-point lines & three-point lines & four-point lines & lines with $\ge5$ points\\
-\midrule
-28&126&0&42&0\\
-36&252&0&63&0\\
-40&240&40&70&0\\
-42&297&38&75&0\\
-43&324&37&78&0\\
-44&349&37&81&0\\
-45&384&34&84&0\\
-46&420&31&87&0\\
-48&516&12&96&0\\
-\bottomrule
-\end{tabular}
-\caption{Complete exact line-size histograms for the nine constructions.}\label{tab:census}
-\end{table}
+
 
 The five extensions were generated from the 40-point seed by a bounded search over intersections of spanned lines; the first $n$ points of \texttt{extended\_N46.txt} give the extension at each size $42\le n\le46$. For this field one may take the root $a\in(1.97,1.98)$ of $a^8-8a^6+19a^4-12a^2+1$. The ring pictures use real embeddings chosen for visual clarity; incidences are established by the exact certificates, not by their numerical renderings.
 
@@ -110,10 +92,7 @@ Two chords share a line precisely when $\theta'=\theta+h\pi$ and $d'=(-1)^h d$ f
 \includegraphics[width=.65\textwidth]{figures/fig_N48.pdf}
 \caption{Four-ring configurations for $n=40$ and $n=48$, with the conventions of Figure~\ref{fig:ring-a}. Exact coordinate certificates, not the drawings, determine the incidences.}\label{fig:ring-b}
 \end{figure}
-\begin{figure}[p]
-\centering\includegraphics[width=.70\textwidth]{figures/N46.pdf}
-\caption{The 46-point extension of the 40-point configuration. Dark dots represent points; pale segments mark four-point lines. Crossings without dots are not points of the set.}\label{fig:46}
-\end{figure}
+
 \clearpage
 \section{A second-order Melchior inequality}\label{sec:bound}
 We work in the real projective plane: any finite affine point set embeds there, and any finite projective set can be moved into an affine chart. For a noncollinear finite set, the pair count and Melchior inequality \cite{Melchior} are
@@ -121,13 +100,13 @@ We work in the real projective plane: any finite affine point set embeds there, 
  \sum_{j\ge2}\binom j2 t_j=\binom n2,\qquad
  t_2\ge3+\sum_{j\ge4}(j-3)t_j.
 \end{equation}
-These imply, for $n\ge k+1$,
+These imply, for $n\ge5$,
 \begin{equation}\label{eq:classical}
- T_k(n)\le\left\lfloor\frac{\binom n2-3}{\binom k2+k-3}\right\rfloor.
+ T_4(n)\le\left\lfloor\frac{\binom n2-3}{7}\right\rfloor.
 \end{equation}
-Indeed, apply the second inequality to $t_2$ in the first and retain only the terms for $j\ge k$; if all points are collinear, the bound is also immediate.
+Indeed, apply the second inequality to $t_2$ in the first and retain the terms for lines containing at least four points; if all points are collinear, the bound is also immediate.
 
-Let $\ell_1,\ldots,\ell_L$ be distinct lines, each containing at least $k$ points of $S$, and set $r_p=\#\{i:p\in\ell_i\}$. Define
+Let $\ell_1,\ldots,\ell_L$ be distinct lines, each containing at least four points of $S$, and set $r_p=\#\{i:p\in\ell_i\}$. Define
 \[
 w(0)=w(1)=w(2)=0,\quad w(3)=3,\quad w(j)=\binom j2+j-3\quad(j\ge4).
 \]
@@ -157,7 +136,7 @@ Let $f$ be a nondecreasing discretely convex function on the nonnegative integer
 Reduce entries until their sum is $M$; this cannot increase the objective. If two entries differ by at least two, transferring one unit from the larger to the smaller cannot increase the objective. Repeat until they differ by at most one.
 \end{proof}
 \begin{corollary}[Necessary condition]\label{cor:test}
-Suppose $L\ge3$ rich lines are chosen from an $n$-point set, and $n<1+(k-1)L$. Let $R=\lfloor(n-1)/(k-1)\rfloor$, write $kL=qn+\rho$, $0\le\rho<n$, and define
+Suppose $L\ge3$ lines containing at least four points are chosen from an $n$-point set, and $n<1+3L$. Let $R=\lfloor(n-1)/3\rfloor$, write $4L=qn+\rho$, $0\le\rho<n$, and define
 \[
  B_2=(n-\rho)\binom q2+\rho\binom{q+1}2,\quad
  B_w=(n-\rho)w(q)+\rho w(q+1).
@@ -168,23 +147,11 @@ Then
 \]
 \end{corollary}
 \begin{proof}
-The selected lines cannot be concurrent: in a pencil they require at least $1+(k-1)L$ distinct points. For every $p$, $r_p\le R$, and $\sum r_p\ge kL$. Also $\sum_p\binom{r_p}2\le\binom L2$. Apply Lemma~\ref{lem:balance} to $\binom r2$ and $w(r)$, and use Theorem~\ref{thm:second}. These are necessary conditions, not sufficient conditions for a geometric realization.
+The selected lines cannot be concurrent: in a pencil they require at least $1+3L$ distinct points. For every $p$, $r_p\le R$, and $\sum r_p\ge4L$. Also $\sum_p\binom{r_p}2\le\binom L2$. Apply Lemma~\ref{lem:balance} to $\binom r2$ and $w(r)$, and use Theorem~\ref{thm:second}. These are necessary conditions, not sufficient conditions for a geometric realization.
 \end{proof}
 
 \paragraph{Small-case comparison.}
-Table~\ref{tab:comparison} compares the classical bound \eqref{eq:classical} with the bound obtained by combining it with Corollary~\ref{cor:test}; in each case the combined test excludes every larger integer $L$ permitted by the classical bound. For instance, for $(n,k,L)=(14,4,12)$ the balanced weight is $8w(3)+6w(4)=66>63=\binom{12}{2}-3$. For $(15,4,14)$ it is $89>88$. These bounds concern at-least-four lines, including lines with more than four points. They improve the classical formula by one in these examples; we do not claim improvement over the best existing results in the literature.
-\begin{table}[ht]
-\centering
-\begin{tabular}{lrrrrrrrr}
-\toprule
-$n$ & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15\\
-\midrule
-Classical bound & 3 & 4 & 6 & 7 & 9 & 10 & 12 & 14\\
-Combined test & 2 & 3 & 5 & 6 & 8 & 9 & 11 & 13\\
-\bottomrule
-\end{tabular}
-\caption{Upper bounds for $T_4(n)$. The second row is the result of combining the classical bound and Corollary~\ref{cor:test}, not a claim of the best published bounds.}\label{tab:comparison}
-\end{table}
+For $n=8,9,10,11,12,13,14,15$, the classical bounds \eqref{eq:classical} are respectively $3,4,6,7,9,10,12,14$, whereas combining the classical bound with Corollary~\ref{cor:test} gives $2,3,5,6,8,9,11,13$. Thus the combined test improves that particular classical formula by one in each case; we do not claim an improvement over the best existing bounds in the literature. For example, for $(n,L)=(14,12)$ the balanced weight is $8w(3)+6w(4)=66>63=\binom{12}{2}-3$. For $(15,14)$ it is $89>88$. These bounds concern at-least-four lines, including lines with more than four points.
 
 \section{The exact at-least-four value for twelve points}\label{sec:twelve}
 The exactly-four value has been reported before \cite{OEISreal,Du}; the following argument addresses the at-least-four variant and uses a classical eight-point result. We make no claim of priority for the numerical value.
@@ -256,17 +223,17 @@ Take $A=B=\{0,\ldots,12\}$, $C=\{4,\ldots,20\}$ and $D=\{-8,\ldots,8\}$. There a
 The axes carry more than four points, so this construction is not admissible for $s_4$. A restricted numerical search over axis slopes is exploratory only; it establishes no global optimality for the constant $1/28$.
 
 
-\section{A long-line reduction for rich-line counts}
+\section{A long-line reduction for four-rich lines}
 \begin{proposition}\label{prop:longline}
-Suppose an $n$-point set has a line containing $q\ge k$ points, where $k\ge3$. Then the number $L$ of lines containing at least $k$ points satisfies
+Suppose an $n$-point set has a line containing $q\ge4$ points. Then the number $L$ of lines containing at least four points satisfies
 \[
- L\le 1+\left\lfloor\frac{\binom{n-q}{2}}{\binom{k-1}{2}}\right\rfloor.
+ L\le 1+\left\lfloor\frac{\binom{n-q}{2}}{3}\right\rfloor.
 \]
 \end{proposition}
 \begin{proof}
-Each rich line other than the given line meets it in at most one point of the set, and therefore contains at least $k-1$ points outside it. It uses at least $\binom{k-1}{2}$ pairs of outside points; two distinct lines cannot use the same pair. Count the $\binom{n-q}{2}$ outside pairs.
+Each four-rich line other than the given line meets it in at most one point of the set, and therefore contains at least three points outside it. It uses at least three pairs of outside points; two distinct lines cannot use the same pair. Count the $\binom{n-q}{2}$ outside pairs.
 \end{proof}
-For example, the classical bound gives $T_5(24)\le22$. For $L=20,21,22$, the balanced weights $B_w$ are respectively $188,213,238$, exceeding the corresponding $\binom L2-3$ values $187,207,228$; thus $T_5(24)\le19$. Proposition~\ref{prop:longline} shows that any 24-point set with 19 lines containing at least five points has no line containing nine or more points. This does not exclude lines containing six, seven or eight points, and so does not decide whether $T_5(24)=19$.
+This pair bound is consistent with the case analysis in Section~\ref{sec:remaining}; stronger conclusions there use the structure of equality.
 
 \section{Reproducibility and scope}
 The accompanying ancillary files contain the nine construction certificates, small-case entries, both exact algebraic census implementations, and a rational census for the 12- and 60-point configurations. From the ancillary directory run
@@ -275,9 +242,9 @@ python verify\_independent\_algebraic.py N*.txt extended\_N*.txt\\
 python verify.py N*.txt extended\_N*.txt\\
 python verify\_rational\_censuses.py
 \end{quote}
-The algebraic verifiers check point distinctness, irreducibility and real-root existence, and count every spanned line exactly; the rational verifier independently checks the displayed 12- and 60-point examples. Each defining polynomial is irreducible, so an equality in its quotient field holds at every real root and a nonzero field element remains nonzero at each such root. The 46-point diagram uses the specified root. Additional code and search details are available in the repository \cite{Repository}. Numerical search and rendering are not used to certify the stated incidences.
+The algebraic verifiers check point distinctness, irreducibility and real-root existence, and count every spanned line exactly; the rational verifier independently checks the displayed 12- and 60-point examples. Each defining polynomial is irreducible, so an equality in its quotient field holds at every real root and a nonzero field element remains nonzero at each such root. Additional code and search details are available in the repository \cite{Repository}. Numerical search and rendering are not used to certify the stated incidences.
 
-The literature comparison is not exhaustive, and independent mathematical review and a priority check remain necessary. In particular, neither the bounds nor the certificates assert a global orchard record. The dual Melchior test does not by itself improve the leading asymptotic coefficient of the classical bound: for fixed $k$ and $L$ quadratic in $n$, the balanced weight is $O(n^3)$, while $\binom L2$ is $\Theta(n^4)$.
+The literature comparison is not exhaustive, and independent mathematical review and a priority check remain necessary. In particular, neither the bounds nor the certificates assert a global orchard record. The dual Melchior test does not by itself improve the leading asymptotic coefficient of the classical bound: for $L$ quadratic in $n$, the balanced weight is $O(n^3)$, while $\binom L2$ is $\Theta(n^4)$.
 
 \section*{AI attribution}
 The author conceived the research idea and verified the manuscript. AI assistance was used in the literature investigation, computational search and verification scripts, and drafting and editing. The author is responsible for any errors.
