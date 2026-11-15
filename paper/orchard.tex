@@ -24,7 +24,7 @@ For a finite set $S\subset\R^2$, let $t_j(S)$ be the number of lines containing 
  s_k(n)&=\max\{t_k(S): |S|=n,\ t_j(S)=0\text{ for }j\ge k+1\},\\
  T_k(n)&=\max_{|S|=n}\sum_{j\ge k}t_j(S).
 \end{align*}
-Thus $s_k(n)\le t_k(n)\le T_k(n)$. The Infinite Search Space contest uses the strict $s_4$ variant, restricted to integer coordinates: it counts four-point lines and forbids any line with five or more points \cite{Contest}. Its integer-coordinate optimum is therefore not necessarily $s_4(n)$ over all real coordinates. In contrast, OEIS A172992 concerns the exactly-four variant with integer coordinates and allows longer lines \cite{OEISint}; a score with long lines is not a strict lower bound.
+Thus $s_k(n)\le t_k(n)\le T_k(n)$. Figure~\ref{fig:definitions} illustrates the three counting rules on small point sets. The Infinite Search Space contest uses the strict $s_4$ variant, restricted to integer coordinates: it counts four-point lines and forbids any line with five or more points \cite{Contest}. Its integer-coordinate optimum is therefore not necessarily $s_4(n)$ over all real coordinates. In contrast, OEIS A172992 concerns the exactly-four variant with integer coordinates and allows longer lines \cite{OEISint}; a score with long lines is not a strict lower bound.
 
 For $k=3$, Green and Tao established the sufficiently large-$n$ orchard bound \cite{GreenTao}. For $k=4$, the classical Melchior pair-count bound is $T_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ for $n\ge5$. Li's construction gives order $n^2/28$ for $t_4$ and $T_4$ \cite{Li}; it does not give a strict $s_4$ lower bound because its supporting lines are long. For strict $s_k$, Solymosi and Stojakovi\'c \cite{Solymosi} established the lower bound $n^{2-c/\sqrt{\log n}}$ for sufficiently large $n$, with $c$ depending on $k$.
 
@@ -85,6 +85,23 @@ Then
 \begin{proof}
 The selected lines cannot be concurrent: in a pencil they require at least $1+(k-1)L$ distinct points. For every $p$, $r_p\le R$, and $\sum r_p\ge kL$. Also $\sum_p\binom{r_p}2\le\binom L2$. Apply Lemma~\ref{lem:balance} to $\binom r2$ and $w(r)$, and use Theorem~\ref{thm:second}. These are necessary conditions, not sufficient conditions for a geometric realization.
 \end{proof}
+
+\paragraph{Comparison with the classical bound.}
+Table~\ref{tab:bound-comparison} compares the direct Melchior pair-count upper bound \eqref{eq:classical} with the strongest bound obtained by combining it with Corollary~\ref{cor:test}. For every $8\le n\le15$, the combined test lowers that classical upper bound by one. For instance, at $(n,L)=(14,12)$ its balanced weight is $8w(3)+6w(4)=66>63=\binom{12}{2}-3$, so $T_4(14)\le11$ rather than the classical bound $12$. At $(15,14)$ the corresponding numbers are $89>88$, yielding $T_4(15)\le13$ instead of $14$. The proof in Section~\ref{sec:twelve} further reduces the $n=12$ upper bound from $8$ to $7$ using additional input.
+
+This is a quantified improvement over the \emph{classical formula}, not a demonstrated improvement over all previously published upper bounds. In particular, the literature tables \cite{OEISreal,MathWorld} report values for the different, exactly-four variant; they cannot by themselves establish at-least-four values or priority for this method. The review of the literature is not exhaustive.
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrr}
+\toprule
+$n$ & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15\\
+\midrule
+Classical bound & 3 & 4 & 6 & 7 & 9 & 10 & 12 & 14\\
+Combined test & 2 & 3 & 5 & 6 & 8 & 9 & 11 & 13\\
+\bottomrule
+\end{tabular}
+\caption{Upper bounds on $T_4(n)$: direct Melchior pair count versus the combined test. The separate $T_4(12)=7$ proof uses further input.}\label{tab:bound-comparison}
+\end{table}
 
 \begin{corollary}\label{cor:small}
 For $n=8,9,10,11,13$, respectively, $s_4(n)=t_4(n)=T_4(n)=2,3,5,6,9$. In addition $T_4(12)\le8$, $T_4(14)\le11$, and $T_4(15)\le13$.
@@ -231,9 +248,14 @@ The present methods give $10\le T_4(14)\le11$ and $12\le T_4(15)\le13$. The cond
 The second-order test does not improve the leading asymptotic constant by itself. Indeed, for $L=\lfloor(n(n-1)-6)/14\rfloor$, its balanced degrees are $O(n)$, so $B_2$ and $B_w$ are $O(n^3)$, while $\binom L2$ is $\Theta(n^4)$; the degree cap also holds for all sufficiently large $n$. Thus new structural input is needed to improve the classical $1/14$ upper coefficient. Other open directions include proving or improving real-coordinate optima and completely enumerating a specified cosine-ratio subfamily. None of the bounded searches in the repository proves optimality.
 
 \section*{AI attribution}
-AI assistance was used in the literature investigation, computational search and verification scripts, and drafting and editing of this manuscript. The exact calculations and their scope are documented in the accompanying repository.
+The author conceived the research idea and verified the manuscript. AI assistance was used in the literature investigation, computational search and verification scripts, and drafting and editing. The author is responsible for any errors. The exact calculations and their scope are documented in the accompanying repository.
 
 \clearpage
+\begin{figure}[p]
+\centering
+\includegraphics[width=.91\textwidth]{figures/fig_definitions.pdf}
+\caption{Illustrations of the three definitions for $k=4$. In each example the numerical score is for the pictured point set, not a claim that it is maximal. The two lower panels use the same eight-point set.}\label{fig:definitions}
+\end{figure}
 \begin{figure}[p]
 \centering
 \includegraphics[width=.62\textwidth]{figures/fig_N28.pdf}\\[1ex]
