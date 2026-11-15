@@ -114,3 +114,60 @@ not run. All five expanded finite-pool MILPs (n=28,36,39,49,60) reached the
 90-second limit with open gaps; incumbents were below the input source scores,
 so these runs say nothing useful about optimality. The separate n=46 growth
 run reached 89,92,95 at sizes 47,48,49, below or equal to existing baselines.
+
+## New-method search after commit cf2a765
+
+No better *exactly verified* configuration was found in these runs. This is a
+negative result for the tested neighbourhoods, not a global bound. Full output,
+parameters, stopping conditions and random seeds are in the corresponding JSON
+and log files. Proposed points and states include repeated configurations.
+
+* **Exhaustive subset deletion:** `search_extended_deletions.py` examined all
+  64,441,699 subsets obtained by deleting one through seven points from
+  `entries/extended_N46.txt`. It did not improve the pinned strict baselines for
+  n=39–45. This is exhaustive for that particular seed and deletion sizes only.
+* **Wide stochastic beam with exact replay:** `beam_numeric_replay.py` expands
+  floating-point intersections, records the two generating point-pair lines as
+  a lineage, and replays apparently improved configurations exactly over the
+  number field before saving them. Ten completed runs, including two recharted
+  inputs, expanded 10,460 states and considered 14,545,255 proposed points. No
+  float-screened state exceeded the pinned baseline, so no replay was triggered
+  by a claimed improvement. The deterministic smoke test exercises the replay
+  and checks its score against exact arithmetic. A finite precision proposal
+  filter can miss real improvements; these are heuristics, not certificates.
+* **Annealing with delete/replace:** `anneal_algebraic.py` permits downhill
+  moves as well as equal and upward moves and periodically resets to the seed.
+  Five runs (n=40,46,48 with seeds 130040,130046,130048 and hotter n=46,48
+  runs with seeds 131046,131048) made 8,400 total attempts and proposed
+  10,241,500 points. They accepted 2,359 moves, including 624 downhill moves.
+  No screened candidate improved its baseline. All reported improvements would
+  be replayed and recounted exactly before saving; none were reported.
+* **Projective recharting:** `rechart_seed.py` exactly applies `(x,y) ->
+  (x,y)/(1+x/5+y/7)` to the n=40,46,48 seeds, allowing formerly infinite
+  intersections to be explored as finite points. Independent integer-polynomial
+  determinant censuses reproduce the original histograms for all three recharted
+  seeds. The n=40 and n=46 recharted growth beams found no improvement.
+* **Algebraic finite-pool MILP:** `milp_algebraic_pool.py` freezes a seed set
+  and chooses extra points from bounded intersection pools. An n=40 pool of
+  111 points gave exact incumbents 75,78,81,84,87 for n=42–46; an n=48 pool of
+  113 gave 97,99,101,103 for n=49–52. A 166-point multi-generation pool gave
+  75,78,81,84,87,89 for n=42–47. All returned solver status 0 on the *numerical*
+  pool model; exact census validated the incumbents, but numerical line generation
+  may miss or invent constraints. Thus solver status is not a rigorous optimum
+  certificate even for the exact pool, let alone the full real plane.
+
+Examples, run from the repository root (the full commands and seed parameters
+are also stored in the JSON files):
+
+```sh
+python search_extended_deletions.py --entry entries/extended_N46.txt --max-delete 7 --result research/new_deletions/from46.json
+OPENBLAS_NUM_THREADS=1 python beam_numeric_replay.py --entry entries/N40.txt --steps 9 --width 60 --pairs32 700 --pairs22 600 --temperature .22 --potential .07 --checks 5 --seed 120040 --result research/numeric_beam/n40_seed120040.json
+OPENBLAS_NUM_THREADS=1 python anneal_algebraic.py --entry entries/extended_N46.txt --moves 1800 --pairs32 500 --pairs22 700 --temperature 1 --top 25 --reset 20 --seed 130046 --result research/anneal/n46.json
+python rechart_seed.py entries/N40.txt research/recharts/n40_u1-5_v1-7.txt --u 1/5 --v 1/7
+OPENBLAS_NUM_THREADS=1 python milp_algebraic_pool.py --entry entries/N40.txt --include entries/extended_N46.txt --targets 42 43 44 45 46 --extra 65 --seconds 60 --seed 140040 --result research/algebraic_milp/n40.json
+OPENBLAS_NUM_THREADS=1 python test_search_methods.py
+python verify_independent_algebraic.py research/recharts/n40_u1-5_v1-7.txt research/recharts/n46_u1-5_v1-7.txt research/recharts/n48_u1-5_v1-7.txt
+```
+
+The two exact verifiers and the revised manuscript remain unchanged by this
+negative-result search. The search code has not been independently reviewed.

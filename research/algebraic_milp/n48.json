@@ -1,0 +1,68 @@
+{
+  "args": {
+    "entry": "entries/N48.txt",
+    "include": null,
+    "targets": [
+      49,
+      50,
+      51,
+      52
+    ],
+    "extra": 65,
+    "pairs32": 1600,
+    "pairs22": 1200,
+    "potential": 0.12,
+    "seconds": 60,
+    "tol": 1e-08,
+    "seed": 140048,
+    "result": "research/algebraic_milp/n48.json"
+  },
+  "pool": 113,
+  "numerical_pool_lines": 150,
+  "results": [
+    {
+      "target": 49,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 97.0,
+      "exact_score": 97,
+      "valid": true,
+      "baseline": 97,
+      "saved": null,
+      "seconds_total": 0.04
+    },
+    {
+      "target": 50,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 99.00000000000001,
+      "exact_score": 99,
+      "valid": true,
+      "baseline": 99,
+      "saved": null,
+      "seconds_total": 2.38
+    },
+    {
+      "target": 51,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 101.0,
+      "exact_score": 101,
+      "valid": true,
+      "baseline": 102,
+      "saved": null,
+      "seconds_total": 5.01
+    },
+    {
+      "target": 52,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 103.0,
+      "exact_score": 103,
+      "valid": true,
+      "baseline": 106,
+      "saved": null,
+      "seconds_total": 8.17
+    }
+  ]
+}

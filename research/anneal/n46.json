@@ -1,0 +1,31 @@
+{
+  "args": {
+    "entry": "entries/extended_N46.txt",
+    "moves": 1800,
+    "pairs32": 500,
+    "pairs22": 700,
+    "temperature": 1.0,
+    "cycle": 100,
+    "potential": 0.08,
+    "top": 25,
+    "reset": 20,
+    "report": 100,
+    "tol": 1e-08,
+    "seed": 130046,
+    "result": "research/anneal/n46.json"
+  },
+  "n": 46,
+  "baseline_at_end": 87,
+  "best_float": 87,
+  "stats": {
+    "attempts": 1800,
+    "accepted": 453,
+    "downhill_accepted": 64,
+    "proposed": 2325282,
+    "exact_checks": 0,
+    "exact_rejected": 0,
+    "resets": 22
+  },
+  "saved": [],
+  "seconds": 284.3
+}

@@ -1,0 +1,31 @@
+{
+  "args": {
+    "entry": "entries/N48.txt",
+    "moves": 1500,
+    "pairs32": 500,
+    "pairs22": 700,
+    "temperature": 3.0,
+    "cycle": 100,
+    "potential": 0.08,
+    "top": 80,
+    "reset": 40,
+    "report": 100,
+    "tol": 1e-08,
+    "seed": 131048,
+    "result": "research/anneal/n48_hot.json"
+  },
+  "n": 48,
+  "baseline_at_end": 96,
+  "best_float": 96,
+  "stats": {
+    "attempts": 1500,
+    "accepted": 596,
+    "downhill_accepted": 253,
+    "proposed": 1784849,
+    "exact_checks": 0,
+    "exact_rejected": 0,
+    "resets": 14
+  },
+  "saved": [],
+  "seconds": 179.84
+}

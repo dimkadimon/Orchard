@@ -1,0 +1,74 @@
+{
+  "args": {
+    "entry": "research/recharts/n46_u1-5_v1-7.txt",
+    "steps": 4,
+    "width": 100,
+    "pairs32": 800,
+    "pairs22": 800,
+    "potential": 0.08,
+    "temperature": 0.28,
+    "tol": 1e-08,
+    "checks": 6,
+    "seed": 150046,
+    "result": "research/recharts/beam_n46.json"
+  },
+  "reports": [
+    {
+      "size": 47,
+      "beam": 100,
+      "float_max": 89,
+      "baseline": 89,
+      "pool": 1454,
+      "counts": {
+        "states_expanded": 1,
+        "points_proposed": 1454,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 0.17
+    },
+    {
+      "size": 48,
+      "beam": 100,
+      "float_max": 92,
+      "baseline": 96,
+      "pool": 148440,
+      "counts": {
+        "states_expanded": 101,
+        "points_proposed": 149894,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 16.62
+    },
+    {
+      "size": 49,
+      "beam": 100,
+      "float_max": 95,
+      "baseline": 97,
+      "pool": 151292,
+      "counts": {
+        "states_expanded": 201,
+        "points_proposed": 301186,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 35.49
+    },
+    {
+      "size": 50,
+      "beam": 100,
+      "float_max": 99,
+      "baseline": 99,
+      "pool": 154662,
+      "counts": {
+        "states_expanded": 301,
+        "points_proposed": 455848,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 56.56
+    }
+  ],
+  "saved": []
+}

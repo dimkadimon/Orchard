@@ -1,0 +1,116 @@
+{
+  "args": {
+    "entry": "entries/N48.txt",
+    "steps": 7,
+    "width": 220,
+    "pairs32": 800,
+    "pairs22": 800,
+    "potential": 0.1,
+    "temperature": 0.35,
+    "tol": 1e-08,
+    "checks": 8,
+    "seed": 120148,
+    "result": "research/numeric_beam/n48_seed120148.json"
+  },
+  "reports": [
+    {
+      "size": 49,
+      "beam": 220,
+      "float_max": 97,
+      "baseline": 97,
+      "pool": 1159,
+      "counts": {
+        "states_expanded": 1,
+        "points_proposed": 1159,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 0.15
+    },
+    {
+      "size": 50,
+      "beam": 220,
+      "float_max": 99,
+      "baseline": 99,
+      "pool": 262105,
+      "counts": {
+        "states_expanded": 221,
+        "points_proposed": 263264,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 23.58
+    },
+    {
+      "size": 51,
+      "beam": 220,
+      "float_max": 101,
+      "baseline": 102,
+      "pool": 269805,
+      "counts": {
+        "states_expanded": 441,
+        "points_proposed": 533069,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 53.39
+    },
+    {
+      "size": 52,
+      "beam": 220,
+      "float_max": 103,
+      "baseline": 106,
+      "pool": 275253,
+      "counts": {
+        "states_expanded": 661,
+        "points_proposed": 808322,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 78.12
+    },
+    {
+      "size": 53,
+      "beam": 220,
+      "float_max": 106,
+      "baseline": 109,
+      "pool": 280336,
+      "counts": {
+        "states_expanded": 881,
+        "points_proposed": 1088658,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 108.37
+    },
+    {
+      "size": 54,
+      "beam": 220,
+      "float_max": 108,
+      "baseline": 113,
+      "pool": 283753,
+      "counts": {
+        "states_expanded": 1101,
+        "points_proposed": 1372411,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 144.07
+    },
+    {
+      "size": 55,
+      "beam": 220,
+      "float_max": 110,
+      "baseline": 116,
+      "pool": 286024,
+      "counts": {
+        "states_expanded": 1321,
+        "points_proposed": 1658435,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 194.68
+    }
+  ],
+  "saved": []
+}

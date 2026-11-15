@@ -1,0 +1,8 @@
+{"size": 49, "beam": 220, "float_max": 97, "baseline": 97, "pool": 1157, "counts": {"states_expanded": 1, "points_proposed": 1157, "exact_checks": 0, "exact_invalid": 0}, "seconds": 0.13}
+{"size": 50, "beam": 220, "float_max": 99, "baseline": 99, "pool": 261945, "counts": {"states_expanded": 221, "points_proposed": 263102, "exact_checks": 0, "exact_invalid": 0}, "seconds": 20.45}
+{"size": 51, "beam": 220, "float_max": 101, "baseline": 102, "pool": 269890, "counts": {"states_expanded": 441, "points_proposed": 532992, "exact_checks": 0, "exact_invalid": 0}, "seconds": 42.57}
+{"size": 52, "beam": 220, "float_max": 103, "baseline": 106, "pool": 274362, "counts": {"states_expanded": 661, "points_proposed": 807354, "exact_checks": 0, "exact_invalid": 0}, "seconds": 67.5}
+{"size": 53, "beam": 220, "float_max": 106, "baseline": 109, "pool": 278583, "counts": {"states_expanded": 881, "points_proposed": 1085937, "exact_checks": 0, "exact_invalid": 0}, "seconds": 91.8}
+{"size": 54, "beam": 220, "float_max": 108, "baseline": 113, "pool": 282306, "counts": {"states_expanded": 1101, "points_proposed": 1368243, "exact_checks": 0, "exact_invalid": 0}, "seconds": 110.63}
+{"size": 55, "beam": 220, "float_max": 110, "baseline": 116, "pool": 286633, "counts": {"states_expanded": 1321, "points_proposed": 1654876, "exact_checks": 0, "exact_invalid": 0}, "seconds": 132.58}
+DONE

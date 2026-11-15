@@ -1,0 +1,130 @@
+{
+  "args": {
+    "entry": "entries/N40.txt",
+    "steps": 8,
+    "width": 220,
+    "pairs32": 800,
+    "pairs22": 800,
+    "potential": 0.1,
+    "temperature": 0.38,
+    "tol": 1e-08,
+    "checks": 8,
+    "seed": 120340,
+    "result": "research/numeric_beam/n40_seed120340.json"
+  },
+  "reports": [
+    {
+      "size": 41,
+      "beam": 220,
+      "float_max": 72,
+      "baseline": 72,
+      "pool": 1453,
+      "counts": {
+        "states_expanded": 1,
+        "points_proposed": 1453,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 0.1
+    },
+    {
+      "size": 42,
+      "beam": 220,
+      "float_max": 75,
+      "baseline": 75,
+      "pool": 322674,
+      "counts": {
+        "states_expanded": 221,
+        "points_proposed": 324127,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 17.22
+    },
+    {
+      "size": 43,
+      "beam": 220,
+      "float_max": 78,
+      "baseline": 78,
+      "pool": 326052,
+      "counts": {
+        "states_expanded": 441,
+        "points_proposed": 650179,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 36.23
+    },
+    {
+      "size": 44,
+      "beam": 220,
+      "float_max": 81,
+      "baseline": 81,
+      "pool": 330924,
+      "counts": {
+        "states_expanded": 661,
+        "points_proposed": 981103,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 56.61
+    },
+    {
+      "size": 45,
+      "beam": 220,
+      "float_max": 84,
+      "baseline": 84,
+      "pool": 332988,
+      "counts": {
+        "states_expanded": 881,
+        "points_proposed": 1314091,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 78.61
+    },
+    {
+      "size": 46,
+      "beam": 220,
+      "float_max": 87,
+      "baseline": 87,
+      "pool": 335815,
+      "counts": {
+        "states_expanded": 1101,
+        "points_proposed": 1649906,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 98.97
+    },
+    {
+      "size": 47,
+      "beam": 220,
+      "float_max": 89,
+      "baseline": 89,
+      "pool": 337194,
+      "counts": {
+        "states_expanded": 1321,
+        "points_proposed": 1987100,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 115.29
+    },
+    {
+      "size": 48,
+      "beam": 220,
+      "float_max": 92,
+      "baseline": 96,
+      "pool": 335309,
+      "counts": {
+        "states_expanded": 1541,
+        "points_proposed": 2322409,
+        "exact_checks": 0,
+        "exact_invalid": 0
+      },
+      "seconds": 134.66
+    }
+  ],
+  "saved": []
+}

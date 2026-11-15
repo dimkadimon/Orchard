@@ -1,0 +1,80 @@
+{
+  "args": {
+    "entry": "entries/N40.txt",
+    "include": "entries/extended_N46.txt",
+    "targets": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "extra": 65,
+    "pairs32": 1600,
+    "pairs22": 1200,
+    "potential": 0.12,
+    "seconds": 60,
+    "tol": 1e-08,
+    "seed": 140040,
+    "result": "research/algebraic_milp/n40.json"
+  },
+  "pool": 111,
+  "numerical_pool_lines": 164,
+  "results": [
+    {
+      "target": 42,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 75.0,
+      "exact_score": 75,
+      "valid": true,
+      "baseline": 75,
+      "saved": null,
+      "seconds_total": 0.1
+    },
+    {
+      "target": 43,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 78.0,
+      "exact_score": 78,
+      "valid": true,
+      "baseline": 78,
+      "saved": null,
+      "seconds_total": 3.03
+    },
+    {
+      "target": 44,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 81.0,
+      "exact_score": 81,
+      "valid": true,
+      "baseline": 81,
+      "saved": null,
+      "seconds_total": 6.41
+    },
+    {
+      "target": 45,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 84.0,
+      "exact_score": 84,
+      "valid": true,
+      "baseline": 84,
+      "saved": null,
+      "seconds_total": 9.68
+    },
+    {
+      "target": 46,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "numerical_objective": 87.0,
+      "exact_score": 87,
+      "valid": true,
+      "baseline": 87,
+      "saved": null,
+      "seconds_total": 14.37
+    }
+  ]
+}

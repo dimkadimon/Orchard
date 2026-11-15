@@ -33,7 +33,7 @@ The files in `docs/` are historical research notes, **not** the revised claims.
 
 See [research/README.md](research/README.md) for methods, seeds, commands,
 comparisons, recorded results and limitations. The new search includes exact
-projective beam search, algebraic-field regrowth and multi-step growth beams, two finite-pool/grid MILPs,
+projective and stochastic beams, algebraic-field growth and annealing, finite-pool/grid MILPs,
 and earlier deletion and extension searches. These searches are incomplete and
 cannot prove that no improvements exist.
 

@@ -1,0 +1,31 @@
+{
+  "args": {
+    "entry": "entries/N40.txt",
+    "moves": 1800,
+    "pairs32": 500,
+    "pairs22": 700,
+    "temperature": 1.0,
+    "cycle": 100,
+    "potential": 0.08,
+    "top": 25,
+    "reset": 20,
+    "report": 100,
+    "tol": 1e-08,
+    "seed": 130040,
+    "result": "research/anneal/n40.json"
+  },
+  "n": 40,
+  "baseline_at_end": 70,
+  "best_float": 70,
+  "stats": {
+    "attempts": 1800,
+    "accepted": 299,
+    "downhill_accepted": 15,
+    "proposed": 2284930,
+    "exact_checks": 0,
+    "exact_rejected": 0,
+    "resets": 14
+  },
+  "saved": [],
+  "seconds": 236.88
+}

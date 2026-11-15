@@ -1,0 +1,6 @@
+{"source": "entries/N48.txt", "pool": 113, "candidate_intersections": 1938, "added": 65, "numerical_rich_pool_lines": 150, "seed": 140048}
+{"target": 49, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 97.0, "exact_score": 97, "valid": true, "baseline": 97, "saved": null, "seconds_total": 0.04}
+{"target": 50, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 99.00000000000001, "exact_score": 99, "valid": true, "baseline": 99, "saved": null, "seconds_total": 2.38}
+{"target": 51, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 101.0, "exact_score": 101, "valid": true, "baseline": 102, "saved": null, "seconds_total": 5.01}
+{"target": 52, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 103.0, "exact_score": 103, "valid": true, "baseline": 106, "saved": null, "seconds_total": 8.17}
+DONE

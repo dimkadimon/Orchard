@@ -1,0 +1,8 @@
+{"source": "entries/N40.txt", "pool": 166, "candidate_intersections": 13703, "added": 120, "numerical_rich_pool_lines": 205, "seed": 141040}
+{"target": 42, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 75.0, "exact_score": 75, "valid": true, "baseline": 75, "saved": null, "seconds_total": 0.24}
+{"target": 43, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 78.0, "exact_score": 78, "valid": true, "baseline": 78, "saved": null, "seconds_total": 3.42}
+{"target": 44, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 81.00000000000001, "exact_score": 81, "valid": true, "baseline": 81, "saved": null, "seconds_total": 6.4}
+{"target": 45, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 84.0, "exact_score": 84, "valid": true, "baseline": 84, "saved": null, "seconds_total": 9.15}
+{"target": 46, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 86.99999999999997, "exact_score": 87, "valid": true, "baseline": 87, "saved": null, "seconds_total": 12.15}
+{"target": 47, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "numerical_objective": 89.00000000000126, "exact_score": 89, "valid": true, "baseline": 89, "saved": null, "seconds_total": 18.09}
+DONE

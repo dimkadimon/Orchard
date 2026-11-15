@@ -1,0 +1,4 @@
+PASS: numeric proposal -> exact growth replay, exact replacement replay, and projective rechart
+research/recharts/n40_u1-5_v1-7.txt: N=40 field_degree=8 histogram={2: 240, 3: 40, 4: 70} strict=True
+research/recharts/n46_u1-5_v1-7.txt: N=46 field_degree=8 histogram={2: 420, 3: 31, 4: 87} strict=True
+research/recharts/n48_u1-5_v1-7.txt: N=48 field_degree=8 histogram={2: 516, 3: 12, 4: 96} strict=True

@@ -1,0 +1,8 @@
+{"source": "entries/extended_N46.txt", "n": 46, "deleted": 1, "target": 45, "sets": 46, "best": 84, "baseline": 84, "removed": [44], "seconds": 0.0, "saved": null}
+{"source": "entries/extended_N46.txt", "n": 46, "deleted": 2, "target": 44, "sets": 1035, "best": 81, "baseline": 81, "removed": [40, 45], "seconds": 0.0, "saved": null}
+{"source": "entries/extended_N46.txt", "n": 46, "deleted": 3, "target": 43, "sets": 15180, "best": 78, "baseline": 78, "removed": [40, 44, 45], "seconds": 0.01, "saved": null}
+{"source": "entries/extended_N46.txt", "n": 46, "deleted": 4, "target": 42, "sets": 163185, "best": 75, "baseline": 75, "removed": [40, 41, 44, 45], "seconds": 0.08, "saved": null}
+{"source": "entries/extended_N46.txt", "n": 46, "deleted": 5, "target": 41, "sets": 1370754, "best": 72, "baseline": 72, "removed": [40, 41, 42, 43, 44], "seconds": 0.72, "saved": null}
+{"source": "entries/extended_N46.txt", "n": 46, "deleted": 6, "target": 40, "sets": 9366819, "best": 70, "baseline": 70, "removed": [40, 41, 42, 43, 44, 45], "seconds": 5.25, "saved": null}
+{"source": "entries/extended_N46.txt", "n": 46, "deleted": 7, "target": 39, "sets": 53524680, "best": 63, "baseline": 67, "removed": [0, 40, 41, 42, 43, 44, 45], "seconds": 39.99, "saved": null}
+DONE
