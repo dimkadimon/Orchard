@@ -58,8 +58,11 @@ cd paper && pdflatex orchard.tex && pdflatex orchard.tex
 
 ## Attribution
 
-Dmitry Kamenetsky; revision draft prepared with substantial AI assistance. The
-revised manuscript explicitly requests author review and approval, rather than
-asserting that review has occurred.
+Dmitry Kamenetsky conceived the research idea, verified the manuscript, and is
+responsible for errors. AI assistance contributed to literature investigation,
+search and verification scripts, drafting and editing; see the paper attribution.
+
+For the exploratory extension to five-point lines, see
+[`research/five_point_investigation.md`](research/five_point_investigation.md).
 
 MIT licence; see [LICENSE](LICENSE).

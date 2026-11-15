@@ -6,6 +6,11 @@ def w(j):
     if j==3: return 3
     return comb(j,2)+(j-3)
 def melchior_k(n,k):
+    # The Melchior formula below requires n >= k+1; n=k has one k-point line.
+    if n < k:
+        return 0
+    if n == k:
+        return 1
     # C(n,2) >= 3 + sum_{j>=k}[C(j,2)+(j-3)] t_j ; min bracket at j=k
     return (comb(n,2)-3)//(comb(k,2)+k-3)
 def feasible(n,L,k):

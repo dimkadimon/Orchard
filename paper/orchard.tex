@@ -241,7 +241,7 @@ Take $A=B=\{0,\ldots,12\}$, $C=\{4,\ldots,20\}$ and $D=\{-8,\ldots,8\}$. There a
 The axes carry more than four points, so this construction is not admissible for $s_4$. A restricted numerical search over axis slopes is exploratory only; it establishes no global optimality for the constant $1/28$.
 
 \section{Reproducibility, limitations and open questions}
-The accompanying repository contains the algebraic entries, two exact census implementations, and an independent rational census for Proposition~\ref{prop:60}. The nine entries and search materials are available at the pinned repository revision \cite{Repository}. The primary verifier checks exact field arithmetic and cross-ratios; the independent implementation uses polynomial remainders and determinants, but does not check cross-ratios. Both rely on SymPy for polynomial parsing and irreducibility. Explicit commands, dependencies, full outputs and search limits are recorded in \texttt{research/review/README.md}. Search scores produced by floating point are proposals only; the paper's stated construction counts use exact arithmetic. The calculations do not establish that these are the best real lower bounds in the literature. Theorem~\ref{thm:twelve} relies on the previously published eight-point triple-line upper bound.
+The accompanying repository contains the algebraic entries, two exact census implementations, and an independent rational census for Proposition~\ref{prop:60}. The nine entries and search materials are available in the accompanying repository \cite{Repository}. The primary verifier checks exact field arithmetic and cross-ratios; the independent implementation uses polynomial remainders and determinants, but does not check cross-ratios. Both rely on SymPy for polynomial parsing and irreducibility. Explicit commands, dependencies, full outputs and search limits are recorded in \texttt{research/review/README.md}. Search scores produced by floating point are proposals only; the paper's stated construction counts use exact arithmetic. The calculations do not establish that these are the best real lower bounds in the literature. Theorem~\ref{thm:twelve} relies on the previously published eight-point triple-line upper bound.
 
 The present methods give $10\le T_4(14)\le11$ and $12\le T_4(15)\le13$. The conditional reduction above suggests studying extensions of small outside-point arrangements by a five-point line; a finite grid search described in the companion files covers only a restricted subcase and proves no global upper bound. A complete approach would also need to handle rich lines having four or more points outside $\ell$, and establish realizability or nonrealizability over the reals.
 
@@ -283,7 +283,7 @@ The author conceived the research idea and verified the manuscript. AI assistanc
 \bibitem{Melchior} E.~Melchior, \"Uber Vielseite der projektiven Ebene, \emph{Deutsche Math.} 5 (1941), 461--475.
 \bibitem{OEISreal} OEIS Foundation, A006065, \url{https://oeis.org/A006065}.
 \bibitem{OEISint} OEIS Foundation, A172992, \url{https://oeis.org/A172992}.
-\bibitem{Repository} D.~Kamenetsky, Orchard, commit \texttt{9447e60}, \url{https://github.com/dimkadimon/Orchard/tree/9447e60}.
+\bibitem{Repository} D.~Kamenetsky, code and solutions, \url{https://github.com/dimkadimon/Orchard/}.
 \bibitem{Solymosi} J.~Solymosi and M.~Stojakovi\'c, Many collinear $k$-tuples with no $k+1$ collinear points, \emph{Discrete Comput. Geom.} 50 (2013), 811--820.
 \end{thebibliography}
 \end{document}
