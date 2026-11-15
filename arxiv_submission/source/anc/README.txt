@@ -14,6 +14,7 @@ Requirements: Python 3, SymPy and NumPy. Run the exact verifiers:
   python verify_independent_algebraic.py N*.txt extended_N*.txt
   python verify.py N*.txt extended_N*.txt
   python verify_rational_censuses.py
+  python verify_bound_examples.py
 
 Expected histograms (numbers of lines of each size):
   N=14: {2:19, 3:4, 4:10}
@@ -34,5 +35,7 @@ uses SymPy for parsing, irreducibility and existence of a real root. Its
 parser is intended for trusted inputs, not untrusted text. It checks the
 constructions, not global optimality or priority. The primary verifier groups normalized field line equations and checks irrational
 cross-ratios. The rational verifier independently checks the 12- and 60-point examples.
+The bound-example script checks all excluded integer layers in the displayed
+four-, five- and six-point upper-bound examples using integer arithmetic.
 The source repository is
 https://github.com/dimkadimon/Orchard/.

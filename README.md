@@ -15,6 +15,8 @@ for n = **42, 43, 44, 45, 46**, respectively. Each is one above the cited
 integer-coordinate competition score. These comparisons do **not** establish
 new global real-coordinate records; the irrational constructions cannot be
 submitted to the integer-only contest.
+The paper also applies its upper-bound method to richer-line thresholds, while
+its explicit constructions remain four-point orchards.
 
 For the at-least-four problem, an exact rational census establishes `T₄(60) ≥ 133`.
 That configuration contains long lines and is **not** admissible in the strict

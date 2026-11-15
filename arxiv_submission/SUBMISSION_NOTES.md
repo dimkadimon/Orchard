@@ -4,7 +4,7 @@
 
 ## Scope
 
-The submission draft excludes the previously published 24-point/18-line five-orchard, unrelated exploratory searches. It retains the four explicitly certified 28-, 36-, 40- and 48-point ring constructions, five 42–46 point extensions, the four-point specialization of the dual bound, an at-least-four proof for 12 points, the Li-based axis count, and four-rich long-line reductions. It omits cases for richer-line thresholds above four. Known exactly-four values and Li’s construction are attributed and included only as background or inputs to the arguments, not claimed as new discoveries. Prior results are cited where necessary for context or comparison. Existing repository reports are not part of the upload bundle.
+The submission draft excludes the previously published 24-point/18-line five-orchard, unrelated exploratory searches. It retains the four explicitly certified 28-, 36-, 40- and 48-point ring constructions, five 42–46 point extensions, the general dual bound and its four-, five- and six-point upper-bound examples, an at-least-four proof for 12 points, the Li-based axis count, and long-line upper bounds for general rich-line thresholds. It does not present higher-threshold constructions. Known exactly-four values and Li’s construction are attributed and included only as background or inputs to the arguments, not claimed as new discoveries. Prior results are cited where necessary for context or comparison. Existing repository reports are not part of the upload bundle.
 
 ## Reference audit
 
