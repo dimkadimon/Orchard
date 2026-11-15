@@ -1,0 +1,34 @@
+Python 3.13.18
+SymPy 1.14.0 NumPy 2.3.5
+OK entries/N11.txt: N=11 score=6 valid=True honest=True deg=2 hist={2: 16, 3: 1, 4: 6}
+OK entries/N13.txt: N=13 score=9 valid=True honest=True deg=2 hist={2: 24, 4: 9}
+OK entries/N14.txt: N=14 score=10 valid=True honest=True deg=4 hist={2: 19, 3: 4, 4: 10}
+OK entries/N15.txt: N=15 score=12 valid=True honest=True deg=4 hist={2: 24, 3: 3, 4: 12}
+OK entries/N28.txt: N=28 score=42 valid=True honest=True deg=6 hist={2: 126, 4: 42}
+OK entries/N36.txt: N=36 score=63 valid=True honest=True deg=6 hist={2: 252, 4: 63}
+OK entries/N40.txt: N=40 score=70 valid=True honest=True deg=8 hist={2: 240, 3: 40, 4: 70}
+OK entries/N48.txt: N=48 score=96 valid=True honest=True deg=8 hist={2: 516, 3: 12, 4: 96}
+OK entries/extended_N42.txt: N=42 score=75 valid=True honest=True deg=8 hist={2: 297, 3: 38, 4: 75}
+OK entries/extended_N43.txt: N=43 score=78 valid=True honest=True deg=8 hist={2: 324, 3: 37, 4: 78}
+OK entries/extended_N44.txt: N=44 score=81 valid=True honest=True deg=8 hist={2: 349, 3: 37, 4: 81}
+OK entries/extended_N45.txt: N=45 score=84 valid=True honest=True deg=8 hist={2: 384, 3: 34, 4: 84}
+OK entries/extended_N46.txt: N=46 score=87 valid=True honest=True deg=8 hist={2: 420, 3: 31, 4: 87}
+entries/N11.txt: N=11 field_degree=2 histogram={2: 16, 3: 1, 4: 6} strict=True
+entries/N13.txt: N=13 field_degree=2 histogram={2: 24, 4: 9} strict=True
+entries/N14.txt: N=14 field_degree=4 histogram={2: 19, 3: 4, 4: 10} strict=True
+entries/N15.txt: N=15 field_degree=4 histogram={2: 24, 3: 3, 4: 12} strict=True
+entries/N28.txt: N=28 field_degree=6 histogram={2: 126, 4: 42} strict=True
+entries/N36.txt: N=36 field_degree=6 histogram={2: 252, 4: 63} strict=True
+entries/N40.txt: N=40 field_degree=8 histogram={2: 240, 3: 40, 4: 70} strict=True
+entries/N48.txt: N=48 field_degree=8 histogram={2: 516, 3: 12, 4: 96} strict=True
+entries/extended_N42.txt: N=42 field_degree=8 histogram={2: 297, 3: 38, 4: 75} strict=True
+entries/extended_N43.txt: N=43 field_degree=8 histogram={2: 324, 3: 37, 4: 78} strict=True
+entries/extended_N44.txt: N=44 field_degree=8 histogram={2: 349, 3: 37, 4: 81} strict=True
+entries/extended_N45.txt: N=45 field_degree=8 histogram={2: 384, 3: 34, 4: 84} strict=True
+entries/extended_N46.txt: N=46 field_degree=8 histogram={2: 420, 3: 31, 4: 87} strict=True
+n=12: {2: 12, 3: 4, 4: 7}
+n=60: {2: 400, 3: 56, 4: 129, 13: 2, 17: 2}
+k=4: improvements over Melchior for n<=120: [(8, 3, 2), (9, 4, 3), (10, 6, 5), (11, 7, 6), (12, 9, 8), (13, 10, 9), (14, 12, 11), (15, 14, 13)]
+k=5: improvements over Melchior for n<=120: [(10, 3, 2), (11, 4, 2), (12, 5, 3), (13, 6, 3), (14, 7, 4), (15, 8, 6), (16, 9, 6), (17, 11, 7), (18, 12, 9), (19, 14, 11), (20, 15, 12), (21, 17, 13), (22, 19, 15), (23, 20, 17), (24, 22, 19), (25, 24, 23)]
+k=6: improvements over Melchior for n<=120: [(12, 3, 2), (13, 4, 2), (14, 4, 2), (15, 5, 3), (16, 6, 3), (17, 7, 3), (18, 8, 4), (19, 9, 4), (20, 10, 5), (21, 11, 7), (22, 12, 7), (23, 13, 8), (24, 15, 9), (25, 16, 10), (26, 17, 12), (27, 19, 13), (28, 20, 14), (29, 22, 15), (30, 24, 16), (31, 25, 17), (32, 27, 19), (33, 29, 21), (34, 31, 23), (35, 32, 25), (36, 34, 30), (37, 36, 34)]
+k=7: improvements over Melchior for n<=120: [(13, 3, 2), (14, 3, 2), (15, 4, 2), (16, 4, 2), (17, 5, 2), (18, 6, 3), (19, 6, 3), (20, 7, 3), (21, 8, 3), (22, 9, 4), (23, 10, 4), (24, 10, 4), (25, 11, 5), (26, 12, 5), (27, 13, 6), (28, 15, 8), (29, 16, 8), (30, 17, 9), (31, 18, 9), (32, 19, 10), (33, 21, 11), (34, 22, 12), (35, 23, 14), (36, 25, 15), (37, 26, 16), (38, 28, 16), (39, 29, 17), (40, 31, 18), (41, 32, 19), (42, 34, 20), (43, 36, 21), (44, 37, 23), (45, 39, 25), (46, 41, 27), (47, 43, 28), (48, 45, 31), (49, 46, 35), (50, 48, 39), (51, 50, 46)]

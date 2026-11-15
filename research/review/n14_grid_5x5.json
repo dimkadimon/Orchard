@@ -1,0 +1,12 @@
+{
+  "grid": [
+    5,
+    5
+  ],
+  "tested_subsets": 2042975,
+  "ten_triple_seeds": 8,
+  "axes_tested": 72,
+  "best_covered": 7,
+  "found": null,
+  "seconds": 6.92
+}

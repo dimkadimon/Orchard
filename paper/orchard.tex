@@ -28,7 +28,7 @@ Thus $s_k(n)\le t_k(n)\le T_k(n)$. The Infinite Search Space integer-coordinate 
 
 For $k=3$, Green and Tao established the sufficiently large-$n$ orchard bound \cite{GreenTao}. For $k=4$, the classical Melchior pair-count bound is $T_4(n)\le\lfloor(n(n-1)-6)/14\rfloor$ for $n\ge5$. Li's construction gives order $n^2/28$ for $t_4$ and $T_4$ \cite{Li}; it does not give a strict $s_4$ lower bound because its supporting lines are long. For strict $s_k$, Solymosi and Stojakovi\'c \cite{Solymosi} established the lower bound $n^{2-c/\sqrt{\log n}}$ for sufficiently large $n$, with $c$ depending on $k$.
 
-Our contributions are an application of Melchior to rich lines themselves; the small-case consequences including $T_4(12)=7$; nine exact algebraic lower-bound certificates; and the observation that Li's supporting axes add four lines to the at-least-four count. The exact values in small cases were previously reported for the exactly-four variant \cite{OEISreal,Du}; our proofs give upper bounds for the at-least-four variant. The exact $n=12$ argument below uses the previously established three-point orchard bound for eight points \cite[Table~1]{BGS}; we do not claim that the numerical value itself is new to the literature.
+The contributions documented here are an application of Melchior to rich lines themselves; the small-case consequences including $T_4(12)=7$; nine exact algebraic lower-bound certificates; and the observation that Li's supporting axes add four lines to the at-least-four count. The exact values in small cases were previously reported for the exactly-four variant \cite{OEISreal,Du}; our proofs give upper bounds for the at-least-four variant. The exact $n=12$ argument below uses the previously established three-point orchard bound for eight points \cite[Table~1]{BGS}; we do not claim that the numerical value itself is new to the literature. Nor has an exhaustive literature audit established priority for the second-order inequality, the supporting-axis count, or the particular coordinate sets.
 
 \section{A second-order Melchior inequality}\label{sec:bound}
 We work in the real projective plane: any finite affine point set embeds there, and any finite projective set can be moved into an affine chart. For a noncollinear finite set, the pair count and Melchior inequality are
@@ -118,6 +118,18 @@ Lemma~\ref{lem:balance} gives the opposite bound: the balanced sequence for tota
 \begin{remark}
 Bokowski and Pokora \cite[Corollary~1.7]{BokowskiPokora} derive a related nine-quadruple-point nonrealizability result by pseudoline duality. Their computer classification concerns a different multiplicity pattern. Theorem~\ref{thm:twelve} uses the eight-point triple-line bound in addition to the incidence argument.
 \end{remark}
+
+
+\section{Constraints on the remaining small cases}\label{sec:remaining}
+\begin{proposition}\label{prop:longline}
+If fourteen points determine at least eleven lines containing four or more points, or fifteen points determine at least thirteen such lines, then no line contains six or more of the points. If a five-point line $\ell$ occurs, then among any other ten selected rich lines in the fourteen-point case at most two contain four or more points outside $\ell$; among any other twelve selected rich lines in the fifteen-point case at most three do so.
+\end{proposition}
+\begin{proof}
+Write $h=|S\cap\ell|$. Each other rich line contains at least three points outside $\ell$, and distinct lines use disjoint pairs of outside points. For fourteen points and eleven selected rich lines, $30\le\binom{14-h}{2}$, ruling out $h\ge6$. For fifteen points and thirteen selected rich lines, $36\le\binom{15-h}{2}$ rules out $h\ge7$. If $h=6$, equality holds, so all pairs of the nine outside points belong to triples on the twelve selected lines. Those nine points are not collinear, and Sylvester--Gallai supplies an ordinary line, a contradiction.
+
+If $h=5$ in the fourteen-point case, the ten other lines consume at least $30$ of the $\binom92=36$ outside pairs; each with at least four outside points consumes at least three additional pairs, giving at most two. In the fifteen-point case the corresponding budget is $\binom{10}2-12\cdot3=9$, giving at most three.
+\end{proof}
+The published exactly-four tables \cite{OEISreal,MathWorld} report $t_4(14)=10$ and $t_4(15)=12$; their listed values are not a proof of the at-least-four statements. Conditional on these reported upper bounds, any eleven- or thirteen-rich-line configuration respectively must contain a five-point line, and Proposition~\ref{prop:longline} narrows the remaining case. The exact entries supplied here establish the corresponding strict lower bounds $s_4(14)\ge10$ and $s_4(15)\ge12$ independently of those tables.
 
 \section{Exactly verified algebraic constructions}\label{sec:constructions}
 Each entry is a list of points with coordinates in $\Q(a)$, where $a$ is a real root of the monic irreducible polynomial in Table~\ref{tab:records}. The accompanying verifier groups all connecting pairs by their exact line in $\Q(a)$ and checks distinctness, the absence of five-point lines, and the four-point-line count. Irreducibility implies the same equality and inequality tests hold under every real embedding. The verifier also exhibits irrational cross-ratios on four-point lines, which rule out projective equivalence to a rational-coordinate configuration; this is an additional certificate, not a requirement of the present integer contest.
@@ -225,9 +237,11 @@ Take $A=B=\{0,\ldots,12\}$, $C=\{4,\ldots,20\}$ and $D=\{-8,\ldots,8\}$. There a
 The axes carry more than four points, so this construction is not admissible for $s_4$. A restricted numerical search over axis slopes is exploratory only; it establishes no global optimality for the constant $1/28$.
 
 \section{Reproducibility, limitations and open questions}
-The accompanying files include the algebraic entries, two exact census implementations, and an independent rational census for Proposition~\ref{prop:60}. They derive from the source repository at commit \texttt{a247d4e} \cite{Repository}; this draft and the additional search scripts are supplied separately. The verifier requires Python, SymPy and NumPy. The calculations do not by themselves establish that these are the best real lower bounds in the literature. Theorem~\ref{thm:twelve} relies on the previously published eight-point triple-line upper bound, not a new proof of that classical result.
+The accompanying repository contains the algebraic entries, two exact census implementations, and an independent rational census for Proposition~\ref{prop:60}. The nine entries and search materials are available at the pinned repository revision \cite{Repository}. The primary verifier checks exact field arithmetic and cross-ratios; the independent implementation uses polynomial remainders and determinants, but does not check cross-ratios. Both rely on SymPy for polynomial parsing and irreducibility. Explicit commands, dependencies, full outputs and search limits are recorded in \texttt{research/review/README.md}. Search scores produced by floating point are proposals only; the paper's stated construction counts use exact arithmetic. The calculations do not establish that these are the best real lower bounds in the literature. Theorem~\ref{thm:twelve} relies on the previously published eight-point triple-line upper bound.
 
-It remains open in this account whether $T_4(14)$ is $10$ or $11$, or $T_4(15)$ is $12$ or $13$. Can the asymptotic upper bound $1/14$ for $T_4$ be improved? Can the listed $s_4$ constructions be improved or their cosine-ratio subfamily optimized by a complete exact enumeration? Searching larger or mixed-modulus families is a possibility, not a consequence of an optimality theorem.
+The present methods give $10\le T_4(14)\le11$ and $12\le T_4(15)\le13$. The conditional reduction above suggests studying extensions of small outside-point arrangements by a five-point line; a finite grid search described in the companion files covers only a restricted subcase and proves no global upper bound. A complete approach would also need to handle rich lines having four or more points outside $\ell$, and establish realizability or nonrealizability over the reals.
+
+The second-order test does not improve the leading asymptotic constant by itself. Indeed, for $L=\lfloor(n(n-1)-6)/14\rfloor$, its balanced degrees are $O(n)$, so $B_2$ and $B_w$ are $O(n^3)$, while $\binom L2$ is $\Theta(n^4)$; the degree cap also holds for all sufficiently large $n$. Thus new structural input is needed to improve the classical $1/14$ upper coefficient. Other open directions include proving or improving real-coordinate optima and completely enumerating a specified cosine-ratio subfamily. None of the bounded searches in the repository proves optimality.
 
 \begin{thebibliography}{99}
 \bibitem{Berman} L.~W.~Berman, G.~G\'evay, J.~Richter-Gebert and S.~Tabachnikov, When Gr\"unbaum meets Poncelet: infinite classes of movable $(n_4)$ configurations, \emph{Forum Math. Sigma} 14 (2026), e104, \url{https://doi.org/10.1017/fms.2026.10254}.
@@ -238,10 +252,11 @@ It remains open in this account whether $T_4(14)$ is $10$ or $11$, or $T_4(15)$ 
 \bibitem{Du} Z.~H. Du, Orchard planting problem and small examples, \url{https://emathgroup.github.io/blog/orchard-planting-problem}.
 \bibitem{GreenTao} B.~Green and T.~Tao, On sets defining few ordinary lines, \emph{Discrete Comput. Geom.} 50 (2013), 409--468.
 \bibitem{Li} X.~Li, A construction for a new lower bound for A172992, September 2026, \url{https://oeis.org/A172992/a172992_1.pdf}.
+\bibitem{MathWorld} E.~W. Weisstein, \href{https://mathworld.wolfram.com/Orchard-PlantingProblem.html}{Orchard-Planting Problem}, MathWorld, accessed November 2026.
 \bibitem{Melchior} E.~Melchior, \"Uber Vielseite der projektiven Ebene, \emph{Deutsche Math.} 5 (1941), 461--475.
 \bibitem{OEISreal} OEIS Foundation, A006065, \url{https://oeis.org/A006065}.
 \bibitem{OEISint} OEIS Foundation, A172992, \url{https://oeis.org/A172992}.
-\bibitem{Repository} D.~Kamenetsky, Orchard, commit \texttt{a247d4e}, \url{https://github.com/dimkadimon/Orchard/tree/a247d4e}.
+\bibitem{Repository} D.~Kamenetsky, Orchard, commit \texttt{dfab878}, \url{https://github.com/dimkadimon/Orchard/tree/dfab878}.
 \bibitem{Solymosi} J.~Solymosi and M.~Stojakovi\'c, Many collinear $k$-tuples with no $k+1$ collinear points, \emph{Discrete Comput. Geom.} 50 (2013), 811--820.
 \end{thebibliography}
 \end{document}
