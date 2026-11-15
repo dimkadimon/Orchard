@@ -1,0 +1,144 @@
+{
+  "args": {
+    "source": 25,
+    "delete": 3,
+    "add": 1,
+    "rounds": 20,
+    "width": 8,
+    "branch": 15,
+    "samples": 100,
+    "maxbits": 96,
+    "seed": 29,
+    "baseline": 21,
+    "result": "research/five_beam26.json"
+  },
+  "seed_score": 18,
+  "best_completed": 18,
+  "final_baseline": 21,
+  "proposed": 100209,
+  "states_checked": 7500,
+  "seconds": 28.74,
+  "rounds": [
+    {
+      "round": 1,
+      "best_completed": 18,
+      "proposed": 5012,
+      "states_checked": 375
+    },
+    {
+      "round": 2,
+      "best_completed": 18,
+      "proposed": 9962,
+      "states_checked": 750
+    },
+    {
+      "round": 3,
+      "best_completed": 18,
+      "proposed": 14701,
+      "states_checked": 1125
+    },
+    {
+      "round": 4,
+      "best_completed": 18,
+      "proposed": 19819,
+      "states_checked": 1500
+    },
+    {
+      "round": 5,
+      "best_completed": 18,
+      "proposed": 24681,
+      "states_checked": 1875
+    },
+    {
+      "round": 6,
+      "best_completed": 18,
+      "proposed": 29770,
+      "states_checked": 2250
+    },
+    {
+      "round": 7,
+      "best_completed": 18,
+      "proposed": 34589,
+      "states_checked": 2625
+    },
+    {
+      "round": 8,
+      "best_completed": 18,
+      "proposed": 39700,
+      "states_checked": 3000
+    },
+    {
+      "round": 9,
+      "best_completed": 18,
+      "proposed": 45223,
+      "states_checked": 3375
+    },
+    {
+      "round": 10,
+      "best_completed": 18,
+      "proposed": 50152,
+      "states_checked": 3750
+    },
+    {
+      "round": 11,
+      "best_completed": 18,
+      "proposed": 54964,
+      "states_checked": 4125
+    },
+    {
+      "round": 12,
+      "best_completed": 18,
+      "proposed": 59787,
+      "states_checked": 4500
+    },
+    {
+      "round": 13,
+      "best_completed": 18,
+      "proposed": 64845,
+      "states_checked": 4875
+    },
+    {
+      "round": 14,
+      "best_completed": 18,
+      "proposed": 70211,
+      "states_checked": 5250
+    },
+    {
+      "round": 15,
+      "best_completed": 18,
+      "proposed": 74920,
+      "states_checked": 5625
+    },
+    {
+      "round": 16,
+      "best_completed": 18,
+      "proposed": 80185,
+      "states_checked": 6000
+    },
+    {
+      "round": 17,
+      "best_completed": 18,
+      "proposed": 85089,
+      "states_checked": 6375
+    },
+    {
+      "round": 18,
+      "best_completed": 18,
+      "proposed": 90197,
+      "states_checked": 6750
+    },
+    {
+      "round": 19,
+      "best_completed": 18,
+      "proposed": 95213,
+      "states_checked": 7125
+    },
+    {
+      "round": 20,
+      "best_completed": 18,
+      "proposed": 100209,
+      "states_checked": 7500
+    }
+  ],
+  "winner": null
+}

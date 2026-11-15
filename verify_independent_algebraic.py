@@ -59,7 +59,7 @@ def census(path):
    if pairs.get(pair)!=set(line):raise ValueError('inconsistent line incidence')
  hist=Counter(map(len,lines));hist[2]=math.comb(n,2)-sum(math.comb(k,2)*v for k,v in hist.items());hist=dict(sorted(hist.items()))
  assert sum(math.comb(k,2)*v for k,v in hist.items())==math.comb(n,2)
- print(f'{path}: N={n} field_degree={d} histogram={hist} strict={max(hist)<5}',flush=True)
+ print(f'{path}: N={n} field_degree={d} histogram={hist} no_five={max(hist)<5} no_six={max(hist)<6}',flush=True)
  return hist
 if __name__=='__main__':
  if len(sys.argv)<2:raise SystemExit('usage: python verify_independent_algebraic.py TRUSTED_ENTRY ...')

@@ -1,6 +1,6 @@
 # Five-point orchards: literature and feasibility investigation
 
-Checked 14 November 2026. This is a preliminary investigation, not a claim that the literature has been exhaustively surveyed or that the results are new.
+Checked 14 November 2026. This is a preliminary investigation, not a claim that the literature has been exhaustively surveyed or that the results are new. The subsequent [five-point follow-up](five_point_followup.md) supersedes its n=24 lower bound: a published 24-point, 18-line strict real configuration is now independently verified.
 
 ## Variants and existing results
 

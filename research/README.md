@@ -2,7 +2,7 @@
 
 The source repository snapshot used for the revision was `a247d4ed227c54e18c36b1b048efec141ca363c2`; this work was applied on top of main commit `d30352fe7e960a398ca40779d3fdb191a3b74758`. Baseline comparison files `records_int_now.json`, `final_rows.json`, and `integer_solutions.json` are the pre-existing, pinned repository data; they are not a live or exhaustive literature survey. External context: [ISS rules and leaderboard](https://infinitesearchspace.com/contests/orchard), [OEIS A006065](https://oeis.org/A006065), and [OEIS A172992](https://oeis.org/A172992). The integer contest forbids five collinear; A172992's exactly-four definition permits longer lines. Exceeding an integer score is not proof of a new global real record.
 
-For the separate 2026 five-point investigation, see [five_point_investigation.md](five_point_investigation.md).
+For the separate 2026 five-point investigation and subsequent construction search, see [five_point_investigation.md](five_point_investigation.md) and [five_point_followup.md](five_point_followup.md).
 
 ## Methods
 
